@@ -1,13 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +26,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return 'this is article index';
+        //
     }
 
     /**

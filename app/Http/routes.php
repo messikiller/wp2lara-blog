@@ -17,10 +17,13 @@
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+// front pages
+Route::get('/', 'HomeController@index');
+Route::get('/view/{id}', 'HomeController@view');
 
-// articles routes
-Route::get('/', 'ArticleController@index');
-
-// admin routes
-Route::get('/admin', 'AdminController@index');
+// admin pages routes
+Route::get('/admin/articles',             'admin\ArticleController@index');
+Route::post('/admin/article/store',       'admin\ArticleController@store');
+Route::get('/admin/article/edit/{id}',    'admin\ArticleController@edit');
+Route::post('/admin/article/update/{id}', 'admin\ArticleController@update');
+Route::get('/admin/article/delete/{id}',  'admin\ArticleController@destroy');
