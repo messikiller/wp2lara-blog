@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
+use App\Article;
+use Carbon\Carbon;
+
 class HomeController extends Controller
 {
     /**
@@ -14,6 +17,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return 'this is home index';
+        print Carbon::now();die();
+        dd(Article::all());
     }
 }
