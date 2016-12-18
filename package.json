@@ -5,9 +5,11 @@
     "dev": "gulp watch"
   },
   "devDependencies": {
+    "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
     "jquery": "^3.1.1",
     "laravel-elixir": "^6.0.0-15",
+    "orchestrator": "^0.3.8",
     "zui": "^1.5.0"
   }
 }

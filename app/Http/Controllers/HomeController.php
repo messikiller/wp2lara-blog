@@ -4,20 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-
-use App\Article;
-use Carbon\Carbon;
+use App\Cate;
 
 class HomeController extends Controller
 {
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
-        print Carbon::now();die();
-        dd(Article::all());
+        $cates = Cate::orderBy('order_num', 'asc')
+            ->orderBy('created_at', 'asc')
+            ->orderBy('Id', 'asc')
+            ->get()
+            ->toArray();
+
+dd($cates->toArray());
+        // $cates = $cates->each($func = function ($item, $key) use (&$func) {
+        //     if ($item->id > 0) {
+        //
+        //     }
+        // });
+        // array_walk($cates, $func = function($item) use (&$func) {
+        //     if ($item['pid'] > 0) {
+        //         $pid = $item['pid'];
+        //         $cates
+        //         return array_merge($item, $func())
+        //     }
+        //     return $item
+        // });
+        // $tree
     }
 }

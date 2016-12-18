@@ -7,13 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    public function published()
+    protected $primaryKey = 'Id';
+
+    protected $table = 'articles';
+
+    public function scopePublished($query)
     {
-        return $this->where('published_at', '<=', Carbon::now());
+        return $query->where('published_at', '<=', Carbon::now());
+    }
+
+    public function scopeVisible($query)
+    {
+        return $query->where('is_hidden', 1);
     }
 
     public function tags()
     {
-        return $this->hasMany('App\tag', 'Id', 'tag');
+        return $this->belongsToMany('App\Tag', 'article_tags', 'article_id', 'tag_id');
+            // ->withPivot('created_at', 'updated_at');;
     }
+
+    // public function cates()
+    // {
+    //     return $this->belongsToMany('App\Cate', 'article_cates', 'article_id', 'cate_id');
+    // }
 }

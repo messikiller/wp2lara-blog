@@ -19,8 +19,6 @@ class CreateArticlesTable extends Migration
             $table->text('content');
             $table->tinyInteger('is_hidden')->unsigned()->default(0);
             $table->integer('read_num')->unsigned()->default(0);
-            $table->string('cate_ids', 255);
-            $table->string('tag_ids', 255);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

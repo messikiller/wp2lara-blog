@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\AdminController;
 
-class ArticleController extends Controller
+class ArticleController extends AdminController
 {
     /**
      * Create a new controller instance.

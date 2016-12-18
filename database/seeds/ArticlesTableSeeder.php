@@ -18,6 +18,8 @@ class ArticlesTableSeeder extends Seeder
                 'summary' => str_random(mt_rand(10, 1000)),
                 'content' => str_random(mt_rand(10, 10000)),
                 'is_hidden' => mt_rand(0, 1),
+                'read_num' => mt_rand(10, 1000),
+                'published_at' => date('Y-m-d H:i:s', time() - mt_rand(3600, 30*24*3600)),
                 'created_at'  => date('Y-m-d H:i:s', time() - mt_rand(3600, 30*24*3600)),
                 'updated_at'  => date('Y-m-d H:i:s', time() - mt_rand(3600, 30*24*3600))
             ];

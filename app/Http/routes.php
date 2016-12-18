@@ -17,13 +17,16 @@
 
 Route::auth();
 
-// front pages
-Route::get('/', 'HomeController@index');
-Route::get('/view/{id}', 'HomeController@view');
+// home pages routes
+Route::get('/',                     'Home\ArticleController@index');
+Route::get('/view/{id}',            'Home\HomeController@view');
+Route::get('/tag/{tag_id}',         'Home\HomeController@tag');
+Route::get('/cate/{cate_id}',       'Home\ArticleController@cate');
+Route::get('/archive/{archive_id}', 'Home\HomeController@archive');
 
 // admin pages routes
-Route::get('/admin/articles',             'admin\ArticleController@index');
-Route::post('/admin/article/store',       'admin\ArticleController@store');
-Route::get('/admin/article/edit/{id}',    'admin\ArticleController@edit');
-Route::post('/admin/article/update/{id}', 'admin\ArticleController@update');
-Route::get('/admin/article/delete/{id}',  'admin\ArticleController@destroy');
+Route::get('/admin/articles',             'Admin\ArticleController@index');
+Route::post('/admin/article/store',       'Admin\ArticleController@store');
+Route::get('/admin/article/edit/{id}',    'Admin\ArticleController@edit');
+Route::post('/admin/article/update/{id}', 'Admin\ArticleController@update');
+Route::get('/admin/article/delete/{id}',  'Admin\ArticleController@destroy');

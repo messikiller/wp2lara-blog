@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCatesTable extends Migration
+class CreateArticleTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,10 @@ class CreateCatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cates', function (Blueprint $table) {
+        Schema::create('article_tags', function (Blueprint $table) {
             $table->increments('Id');
-            $table->integer('pid')->unsigned()->default(0);
-            $table->string('name', 255);
-            $table->mediumInteger('order_num')->unsigned()->default(0);
+            $table->integer('article_id');
+            $table->integer('tag_id');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateCatesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('cates');
+        Schema::drop('article_tags');
     }
 }
