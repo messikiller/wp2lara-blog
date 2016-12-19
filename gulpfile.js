@@ -31,7 +31,9 @@ elixir(function(mix) {
         ], 'public/assets/fonts/font-awesome')
 
         .styles(
-            basecss,
+            basecss.concat([
+                'resources/assets/css/index_header.css'
+            ]),
             'public/assets/css/index.min.css',
             './'
         )

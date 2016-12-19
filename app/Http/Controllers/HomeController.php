@@ -16,20 +16,37 @@ class HomeController extends Controller
             ->get()
             ->toArray();
 
-// dd($cates->toArray());
-        // $cates = $cates->each($func = function ($item, $key) use (&$func) {
-        //     if ($item->id > 0) {
-        //
-        //     }
-        // });
-        // array_walk($cates, $func = function($item) use (&$func) {
-        //     if ($item['pid'] > 0) {
-        //         $pid = $item['pid'];
-        //         $cates
-        //         return array_merge($item, $func())
-        //     }
-        //     return $item
-        // });
-        // $tree
+        // dd(collect($this->catesTree($cates)));
+    }
+
+    private function catesTree($cates)
+    {
+        $ret = array();
+
+        $func = function ($array, $field, $desc = false) {
+            $fieldArr = array();
+            foreach ($array as $k => $v) {
+                $fieldArr[$k] = $v[$field];
+            }
+            $sort = $desc == false ? SORT_ASC : SORT_DESC;
+            array_multisort($fieldArr, $sort, $array);
+            return $array;
+        };
+
+        foreach ($cates as $key => $cate)
+        {
+            $Id  = $cate['Id'];
+            $pid = $cate['pid'];
+            $order_num = $cate['order_num'];
+            if ($pid == 0) {
+                $ret[$Id] = $cate;
+            } else {
+                $ret[$pid]['children'][] = $cate;
+                call_user_func_array($func, array(&$ret[$pid]['children'], 'order_num', false));
+            }
+        }
+
+        $ret = call_user_func_array($func, array(&$ret, 'order_num', false));
+        return $ret;
     }
 }
