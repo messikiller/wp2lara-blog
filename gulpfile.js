@@ -13,6 +13,7 @@ var elixir = require('laravel-elixir');
 
 var basecss = [
     'node_modules/zui/dist/css/zui.min.css',
+    'node_modules/font-awesome/css/font-awesome.min.css',
     'node_modules/animate.css/animate.min.css',
     'node_modules/nprogress/nprogress.css'
 ];
@@ -26,12 +27,19 @@ var basejs = [
 elixir(function(mix) {
     mix
         .copy([
-            'node_modules/zui/dist/fonts'
-        ], 'public/assets/fonts/zui')
+            'node_modules/zui/dist/fonts/zenicon.eot',
+            'node_modules/zui/dist/fonts/zenicon.svg',
+            'node_modules/zui/dist/fonts/zenicon.ttf',
+            'node_modules/zui/dist/fonts/zenicon.woff'
+        ], 'public/assets/fonts/')
 
         .copy([
-            'node_modules/font-awesome/fonts'
-        ], 'public/assets/fonts/font-awesome')
+            'node_modules/font-awesome/fonts/fontawesome-webfont.eot',
+            'node_modules/font-awesome/fonts/fontawesome-webfont.svg',
+            'node_modules/font-awesome/fonts/fontawesome-webfont.ttf',
+            'node_modules/font-awesome/fonts/fontawesome-webfont.woff',
+            'node_modules/font-awesome/fonts/fontawesome-webfont.woff2'
+        ], 'public/assets/fonts/')
 
         .styles(
             basecss.concat([

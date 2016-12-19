@@ -15,7 +15,7 @@
                         class="active"
                         @endif
                     >
-                        <a href="{{ $cate['Id'] }}">{{ $cate['name'] }}</a>
+                        <a href="{{ $cate['Id'] }}">{{ $cate['name'] }}&nbsp;&nbsp;<i class="fa fa-angle-left"></i></a>
                         @if (isset($cate['children']))
                             <ul class="children">
                                 @foreach ($cate['children'] as $child)
