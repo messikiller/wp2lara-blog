@@ -8,6 +8,8 @@ use App\Cate;
 
 class HomeController extends Controller
 {
+    protected $cates;
+
     public function __construct()
     {
         $cates = Cate::orderBy('order_num', 'asc')
@@ -16,7 +18,7 @@ class HomeController extends Controller
             ->get()
             ->toArray();
 
-        // dd(collect($this->catesTree($cates)));
+        $this->cates = $this->catesTree($cates);
     }
 
     private function catesTree($cates)

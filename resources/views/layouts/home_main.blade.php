@@ -11,6 +11,6 @@
 
 @include('layouts/home_navbar')
 
-<script type="text/javascript" src="{{ asset('assets/js/admin.script.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/index.min.js') }}"></script>
 </body>
 </html>
