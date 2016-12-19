@@ -16,7 +16,7 @@ class HomeController extends Controller
             ->get()
             ->toArray();
 
-dd($cates->toArray());
+// dd($cates->toArray());
         // $cates = $cates->each($func = function ($item, $key) use (&$func) {
         //     if ($item->id > 0) {
         //
