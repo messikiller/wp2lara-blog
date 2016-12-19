@@ -12,12 +12,15 @@ var elixir = require('laravel-elixir');
  */
 
 var basecss = [
-    'node_modules/zui/dist/css/zui.min.css'
+    'node_modules/zui/dist/css/zui.min.css',
+    'node_modules/animate.css/animate.min.css',
+    'node_modules/nprogress/nprogress.css'
 ];
 
 var basejs = [
     'node_modules/jquery/dist/jquery.min.js',
-    'node_modules/zui/dist/js/zui.min.js'
+    'node_modules/zui/dist/js/zui.min.js',
+    'node_modules/nprogress/nprogress.js'
 ];
 
 elixir(function(mix) {
@@ -31,8 +34,19 @@ elixir(function(mix) {
         ], 'public/assets/fonts/font-awesome')
 
         .styles(
-            basecss,
+            basecss.concat([
+                'resources/assets/css/index_header.css',
+                'resources/assets/css/index_navbar.css'
+            ]),
             'public/assets/css/index.min.css',
+            './'
+        )
+
+        .scripts(
+            basejs.concat([
+                'resources/assets/js/index_navbar.js'
+            ]),
+            'public/assets/js/index.min.js',
             './'
         )
 

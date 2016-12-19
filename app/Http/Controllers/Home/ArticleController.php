@@ -22,16 +22,10 @@ class ArticleController extends HomeController
      */
     public function index()
     {
-        $pagesize = 15;
-
-        // $a = Article::with('tags')
-        //     ->select(['Id', 'title'])
-        //     ->visible()
-        //     ->published()
-        //     ->paginate($pagesize)
-        //     ->toArray();
-// dd(\App\Cate::all()->toArray());
-        return view('home.index');
+        return view('home.index')->with([
+            'cates' => $this->cates,
+            'current_cate' => 0
+        ]);
     }
 
     public function view()

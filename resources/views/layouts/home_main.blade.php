@@ -7,6 +7,10 @@
 </head>
 <body>
 
-<script type="text/javascript" src="{{ asset('assets/js/admin.script.min.js') }}"></script>
+@include('layouts/home_header')
+
+@include('layouts/home_navbar')
+
+<script type="text/javascript" src="{{ asset('assets/js/index.min.js') }}"></script>
 </body>
 </html>
