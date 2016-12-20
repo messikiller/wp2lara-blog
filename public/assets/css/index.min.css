@@ -284,4 +284,60 @@
     border-color: #3badf9;
 }
 
+#footer{
+    min-height: 100px;
+    background-color: #333333;
+}
+
+#footer .footer-box{
+    display: inline-block;
+    width: 33%;
+    padding: 20px 30px;
+}
+
+#footer .footer-box .footer-box-header{
+    color: #a8a8a8;
+    font-size: 16px;
+}
+
+#footer .footer-box .footer-divider{
+    border-bottom: 0.5px solid #a8a8a8;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#footer .connect-me a.connect-link{
+    display: inline-block;
+    color: #a8a8a8;
+    text-decoration: none;
+    margin: 15px;
+}
+
+#footer .connect-me a.connect-link:hover{
+    color: #3498db;
+}
+
+#footer .connect-me .connect-link i.fa{
+    display: block;
+}
+
+#footer .connect-me .connect-link .connect-text{
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    line-height: 25px;
+}
+
+#footer .friend-link{
+
+}
+
+#footer .donation{
+
+}
+
+#footer .footer-copyright{
+    background-color: #99a1a7;
+}
+
 /*# sourceMappingURL=index.min.css.map */

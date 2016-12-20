@@ -47,7 +47,8 @@ elixir(function(mix) {
                 'resources/assets/css/index_header.css',
                 'resources/assets/css/index_navbar.css',
                 'resources/assets/css/index_main.css',
-                'resources/assets/css/index_boxes.css'
+                'resources/assets/css/index_boxes.css',
+                'resources/assets/css/index_footer.css'
             ]),
             'public/assets/css/index.min.css',
             './'
