@@ -5,16 +5,78 @@
 #boxes .box{
     background-color: #ffffff;
     border: 1px solid #e7ebee;
-    box-shadow: 0px -1px 3px 2px rgba(168, 168, 168, 0.14);
     padding: 30px;
+    margin-bottom: 20px;
+}
 
-    min-height: 100px;
+#boxes .box:hover{
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
 }
 
 #boxes .box .box-header{
+    text-align: left;
     text-align: center;
-    border-left: 3px solid #3498db;
+    /*border-left: 3px solid #e7ebee;*/
+    margin-bottom: 5px;
+}
+
+#boxes .box .box-header a{
+    display: inline-block;
     line-height: 50px;
     font-size: 18px;
     color: #333333;
+    text-decoration: none;
+}
+
+#boxes .box .box-header a:hover{
+    color: #3498db;
+}
+
+#boxes .box .box-divider{
+    border-top: 1px solid #e7ebee;
+    margin-bottom: 15px;
+}
+
+#boxes .box .box-body{
+    /*color: #999999;*/
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-indent: 2em;
+}
+
+#boxes .box .box-footer{
+    min-height: 35px;
+    padding-top: 15px;
+    margin-bottom: 15px;
+}
+
+#boxes .box .box-footer .box-meta-container{
+    display: inline-block;
+    width: 80%;
+    float: left;
+}
+
+#boxes .box .box-footer .box-view-btn-container{
+    display: inline-block;;
+    width: 20%;
+    float: right;
+}
+
+#boxes .box .box-footer .box-meta-container .box-meta{
+    display: inline-block;
+    margin-right: 20px;
+    color: #999999;
+}
+
+#boxes .box .box-footer .box-view-btn-container .btn{
+    border-radius: 1px;
+    text-decoration: none;
+    border-color: #3498db;
+    background-color: #3498db;
+}
+
+#boxes .box .box-footer .box-view-btn-container .btn:hover{
+    background-color: #3badf9;
+    border-color: #3badf9;
 }

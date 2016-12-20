@@ -54,6 +54,7 @@
     position: absolute;
     width: 150px;
     background-color: #FFF;
+    z-index: 9999;
 }
 
 #navbar ul.catebar > li > ul.children a{
