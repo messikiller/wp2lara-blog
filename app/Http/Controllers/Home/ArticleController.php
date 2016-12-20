@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 
+use App\Article;
+
 class ArticleController extends HomeController
 {
     public function __construct()
@@ -22,9 +24,20 @@ class ArticleController extends HomeController
      */
     public function index()
     {
+        $articles = Article::with(['tags', 'cates'])
+            ->select(['Id', 'title', 'summary', 'is_hidden', 'read_num', 'published_at', 'created_at', 'updated_at'])
+            ->published()
+            ->visible()
+            ->take(10)
+            ->get()
+            ->toArray();
+
+        // dd($articles);
+
         return view('home.index')->with([
-            'cates' => $this->cates,
-            'current_cate' => 0
+            'current_cate' => 0,
+            'cates'        => $this->cates,
+            'articles'     => $articles
         ]);
     }
 

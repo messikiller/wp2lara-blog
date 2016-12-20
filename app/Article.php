@@ -24,11 +24,10 @@ class Article extends Model
     public function tags()
     {
         return $this->belongsToMany('App\Tag', 'article_tags', 'article_id', 'tag_id');
-            // ->withPivot('created_at', 'updated_at');;
     }
 
-    // public function cates()
-    // {
-    //     return $this->belongsToMany('App\Cate', 'article_cates', 'article_id', 'cate_id');
-    // }
+    public function cates()
+    {
+        return $this->belongsToMany('App\Cate', 'article_cates', 'article_id', 'cate_id');
+    }
 }
