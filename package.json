@@ -12,6 +12,7 @@
     "laravel-elixir": "^6.0.0-15",
     "nprogress": "^0.2.0",
     "orchestrator": "^0.3.8",
+    "stickUp": "^2.3.1",
     "zui": "^1.5.0"
   }
 }

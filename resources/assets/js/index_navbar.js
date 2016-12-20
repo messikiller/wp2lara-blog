@@ -21,6 +21,8 @@ $(function(){
         $(this).prev('a').children('i.fa').removeClass('fa-rotate-270');
         $(this).hide();
     });
+
+    $('#navbar').stickUp();
 });
 
 NProgress.done();

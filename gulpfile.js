@@ -21,7 +21,8 @@ var basecss = [
 var basejs = [
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/zui/dist/js/zui.min.js',
-    'node_modules/nprogress/nprogress.js'
+    'node_modules/nprogress/nprogress.js',
+    'node_modules/stickUp/src/stickUp.js'
 ];
 
 elixir(function(mix) {
