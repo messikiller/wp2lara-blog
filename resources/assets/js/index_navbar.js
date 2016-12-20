@@ -23,6 +23,16 @@ $(function(){
     });
 
     $('#navbar').stickUp();
+
+    // $('[data-toggle="popover"]').popover();
+    $('#footer .donation img').each(function(){
+        $(this).popover({
+            placement: 'top',
+            trigger: 'hover',
+            content: $(this).attr('alt'),
+            tipClass: 'donate-tip'
+        });
+    });
 });
 
 NProgress.done();

@@ -2,7 +2,7 @@
 
     <div class="footer-box connect-me">
         <div class="footer-box-header">
-            <i class="fa fa-comments"></i>&nbsp;
+            <i class="fa fa-comments-o"></i>&nbsp;
             社交账号
         </div>
         <div class="footer-divider"></div>
@@ -24,21 +24,38 @@
         </a>
     </div>
 
-    <div class="footer-box friends-link">
-
+    <div class="footer-box friend-link">
+        <div class="footer-box-header">
+            <i class="fa fa-link"></i>&nbsp;
+            友情链接
+        </div>
+        <div class="footer-divider"></div>
+        <a href="#" class="btn friend-link-btn">Laravel China</a>
+        <a href="#" class="btn friend-link-btn">心里路程</a>
+        <a href="#" class="btn friend-link-btn">bootstrap</a>
+        <a href="#" class="btn friend-link-btn">Github</a>
+        <a href="#" class="btn friend-link-btn">FlatUI</a>
+        <a href="#" class="btn friend-link-btn">jQuery API</a>
+        <a href="#" class="btn friend-link-btn">Laravel 学院</a>
     </div>
 
-    <div class="footer-box donation">
-
+    <div class="footer-box donation"  id="1">
+        <div class="footer-box-header">
+            <i class="fa fa-thumbs-o-up"></i>&nbsp;
+            打赏支持
+            <small class="pull-right">拿出手机扫一扫，支持一下博主&nbsp;&nbsp;&nbsp;&nbsp;</small>
+        </div>
+        <div class="footer-divider"></div>
+        <img src="{{ asset('assets/images/donate-wechat.jpg') }}" width="150px" class="img-responsive" alt="微信扫一扫" />
+        <img src="{{ asset('assets/images/donate-zhifubao.jpg') }}" width="150px" class="img-responsive" alt="支付宝钱包" />
     </div>
 
     <div class="footer-copyright">
         <p>
             Copyright © 2015. <a href="#">messikiller's blog</a>. Powered by Laravel
-            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254565540'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254565540%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_1254565540"><a href="http://www.cnzz.com/stat/website.php?web_id=1254565540" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="http://icon.cnzz.com/img/pic.gif"></a></span><script src=" http://s95.cnzz.com/z_stat.php?id=1254565540&amp;show=pic" type="text/javascript"></script><script src="http://c.cnzz.com/core.php?web_id=1254565540&amp;show=pic&amp;t=z" charset="utf-8" type="text/javascript"></script>
         </p>
         <p>
-            <img src="http://blog.messikiller.net/app/wp-content/themes/messikiller/image/countrylogo.png" alt="country" style="display:inline-block;width: 18px;">
+            <img src="{{ asset('assets/images/countrylogo.png') }}" style="display:inline-block;width: 16px;">
             <a href="http://www.miitbeian.gov.cn" target="blank">粤ICP备15117370号</a>
         </p>
     </div>

@@ -241,29 +241,32 @@
 }
 
 #boxes .box .box-body{
-    /*color: #999999;*/
-    color: #555;
     margin-bottom: 15px;
-    font-size: 14px;
+}
+
+#boxes .box .box-body,
+#boxes .box .box-body p{
+    font-family: NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,"Microsoft Yahei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
+    color: #555;
+    line-height: 27px;
     text-indent: 2em;
+    font-size: 15px;
 }
 
 #boxes .box .box-footer{
-    min-height: 35px;
     padding-top: 15px;
-    margin-bottom: 15px;
 }
 
 #boxes .box .box-footer .box-meta-container{
     display: inline-block;
     width: 80%;
-    float: left;
+    text-align: left;
 }
 
 #boxes .box .box-footer .box-view-btn-container{
     display: inline-block;;
-    width: 20%;
-    float: right;
+    width: 19%;
+    text-align: right;
 }
 
 #boxes .box .box-footer .box-meta-container .box-meta{
@@ -285,25 +288,26 @@
 }
 
 #footer{
-    min-height: 100px;
     background-color: #333333;
+    color: #a8a8a8;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 #footer .footer-box{
-    display: inline-block;
+    display: inline-table;
     width: 33%;
     padding: 20px 30px;
 }
 
 #footer .footer-box .footer-box-header{
-    color: #a8a8a8;
     font-size: 16px;
 }
 
 #footer .footer-box .footer-divider{
     border-bottom: 0.5px solid #a8a8a8;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 8px;
+    margin-bottom: 12px;
 }
 
 #footer .connect-me a.connect-link{
@@ -328,16 +332,52 @@
     line-height: 25px;
 }
 
-#footer .friend-link{
-
+#footer .friend-link a.friend-link-btn{
+    color: #a8a8a8;
+    border-color: #a8a8a8;
+    background-color: #333333;
+    border-radius: 1px;
+    text-shadow: none;
+    margin: 5px;
 }
 
-#footer .donation{
+#footer .friend-link a.friend-link-btn:hover{
+    color: #ffffff;
+    background-color: #3498db;
+    border-color: #3498db;
+}
 
+#footer .donation img{
+    display: inline-block;
+    margin: 5px;
+}
+
+#footer .donation .donate-tip{
+    background-color: #333333;
+    border-color: #a8a8a8;
+    color: #ffffff;
+}
+
+#footer .donation .donate-tip .arrow{
+    border-top-color: #a8a8a8;
+}
+
+#footer .donation .donate-tip .arrow:after{
+    border-top-color: #333333;
 }
 
 #footer .footer-copyright{
-    background-color: #99a1a7;
+    text-align: center;
+    margin-top: 15px;
+}
+
+#footer .footer-copyright a{
+    color: #a8a8a8;
+    text-decoration: none;
+}
+
+#footer .footer-copyright a:hover{
+    color: #3498db;
 }
 
 /*# sourceMappingURL=index.min.css.map */
