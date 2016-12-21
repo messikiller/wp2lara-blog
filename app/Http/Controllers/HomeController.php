@@ -5,20 +5,29 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Cate;
+use App\Tag;
 
 class HomeController extends Controller
 {
-    protected $cates;
+    protected $navbarCates;
+    protected $sidebrTags;
 
     public function __construct()
     {
-        $cates = Cate::orderBy('order_num', 'asc')
+        $navbarCates = Cate::orderBy('order_num', 'asc')
             ->orderBy('created_at', 'asc')
             ->orderBy('Id', 'asc')
             ->get()
             ->toArray();
 
-        $this->cates = $this->catesTree($cates);
+        $this->navbarCates = $this->catesTree($navbarCates);
+
+        $sidebarTags = Tag::orderBy('created_at', 'asc')
+            ->orderBy('Id', 'asc')
+            ->get()
+            ->toArray();
+
+        $this->sidebarTags = $sidebarTags;
     }
 
     private function catesTree($cates)

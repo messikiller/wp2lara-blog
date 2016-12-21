@@ -9,7 +9,7 @@
                         class="active"
                         @endif
                     ><a href="#">home</a></li>
-                    @foreach ($cates as $cate)
+                    @foreach ($navbarCates as $cate)
                     <li
                         @if ($current_cate == $cate['Id'])
                         class="active"

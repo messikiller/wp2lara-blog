@@ -36,8 +36,9 @@ class ArticleController extends HomeController
 
         return view('home.index')->with([
             'current_cate' => 0,
-            'cates'        => $this->cates,
-            'articles'     => $articles
+            'articles'     => $articles,
+            'navbarCates'  => $this->navbarCates,
+            'sidebarTags'  => $this->sidebarTags
         ]);
     }
 

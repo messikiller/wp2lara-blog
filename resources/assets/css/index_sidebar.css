@@ -35,16 +35,16 @@
 
 #sidebar .sidebar-box .siderbar-box-content a.btn-tag{
     display: inline-block;
-    color: #3498db;
     background-color: #ffffff;
-    border: 1px solid #3498db;
-    border-radius: 0px;
+    /*color: #3498db;*/
+    /*border: 1px solid #3498db;*/
+    border-radius: 1px;
     text-decoration: none;
     padding: 4px 8px;
     margin: 5px;
 }
 
-#sidebar .sidebar-box .siderbar-box-content a.btn-tag:hover{
+/*#sidebar .sidebar-box .siderbar-box-content a.btn-tag:hover{
     background-color: #3498db;
     color: #ffffff;
-}
+}*/
