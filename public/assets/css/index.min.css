@@ -292,7 +292,6 @@
 }
 
 #sidebar .sidebar-box{
-    height: 100px;
     display: inline-block;
     width: 100%;
     background-color: #ffffff;
@@ -311,14 +310,32 @@
     margin-bottom: 5px;
     border-bottom: 1px solid #e5e5e5;
     display: inline-block;
-    width: 80%;
+    width: 100%;
 }
 
 #sidebar .sidebar-box .sidebar-box-divider .right:before{
     content: " ";
     display: inline-block;
-    width: 20%;
-    border-bottom: 1px solid #3498db;
+    background-color: #3498db;
+    height: 2px;
+    width: 100px;
+    float: left;
+}
+
+#sidebar .sidebar-box .siderbar-box-content a.btn-tag{
+    display: inline-block;
+    color: #3498db;
+    background-color: #ffffff;
+    border: 1px solid #3498db;
+    border-radius: 0px;
+    text-decoration: none;
+    padding: 4px 8px;
+    margin: 5px;
+}
+
+#sidebar .sidebar-box .siderbar-box-content a.btn-tag:hover{
+    background-color: #3498db;
+    color: #ffffff;
 }
 
 #footer{
