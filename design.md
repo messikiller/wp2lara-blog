@@ -6,9 +6,11 @@ title: #333333
 
 content: #999999
 
-light-gray: #e7ebee
+light-gray(border): #e7ebee
 
 dark-gray: #99a1a7
+
+hr-gray: #e5e5e5
 
 background-gray: #eff3f5
 

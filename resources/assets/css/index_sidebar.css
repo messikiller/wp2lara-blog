@@ -1,0 +1,33 @@
+#sidebar{
+
+}
+
+#sidebar .sidebar-box{
+    height: 100px;
+    display: inline-block;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #e7ebee;
+    margin-bottom: 15px;
+    padding: 20px;
+}
+
+#sidebar .sidebar-box .sidebar-box-title{
+    font-size: 15px;
+    width: 100%;
+}
+
+#sidebar .sidebar-box .sidebar-box-divider .right{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #e5e5e5;
+    display: inline-block;
+    width: 80%;
+}
+
+#sidebar .sidebar-box .sidebar-box-divider .right:before{
+    content: " ";
+    display: inline-block;
+    width: 20%;
+    border-bottom: 1px solid #3498db;
+}

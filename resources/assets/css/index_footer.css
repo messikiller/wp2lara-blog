@@ -26,6 +26,9 @@
     color: #a8a8a8;
     text-decoration: none;
     margin: 15px;
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
 }
 
 #footer .connect-me a.connect-link:hover{
@@ -50,6 +53,9 @@
     border-radius: 1px;
     text-shadow: none;
     margin: 5px;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
 }
 
 #footer .friend-link a.friend-link-btn:hover{

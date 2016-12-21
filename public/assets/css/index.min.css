@@ -287,6 +287,40 @@
     border-color: #3badf9;
 }
 
+#sidebar{
+
+}
+
+#sidebar .sidebar-box{
+    height: 100px;
+    display: inline-block;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #e7ebee;
+    margin-bottom: 15px;
+    padding: 20px;
+}
+
+#sidebar .sidebar-box .sidebar-box-title{
+    font-size: 15px;
+    width: 100%;
+}
+
+#sidebar .sidebar-box .sidebar-box-divider .right{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #e5e5e5;
+    display: inline-block;
+    width: 80%;
+}
+
+#sidebar .sidebar-box .sidebar-box-divider .right:before{
+    content: " ";
+    display: inline-block;
+    width: 20%;
+    border-bottom: 1px solid #3498db;
+}
+
 #footer{
     background-color: #333333;
     color: #a8a8a8;
@@ -315,6 +349,9 @@
     color: #a8a8a8;
     text-decoration: none;
     margin: 15px;
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
 }
 
 #footer .connect-me a.connect-link:hover{
@@ -339,6 +376,9 @@
     border-radius: 1px;
     text-shadow: none;
     margin: 5px;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
 }
 
 #footer .friend-link a.friend-link-btn:hover{

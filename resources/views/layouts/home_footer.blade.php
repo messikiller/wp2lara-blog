@@ -30,16 +30,16 @@
             友情链接
         </div>
         <div class="footer-divider"></div>
-        <a href="#" class="btn friend-link-btn">Laravel China</a>
-        <a href="#" class="btn friend-link-btn">心里路程</a>
-        <a href="#" class="btn friend-link-btn">bootstrap</a>
-        <a href="#" class="btn friend-link-btn">Github</a>
-        <a href="#" class="btn friend-link-btn">FlatUI</a>
-        <a href="#" class="btn friend-link-btn">jQuery API</a>
-        <a href="#" class="btn friend-link-btn">Laravel 学院</a>
+        <a href="#" target="_blank" class="btn friend-link-btn">Laravel China</a>
+        <a href="#" target="_blank" class="btn friend-link-btn">心里路程</a>
+        <a href="#" target="_blank" class="btn friend-link-btn">bootstrap</a>
+        <a href="#" target="_blank" class="btn friend-link-btn">Github</a>
+        <a href="#" target="_blank" class="btn friend-link-btn">FlatUI</a>
+        <a href="#" target="_blank" class="btn friend-link-btn">jQuery API</a>
+        <a href="#" target="_blank" class="btn friend-link-btn">Laravel 学院</a>
     </div>
 
-    <div class="footer-box donation"  id="1">
+    <div class="footer-box donation">
         <div class="footer-box-header">
             <i class="fa fa-thumbs-o-up"></i>&nbsp;
             打赏支持
@@ -52,11 +52,11 @@
 
     <div class="footer-copyright">
         <p>
-            Copyright © 2015. <a href="#">messikiller's blog</a>. Powered by Laravel
+            Copyright © 2015. <a href="{{ url('/') }}">messikiller's blog</a>. Powered by Laravel
         </p>
         <p>
             <img src="{{ asset('assets/images/countrylogo.png') }}" style="display:inline-block;width: 16px;">
-            <a href="http://www.miitbeian.gov.cn" target="blank">粤ICP备15117370号</a>
+            <a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备15117370号</a>
         </p>
     </div>
 
