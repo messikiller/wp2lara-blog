@@ -18,11 +18,12 @@
 Route::auth();
 
 // home pages routes
-Route::get('/',                     'Home\ArticleController@index');
-Route::get('/view/{id}',            'Home\HomeController@view');
-Route::get('/tag/{tag_id}',         'Home\HomeController@tag');
-Route::get('/cate/{cate_id}',       'Home\ArticleController@cate');
-Route::get('/archive/{archive_id}', 'Home\HomeController@archive');
+Route::get('/',                              'Home\ArticleController@index');
+Route::get('/articles',                      'Home\ArticleController@index');
+Route::get('/articles/view/{id}',            'Home\HomeController@view');
+Route::get('/articles/tag/{tag_id}',         'Home\HomeController@tag');
+Route::get('/articles/cate/{cate_id}',       'Home\ArticleController@cate');
+Route::get('/articles/archive/{archive_id}', 'Home\HomeController@archive');
 
 // admin pages routes
 Route::get('/admin/articles',             'Admin\ArticleController@index');

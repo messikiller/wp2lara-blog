@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class ArticleTagsTableSeeder extends Seeder
 {
@@ -11,8 +12,9 @@ class ArticleTagsTableSeeder extends Seeder
      */
     public function run()
     {
-        // $tagIds = DB::table('tags')->select('Id')->pluck('Id')->toArray();
-        $articleIds = DB::table('articles')->select('Id')->take(20)->pluck('Id');
+        $faker = Faker::create();
+
+        $articleIds = DB::table('articles')->lists('Id');
 
         $data = array();
         foreach ($articleIds as $article_id) {
@@ -25,10 +27,10 @@ class ArticleTagsTableSeeder extends Seeder
 
             for ($i=1; $i <= $tag_num ; $i++) {
                 $data[] = [
-                    'article_id' => $article_id,
-                    'tag_id' => $tag_id--,
-                    'created_at'  => date('Y-m-d H:i:s', time() - mt_rand(3600, 30*24*3600)),
-                    'updated_at'  => date('Y-m-d H:i:s', time() - mt_rand(3600, 30*24*3600))
+                    'article_id'  => $article_id,
+                    'tag_id'      => $tag_id--,
+                    'created_at'  => $faker->dateTimeBetween('- 1 months', '+ 1 months'),
+                    'updated_at'  => $faker->dateTimeBetween('- 1 months', '+ 1 months')
                 ];
             }
         }

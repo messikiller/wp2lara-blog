@@ -15,7 +15,17 @@
     <div class="container">
         <div class="row">
 
-            @yield('main')
+            <div class="col-md-8">
+
+                @yield('main')
+
+            </div>
+
+            <div class="col-md-4">
+
+                @include('layouts.home_sidebar')
+
+            </div>
 
         </div>
     </div>

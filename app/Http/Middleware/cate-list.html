@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/lib/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/static/style/admin/common.css" rel="stylesheet" />
+    <link href="/static/style/admin/common/tag-basic.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 main">
+            <h5 class="page-header syrian-crumbs">
+                <a><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;公众号分类管理</a>
+                <span>&nbsp;/&nbsp;分类列表</span>
+            </h5>
+            <div class="syrian-main-page">
+                <?include admin/blade/error.blade.html?>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th width="5%">#Id</th>
+                        <th width="10%">分类名称</th>
+                        <th width="10%">父级分类</th>
+                        <th width="10%">创建时间</th>
+                        <th width="20%">操作导航</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?if( ${cates} != false ) {?>
+                    <?foreach ( ${cates} as ${cate} ) {?>
+                    <tr>
+                        <td><?=${cate.Id}?></td>
+                        <td><?=${cate.title}?></td>
+                        <td><?=${cate.parent_title}?></td>
+                        <td><?=date('Y-m-d H:i:s', ${cate.c_time})?></td>
+                        <td>
+                            <a href="/admin/weixin/cate/add?Id=<?=${cate.Id}?>" class="btn btn-sm btn-link"><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                            <a href="javascript:;" data-url="/admin/weixin/cate/list?act=del&Id=<?=${cate.Id}?>" class="btn btn-sm btn-link btn-del"><i class="glyphicon glyphicon-remove"></i>删除</a>
+                        </td>
+                    </tr>
+                    <?}?>
+                    <?}?>
+                    </tbody>
+                </table>
+
+                <!-- page area -->
+                <?include admin/blade/page-bootstrap.blade.html?>
+                <!-- page area -->
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/common/jquery.1.11.js"></script>
+<script src="/static/lib/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+$('.btn-del').click(function(){
+    if (confirm('确定要删除当前分类？')) {
+        var url = $(this).attr('data-url');
+        window.location.href = url;
+    }
+});
+</script>
+<?include admin/blade/controls.blade.html?>
+</body>
+</html>

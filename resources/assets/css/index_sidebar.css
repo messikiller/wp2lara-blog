@@ -36,15 +36,28 @@
 #sidebar .sidebar-box .siderbar-box-content a.btn-tag{
     display: inline-block;
     background-color: #ffffff;
-    /*color: #3498db;*/
-    /*border: 1px solid #3498db;*/
+    border-width: 1px;
+    border-style: solid;
     border-radius: 1px;
     text-decoration: none;
     padding: 4px 8px;
     margin: 5px;
 }
 
-/*#sidebar .sidebar-box .siderbar-box-content a.btn-tag:hover{
-    background-color: #3498db;
-    color: #ffffff;
-}*/
+#sidebar .sidebar-box .siderbar-box-content a.sidebar-cate-item{
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+#sidebar .sidebar-box .siderbar-box-content a.sidebar-cate-item:first-child{
+    margin-top: 5px;
+}
+
+#sidebar .sidebar-box .siderbar-box-content a.sidebar-cate-item:hover{
+    color: #3498db
+}
