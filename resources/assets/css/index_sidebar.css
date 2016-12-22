@@ -16,23 +16,22 @@
     width: 100%;
 }
 
-#sidebar .sidebar-box .sidebar-box-divider .right{
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-bottom: 1px solid #e5e5e5;
-    display: inline-block;
-    width: 100%;
+#sidebar .sidebar-box .sidebar-box-divider{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    height: 1px;
+    background-color: #e5e5e5;
 }
 
-#sidebar .sidebar-box .sidebar-box-divider .right:before{
+#sidebar .sidebar-box .sidebar-box-divider:before{
     content: " ";
-    display: inline-block;
     background-color: #3498db;
+    width: 30%;
     height: 2px;
-    width: 100px;
     float: left;
+    position: relative;
+    top: -1px;
 }
-
 
 /**
  * 标签云
@@ -54,7 +53,6 @@
 #sidebar .sidebar-box .siderbar-box-content a.sidebar-cate-item{
     display: inline-block;
     text-decoration: none;
-    width: 100%;
     color: #555;
     font-size: 14px;
     margin-bottom: 7px;
@@ -75,7 +73,6 @@
 #sidebar .sidebar-box .siderbar-box-content a.sidebar-archive-item{
     display: inline-block;
     text-decoration: none;
-    width: 100%;
     color: #555;
     font-size: 14px;
     margin-bottom: 5px;

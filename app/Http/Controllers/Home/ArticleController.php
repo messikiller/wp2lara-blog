@@ -26,9 +26,9 @@ class ArticleController extends HomeController
     {
         $articles = Article::with(['tags', 'cates'])
             ->select(['Id', 'title', 'summary', 'is_hidden', 'read_num', 'published_at', 'created_at', 'updated_at'])
-            ->published()
-            ->visible()
-            ->paginate(2)
+            // ->published()
+            // ->visible()
+            ->paginate(5)
             ->toArray();
 
         // dd($articles);

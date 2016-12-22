@@ -15,14 +15,17 @@ var basecss = [
     'node_modules/zui/dist/css/zui.min.css',
     'node_modules/font-awesome/css/font-awesome.min.css',
     'node_modules/animate.css/animate.min.css',
-    'node_modules/nprogress/nprogress.css'
+    'node_modules/nprogress/nprogress.css',
+    'node_modules/social-share.js/dist/css/share.min.css'
 ];
 
 var basejs = [
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/zui/dist/js/zui.min.js',
     'node_modules/nprogress/nprogress.js',
-    'node_modules/stickUp/src/stickUp.js'
+    'node_modules/stickUp/src/stickUp.js',
+    // 'node_modules/social-share.js/dist/js/jquery.share.min.js',
+    'node_modules/social-share.js/dist/js/social-share.min.js'
 ];
 
 elixir(function(mix) {
@@ -40,6 +43,13 @@ elixir(function(mix) {
             'node_modules/font-awesome/fonts/fontawesome-webfont.ttf',
             'node_modules/font-awesome/fonts/fontawesome-webfont.woff',
             'node_modules/font-awesome/fonts/fontawesome-webfont.woff2'
+        ], 'public/assets/fonts/')
+
+        .copy([
+            'node_modules/social-share.js/dist/fonts/iconfont.eot',
+            'node_modules/social-share.js/dist/fonts/iconfont.svg',
+            'node_modules/social-share.js/dist/fonts/iconfont.ttf',
+            'node_modules/social-share.js/dist/fonts/iconfont.woff'
         ], 'public/assets/fonts/')
 
         .styles(

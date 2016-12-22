@@ -66,8 +66,5 @@
 }
 
 #navbar ul.catebar > li > ul.children a:hover{
-    /*background-color: #e7ebee;*/
     color: #3498db;
-    /*font-weight: bold;*/
-    /*border-bottom: 1px solid #3498db;*/
 }

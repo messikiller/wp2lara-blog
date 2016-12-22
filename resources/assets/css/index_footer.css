@@ -16,9 +16,24 @@
 }
 
 #footer .footer-box .footer-divider{
-    border-bottom: 0.5px solid #a8a8a8;
+    height: 1px;
+    background-color: #a8a8a8;
     margin-top: 8px;
     margin-bottom: 12px;
+}
+
+#footer .footer-box .footer-divider:before{
+    content: " ";
+    background-color: #99a1a7;
+    width: 30%;
+    height: 3px;
+    float: left;
+    position: relative;
+    top: -2px;
+}
+
+#footer .footer-box .footer-divider:before{
+    content: " ";
 }
 
 #footer .connect-me a.connect-link{

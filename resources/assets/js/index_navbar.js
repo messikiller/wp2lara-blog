@@ -8,7 +8,6 @@ $(function(){
     $('.catebar > li > a').hover(function(){
         $(this).children('i.fa').removeClass('fa-rotate-270').addClass('fa-rotate-270');
         $(this).next('ul.children').show();
-        // $(this).next('ul.children').slideDown(200);
     }, function(){
         $(this).children('i.fa').removeClass('fa-rotate-270');
         $(this).next('ul.children').hide();
