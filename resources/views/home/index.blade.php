@@ -38,7 +38,7 @@
     </div>
 @endfor -->
 
-@foreach($articles as $article)
+@foreach($articles['data'] as $article)
 <div class="box">
 
     <div class="box-header">
@@ -85,6 +85,36 @@
 
 </div>
 @endforeach
+
+<div class="container-fluid text-center">
+
+        <ul class="pager pager-loose pager-pills">
+            <li class="previous
+                @if ($articles['prev_page_url'] == null)
+                disabled
+                @endif
+            "><a href="{{ $articles['prev_page_url'] }}">«&nbsp;上一页</a></li>
+
+            @for ($p = 1; $p <= $articles['last_page']; $p++)
+            <li class="
+                @if ($p == $articles['current_page'])
+                active
+                @endif
+            "><a href="{{ url('/articles') }}?page={{ $p }}"
+            @if ($p == $articles['current_page'])
+            style="background-color: #3498db;border-color: #3498db;``"
+            @endif
+            >{{ $p }}</a></li>
+            @endfor
+
+            <li class="next
+                @if ($articles['next_page_url'] == null)
+                disabled
+                @endif
+            "><a href="{{ $articles['next_page_url'] }}">»&nbsp;下一页</a></li>
+        </ul>
+
+</div>
 
 </div>
 

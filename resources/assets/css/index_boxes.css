@@ -9,6 +9,10 @@
     margin-bottom: 20px;
 }
 
+#boxes .box:nth-last-child(2){
+    margin-bottom: 5px;
+}
+
 #boxes .box:hover{
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
 }

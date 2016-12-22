@@ -33,6 +33,10 @@
     float: left;
 }
 
+
+/**
+ * 标签云
+ */
 #sidebar .sidebar-box .siderbar-box-content a.btn-tag{
     display: inline-block;
     background-color: #ffffff;
@@ -44,13 +48,16 @@
     margin: 5px;
 }
 
+/**
+ * 文章分类
+ */
 #sidebar .sidebar-box .siderbar-box-content a.sidebar-cate-item{
-    text-decoration: none;
     display: inline-block;
+    text-decoration: none;
     width: 100%;
     color: #555;
     font-size: 14px;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
     padding-left: 5px;
 }
 
@@ -59,5 +66,26 @@
 }
 
 #sidebar .sidebar-box .siderbar-box-content a.sidebar-cate-item:hover{
+    color: #3498db
+}
+
+/**
+ * 文章归档
+ */
+#sidebar .sidebar-box .siderbar-box-content a.sidebar-archive-item{
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+}
+
+#sidebar .sidebar-box .siderbar-box-content a.sidebar-archive-item:first-child{
+    margin-top: 5px;
+}
+
+#sidebar .sidebar-box .siderbar-box-content a.sidebar-archive-item:hover{
     color: #3498db
 }

@@ -28,8 +28,7 @@ class ArticleController extends HomeController
             ->select(['Id', 'title', 'summary', 'is_hidden', 'read_num', 'published_at', 'created_at', 'updated_at'])
             ->published()
             ->visible()
-            ->take(10)
-            ->get()
+            ->paginate(2)
             ->toArray();
 
         // dd($articles);

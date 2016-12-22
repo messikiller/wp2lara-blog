@@ -45,7 +45,29 @@ class HomeSidebarComposer
 
     private function getSidebarArchives()
     {
-        return;
+        $sidebarArchives = \App\Article::select(['Id', 'published_at'])
+            ->orderBy('published_at', 'asc')
+            ->published()
+            ->visible()
+            ->get()
+            ->transform(function($item, $key) {
+                $timestamp         = strtotime($item->published_at);
+                $section_str       = date('Y-m', $timestamp);
+                $section_timestamp = strtotime($section_str);
+
+                $item->timestamp         = $timestamp;
+                $item->archive_section   = $section_str;
+                $item->section_timestamp = $section_timestamp;
+
+                return $item;
+            })
+            ->groupBy('section_timestamp')
+            ->take(12)
+            ->toArray();
+
+        // dd($sidebarArchives);
+
+        return $sidebarArchives;
     }
 
 }
