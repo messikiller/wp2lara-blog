@@ -14,7 +14,7 @@
         </div>
 
         <div class="box-header-meta">
-            <span class="header-meta">
+            <span class="header-meta label-meta">
                 <i class="fa fa-tags"></i>&nbsp;标签：
                 @if (count($article['tags']) == 0)
 
@@ -36,13 +36,13 @@
                 @endif
             </span>
 
-            <span class="header-meta">
+            <span class="header-meta view-meta">
                 <i class="fa fa-eye"></i>&nbsp;
                 浏览：{{ $article['read_num'] }}
             </span>
 
             @inject('carbon', 'Carbon\Carbon')
-            <span class="header-meta">
+            <span class="header-meta pubtime-meta">
                 <i class="fa fa-clock-o"></i>
                 &nbsp;发表：
                 {{ $carbon->createFromFormat('Y-m-d H:i:s', $article['published_at'])->diffForHumans() }}
@@ -79,32 +79,32 @@
 </div>
 @endforeach
 
-<div class="container-fluid text-center">
+<div class="pagination">
 
-        <ul class="pager">
+        <ul class="pager pager-loose pager-pills" style="display: inline-block;">
             <li class="previous
                 @if ($articles['prev_page_url'] == null)
                 disabled
                 @endif
-            "><a href="{{ $articles['prev_page_url'] }}"><i class="fa fa-long-arrow-left"></i></a></li>
+            "><a href="{{ $articles['prev_page_url'] }}"><i class="icon-double-angle-left"></i></a></li>
 
             @for ($p = 1; $p <= $articles['last_page']; $p++)
             <li class="
                 @if ($p == $articles['current_page'])
                 active
                 @endif
-            "><a href="{{ url('/articles') }}?page={{ $p }}"
-            @if ($p == $articles['current_page'])
-            style="background-color: #3498db; border-color: #3498db;"
-            @endif
-            >{{ $p }}</a></li>
+            ">
+                <a href="{{ url('/articles') }}?page={{ $p }}">
+                    {{ $p }}
+                </a>
+            </li>
             @endfor
 
             <li class="next
                 @if ($articles['next_page_url'] == null)
                 disabled
                 @endif
-            "><a href="{{ $articles['next_page_url'] }}"><i class="fa fa-long-arrow-right"></i></a></li>
+            "><a href="{{ $articles['next_page_url'] }}"><i class="icon-double-angle-right"></i></a></li>
         </ul>
 
 </div>

@@ -42,8 +42,20 @@
 
 #boxes .box .box-header .box-header-meta .header-meta{
     display: inline-block;
-    width: 32%;
     text-align: left;
+    color: #999999;
+}
+
+#boxes .box .box-header .box-header-meta .label-meta{
+    width: 40%;
+}
+
+#boxes .box .box-header .box-header-meta .view-meta{
+    width: 30%;
+}
+
+#boxes .box .box-header .box-header-meta .pubtime-meta{
+    width: 28%;
 }
 
 #boxes .box .box-divider{
@@ -52,7 +64,8 @@
 }
 
 #boxes .box .box-body{
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 #boxes .box .box-body,
@@ -88,4 +101,26 @@
 #boxes .box .box-footer .btn-view-container .btn-view:hover{
     background-color: #3badf9;
     border-color: #3badf9;
+}
+
+#boxes .pagination{
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#boxes .pagination ul.pager li a{
+    color: #3498db;
+}
+
+#boxes .pagination ul.pager li.disabled a{
+    color: #ddd;
+}
+
+#boxes .pagination ul.pager li.active a{
+    background-color: #3498db;
+    border-color: #3498db;
+    color: #ffffff;
 }

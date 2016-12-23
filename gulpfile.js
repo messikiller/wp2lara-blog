@@ -1,5 +1,8 @@
 var elixir = require('laravel-elixir');
 
+require('laravel-elixir-livereload');
+require('laravel-elixir-compress');
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -21,10 +24,11 @@ var basecss = [
 
 var basejs = [
     'node_modules/jquery/dist/jquery.min.js',
+    'node_modules/jquery-migrate/dist/jquery-migrate.min.js',
     'node_modules/zui/dist/js/zui.min.js',
     'node_modules/nprogress/nprogress.js',
     'node_modules/stickUp/src/stickUp.js',
-    // 'node_modules/social-share.js/dist/js/jquery.share.min.js',
+    'node_modules/jquery-pjax/jquery.pjax.js',
     'node_modules/social-share.js/dist/js/social-share.min.js'
 ];
 
@@ -52,6 +56,8 @@ elixir(function(mix) {
             'node_modules/social-share.js/dist/fonts/iconfont.woff'
         ], 'public/assets/fonts/')
 
+        .copy('public/assets/fonts/', 'public/build/assets/fonts/')
+
         .styles(
             basecss.concat([
                 'resources/assets/css/index_header.css',
@@ -61,21 +67,27 @@ elixir(function(mix) {
                 'resources/assets/css/index_sidebar.css',
                 'resources/assets/css/index_footer.css'
             ]),
-            'public/assets/css/index.min.css',
+            'public/assets/css/index.css',
             './'
         )
 
         .scripts(
             basejs.concat([
-                'resources/assets/js/index_navbar.js'
+                'resources/assets/js/home_common.js'
             ]),
-            'public/assets/js/index.min.js',
+            'public/assets/js/index.js',
             './'
         )
 
         .scripts(
             basejs,
-            'public/assets/js/admin.script.min.js',
+            'public/assets/js/admin.js',
             './'
-        );
+        )
+
+        .version([
+            'assets/js/index.js',
+            'assets/js/admin.js',
+            'assets/css/index.css'
+        ]);
 });

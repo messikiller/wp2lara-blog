@@ -15,15 +15,19 @@
 //     return view('welcome');
 // });
 
-Route::auth();
 
 // home pages routes
-Route::get('/',                              'Home\ArticleController@index');
-Route::get('/articles',                      'Home\ArticleController@index');
-Route::get('/articles/view/{id}',            'Home\HomeController@view');
-Route::get('/articles/tag/{tag_id}',         'Home\HomeController@tag');
-Route::get('/articles/cate/{cate_id}',       'Home\ArticleController@cate');
-Route::get('/articles/archive/{archive_id}', 'Home\HomeController@archive');
+
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/',                              'Home\ArticleController@index');
+    Route::get('/articles',                      'Home\ArticleController@index');
+    Route::get('/articles/view/{id}',            'Home\HomeController@view');
+    Route::get('/articles/tag/{tag_id}',         'Home\HomeController@tag');
+    Route::get('/articles/cate/{cate_id}',       'Home\ArticleController@cate');
+    Route::get('/articles/archive/{archive_id}', 'Home\HomeController@archive');
+    Route::auth();
+});
+
 
 // admin pages routes
 Route::get('/admin/articles',             'Admin\ArticleController@index');
