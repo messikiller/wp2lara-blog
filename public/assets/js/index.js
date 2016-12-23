@@ -1820,14 +1820,11 @@ var QRCode;!function(){function t(t){this.mode=l.MODE_8BIT_BYTE,this.data=t,this
             +'<div class="peg"></div></div><div class="spinner" role="spinner">'
             +'<div class="spinner-icon" style="border-left-color:#eaeaea;border-top-color:#eaeaea;"></div></div>'
     });
-    $(document).pjax('a', '#pjax-container');
-    $(document).on('pjax:timeout', function(event){
+    $(document).pjax('a', '#pjax-container').on('pjax:timeout', function(event){
         event.preventDefault();
-    });
-    $(document).on('pjax:start', function(){
+    }).on('pjax:start', function(){
         NProgress.start();
-    });
-    $(document).on('pjax:end', function(){
+    }).on('pjax:end', function(){
         NProgress.done();
     });
 

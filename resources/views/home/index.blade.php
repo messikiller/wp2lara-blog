@@ -81,31 +81,31 @@
 
 <div class="pagination">
 
-        <ul class="pager pager-loose pager-pills" style="display: inline-block;">
-            <li class="previous
-                @if ($articles['prev_page_url'] == null)
-                disabled
-                @endif
-            "><a href="{{ $articles['prev_page_url'] }}"><i class="icon-double-angle-left"></i></a></li>
+    <ul class="pager pager-loose pager-pills" style="display: inline-block;">
+        <li class="previous
+            @if ($articles['prev_page_url'] == null)
+            disabled
+            @endif
+        "><a href="{{ $articles['prev_page_url'] }}"><i class="icon-double-angle-left"></i></a></li>
 
-            @for ($p = 1; $p <= $articles['last_page']; $p++)
-            <li class="
-                @if ($p == $articles['current_page'])
-                active
-                @endif
-            ">
-                <a href="{{ url('/articles') }}?page={{ $p }}">
-                    {{ $p }}
-                </a>
-            </li>
-            @endfor
+        @for ($p = 1; $p <= $articles['last_page']; $p++)
+        <li class="
+            @if ($p == $articles['current_page'])
+            active
+            @endif
+        ">
+            <a href="{{ url('/articles') }}?page={{ $p }}">
+                {{ $p }}
+            </a>
+        </li>
+        @endfor
 
-            <li class="next
-                @if ($articles['next_page_url'] == null)
-                disabled
-                @endif
-            "><a href="{{ $articles['next_page_url'] }}"><i class="icon-double-angle-right"></i></a></li>
-        </ul>
+        <li class="next
+            @if ($articles['next_page_url'] == null)
+            disabled
+            @endif
+        "><a href="{{ $articles['next_page_url'] }}"><i class="icon-double-angle-right"></i></a></li>
+    </ul>
 
 </div>
 
