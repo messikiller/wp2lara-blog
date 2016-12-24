@@ -24,11 +24,13 @@ class ArticleController extends HomeController
      */
     public function index()
     {
+        $pagesize = $this->getBlogInfo('boxes_max_size', 5);
+
         $articles = Article::with(['tags', 'cates'])
-            ->select(['Id', 'title', 'summary', 'is_hidden', 'read_num', 'published_at', 'created_at', 'updated_at'])
-            // ->published()
-            // ->visible()
-            ->paginate(5)
+            ->select(['Id', 'title', 'summary', 'is_hidden', 'read_num', 'published_at', 'created_at',  'updated_at'])
+            ->published()
+            ->visible()
+            ->paginate($pagesize)
             ->toArray();
 
         // dd($articles);

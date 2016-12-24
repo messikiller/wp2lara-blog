@@ -6,7 +6,10 @@
         </div>
         <div class="sidebar-box-divider"></div>
         <div class="siderbar-box-content">
-
+            <div class="sidebar-box-motto">
+                {{ $blogInfo['sidebar_motto'] }}
+            </div>
+            <div class="sidebar-box-submotto">{{ $blogInfo['sidebar_motto_sub'] }}</div>
         </div>
     </div>
 
@@ -57,13 +60,15 @@
         <div class="siderbar-box-content">
 
             @foreach($sidebarTags as $tag)
-            <a href="#" class="btn-tag"
-                style="color:{{ $tag['color'] }};border-color:{{ $tag['color'] }};"
-                onmouseover="this.style.cssText='color:#ffffff;background-color:{{ $tag['color'] }};'"
-                onmouseout="this.style.cssText='color:{{ $tag['color'] }};background-color:#ffffff;'"
-            >
-                {{ $tag['name'] }}
-            </a>
+
+                <a href="#" class="btn-tag"
+                    style="color:{{ $tag['color'] }};background-color:#ffffff;border-color:{{ $tag['color'] }};"
+                    onmouseover="this.style.cssText='color:#ffffff;background-color:{{ $tag['color'] }};border-color: {{ $tag['color'] }};'"
+                    onmouseout="this.style.cssText='color:{{ $tag['color'] }};background-color:#ffffff;border-color:{{ $tag['color'] }};border-color:{{ $tag['color'] }};'"
+                >
+                    {{ $tag['name'] }}
+                </a>
+
             @endforeach
 
         </div>

@@ -34,17 +34,37 @@
 }
 
 /**
+ * 微语
+ */
+#sidebar .sidebar-box .siderbar-box-content .sidebar-box-motto{
+    color: #555;
+    font-size: 15px;
+    text-indent: 2em;
+    line-height: 2;
+    padding: 15px 10px 5px 0px;
+}
+
+#sidebar .sidebar-box .siderbar-box-content .sidebar-box-submotto{
+    color: #999999;
+    text-align: right;
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+/**
  * 标签云
  */
 #sidebar .sidebar-box .siderbar-box-content a.btn-tag{
     display: inline-block;
     background-color: #ffffff;
-    border-width: 1px;
+    border-width: 2px;
     border-style: solid;
     border-radius: 1px;
     text-decoration: none;
-    padding: 4px 8px;
+    padding: 1px 8px;
     margin: 5px;
+    font-weight: bold;
+    line-height: 28px;
 }
 
 /**

@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta http-equiv="x-pjax-version" content="{{ elixir('assets/css/index.css') }}">
 <title>messikiller&#039;s blog - 折而不挠，终不为下</title>
-<!-- <link rel="stylesheet" href="{{ asset('assets/css/index.css') }}" media="screen" charset="utf-8"> -->
 <link rel="stylesheet" href="{{ elixir('assets/css/index.css') }}" media="screen" charset="utf-8">
 </head>
 <body style="background-color: #eff3f5;" id="pjax-container">

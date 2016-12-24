@@ -8,7 +8,20 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 
+use App\BlogInfo;
+
 class Controller extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
+
+    /**
+     * basic blog info configures
+     * @var array
+     */
+    protected $blogInfo = [];
+
+    public function __construct()
+    {
+        $this->blogInfo = BlogInfo::first()->toArray();;
+    }
 }
