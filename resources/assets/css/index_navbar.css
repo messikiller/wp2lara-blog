@@ -45,6 +45,11 @@
     line-height: 50px;
 }
 
+#navbar ul.catebar > li > a:hover > i{
+    transform: rotate(-90deg);
+    transition: transform 0.2s ease
+}
+
 #navbar ul.catebar > li > ul.children{
     display: none;
     padding-left: 0px;

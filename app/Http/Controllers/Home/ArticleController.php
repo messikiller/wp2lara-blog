@@ -30,6 +30,8 @@ class ArticleController extends HomeController
             ->select(['Id', 'title', 'summary', 'is_hidden', 'read_num', 'published_at', 'created_at',  'updated_at'])
             ->published()
             ->visible()
+            ->orderBy('published_at', 'desc')
+            ->orderBy('Id', 'asc')
             ->paginate($pagesize)
             ->toArray();
 

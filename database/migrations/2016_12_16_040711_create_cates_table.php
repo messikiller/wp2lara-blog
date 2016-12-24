@@ -16,6 +16,7 @@ class CreateCatesTable extends Migration
             $table->increments('Id');
             $table->integer('pid')->unsigned()->default(0);
             $table->string('name', 255);
+            $table->string('color', 15)->default(0);
             $table->mediumInteger('order_num')->unsigned()->default(0);
             $table->timestamps();
         });

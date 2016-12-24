@@ -8,7 +8,7 @@
                         @if ($current_cate == 0)
                         class="active"
                         @endif
-                    ><a href="#">home</a></li>
+                    ><a href="{{ url('/') }}">home</a></li>
                     @foreach ($navbarCates as $cate)
                     <li
                         @if ($current_cate == $cate['Id'])

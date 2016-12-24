@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use Faker\Factory as Faker;
+
 class CatesTableSeeder extends Seeder
 {
     /**
@@ -11,6 +13,8 @@ class CatesTableSeeder extends Seeder
      */
     public function run()
     {
+        $faker = Faker::create();
+
         $data = [
             ['pid' => 0, 'name' => '后台开发', 'order_num' => 0, 'created_at' => '2016-12-18 19:32:49', 'updated_at' => '2016-12-18 19:32:49'],
             ['pid' => 0, 'name' => '前端开发', 'order_num' => 0, 'created_at' => '2016-12-18 19:32:49', 'updated_at' => '2016-12-18 19:32:49'],
@@ -26,6 +30,11 @@ class CatesTableSeeder extends Seeder
             ['pid' => 4, 'name' => 'linux', 'order_num' => 0, 'created_at' => '2016-12-18 19:32:49', 'updated_at' => '2016-12-18 19:32:49'],
             ['pid' => 4, 'name' => 'windows', 'order_num' => 0, 'created_at' => '2016-12-18 19:32:49', 'updated_at' => '2016-12-18 19:32:52']
         ];
+
+        foreach ($data as $k => $v)
+        {
+            $data[$k]['color'] = $faker->hexcolor;
+        }
 
         DB::table('cates')->insert($data);
     }

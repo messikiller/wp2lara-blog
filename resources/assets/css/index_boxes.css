@@ -46,7 +46,7 @@
     color: #999999;
 }
 
-#boxes .box .box-header .box-header-meta .label-meta{
+#boxes .box .box-header .box-header-meta .cate-meta{
     width: 40%;
 }
 
@@ -83,6 +83,20 @@
 
 #boxes .box .box-footer .footer-meta{
     display: inline-block;
+}
+
+#boxes .box .box-footer .tags-meta{
+    color: #999999;
+}
+
+#boxes .box .box-footer .tags-meta .footer-tag{
+    display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 1px;
+    padding: 2px 8px;
+    font-weight: bold;
+    color: #ffffff;
 }
 
 #boxes .box .box-footer .btn-view-container{

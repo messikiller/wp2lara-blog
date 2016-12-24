@@ -1786,10 +1786,10 @@ var QRCode;!function(){function t(t){this.mode=l.MODE_8BIT_BYTE,this.data=t,this
 {
     // navbar configure
     $('.catebar > li > a').hover(function(){
-        $(this).children('i.fa').removeClass('fa-rotate-270').addClass('fa-rotate-270');
+        // $(this).children('i.fa').removeClass('fa-rotate-270').addClass('fa-rotate-270');
         $(this).next('ul.children').show();
     }, function(){
-        $(this).children('i.fa').removeClass('fa-rotate-270');
+        // $(this).children('i.fa').removeClass('fa-rotate-270');
         $(this).next('ul.children').hide();
     });
 

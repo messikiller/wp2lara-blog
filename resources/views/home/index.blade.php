@@ -14,23 +14,24 @@
         </div>
 
         <div class="box-header-meta">
-            <span class="header-meta label-meta">
-                <i class="fa fa-tags"></i>&nbsp;标签：
-                @if (count($article['tags']) == 0)
+            <span class="header-meta cate-meta">
+                <i class="fa fa-list-ul"></i>
+                &nbsp;分类：
+                @if (count($article['cates']) == 0)
 
                     <span>无</span>
 
-                @elseif (count($article['tags']) >0 && count($article['tags']) <= 3)
+                @elseif (count($article['cates']) >0 && count($article['cates']) <= 3)
 
-                    @foreach($article['tags'] as $tag)
-                    <span class="label label-badge" style="background-color: {{ $tag['color'] }}">{{ $tag['name'] }}</span>
+                    @foreach($article['cates'] as $cate)
+                    <span class="label label-badge" style="background-color: {{ $cate['color'] }}">{{ $cate['name'] }}</span>
                     @endforeach
 
-                @elseif (count($article['tags']) > 3)
+                @elseif (count($article['cates']) > 3)
 
-                    <span class="label label-badge" style="background-color: {{ $article['tags'][0]['color'] }}">{{ $article['tags'][0]['name'] }}</span>
-                    <span class="label label-badge" style="background-color: {{ $article['tags'][1]['color'] }}">{{ $article['tags'][1]['name'] }}</span>
-                    <span class="label label-badge" style="background-color: {{ $article['tags'][2]['color'] }}">{{ $article['tags'][2]['name'] }}</span>
+                    @for ($i = 0; $i <= 2; $i++)
+                        <span class="label label-badge" style="background-color: {{         $article['cates'][$i]['color'] }}">{{ $article['cates'][$i]['name'] }}</span>
+                    @endfor
                     <span class="label label-badge label-default" style="font-weight:bold;">&middot;&middot;&middot;</span>
 
                 @endif
@@ -60,14 +61,43 @@
     <div class="box-footer">
         <div class="box-footer-meta">
 
-            <div class="footer-meta social-share"
-            data-url="{{ url('articles/view/'.$article['Id']) }}"
-            data-source="{{ $article['title'] }}"
-            data-title="{{ $article['title'] }}"
-            data-description="{{ $article['summary'] }}"
-            data-image="{{ asset('assets/images/header-logo.jpg') }}"
-            data-disabled="diandian"
-            ></div>
+            <!-- <div class="footer-meta social-share"
+                data-url="{{ url('articles/view/'.$article['Id']) }}"
+                data-source="{{ $article['title'] }}"
+                data-title="{{ $article['title'] }}"
+                data-description="{{ $article['summary'] }}"
+                data-image="{{ asset('assets/images/header-logo.jpg') }}"
+                data-disabled="diandian"
+            ></div> -->
+            <div class="footer-meta tags-meta">
+                <i class="fa fa-tags"></i>
+                &nbsp;标签：
+                @if (count($article['tags']) == 0)
+
+                    <span>无</span>
+
+                @elseif (count($article['tags']) >0 && count($article['tags']) <= 5)
+
+                    @foreach($article['tags'] as $tag)
+                    <span class="footer-tag" style="
+                        background-color: {{ $tag['color'] }};
+                        border-color: {{ $tag['color'] }};
+                    ">{{ $tag['name'] }}</span>
+                    @endforeach
+
+                @elseif (count($article['tags']) > 5)
+
+                    @for ($i = 0; $i <= 4; $i++)
+                        <span class="footer-tag" style="
+                            background-color: {{ $article['tags'][$i]['color'] }};
+                            border-color: {{ $article['tags'][$i]['color'] }};
+                        ">{{ $article['tags'][0]['name'] }}</span>
+                    @endfor
+
+                    <span class="footer-tag" style="font-weight:bold;">&middot;&middot;&middot;</span>
+
+                @endif
+            </div>
 
             <div class="footer-meta btn-view-container">
                 <a href="{{ url('articles/view/'.$article['Id']) }}" class="btn btn-primary btn-view"><i class="fa fa-search"></i>&nbsp;阅读全文</a>
