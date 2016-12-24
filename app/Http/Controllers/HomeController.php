@@ -27,6 +27,7 @@ class HomeController extends Controller
                 'sidebarArchives' => $this->getSidebarArchives()
             ]);
         });
+
     }
 
     /**
@@ -105,7 +106,6 @@ class HomeController extends Controller
             ->orderBy('published_at', 'asc')
             ->published()
             ->visible()
-            ->take($size)
             ->get()
             ->transform(function($item, $key) {
                 $timestamp         = strtotime($item->published_at);
@@ -119,6 +119,7 @@ class HomeController extends Controller
                 return $item;
             })
             ->groupBy('section_timestamp')
+            ->take($size)
             ->toArray();
 
         // dd($sidebarArchives);

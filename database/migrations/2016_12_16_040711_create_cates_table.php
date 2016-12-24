@@ -18,6 +18,8 @@ class CreateCatesTable extends Migration
             $table->string('name', 255);
             $table->string('color', 15)->default(0);
             $table->mediumInteger('order_num')->unsigned()->default(0);
+            $table->integer('wp_term_id')->unsigned()->default(0);
+            $table->integer('wp_parent_id')->unsigned()->default(0);
             $table->timestamps();
         });
     }

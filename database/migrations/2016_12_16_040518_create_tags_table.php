@@ -16,6 +16,7 @@ class CreateTagsTable extends Migration
             $table->increments('Id');
             $table->string('name', 255);
             $table->string('color', 15)->default(0);
+            $table->integer('wp_term_id')->unsigned()->default(0);
             $table->timestamps();
         });
     }

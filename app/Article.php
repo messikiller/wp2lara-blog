@@ -18,7 +18,7 @@ class Article extends Model
 
     public function scopeVisible($query)
     {
-        return $query->where('is_hidden', 1);
+        return $query->where('is_hidden', 0);
     }
 
     public function tags()
