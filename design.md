@@ -26,6 +26,6 @@ box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
 
 - wordpress 数据库导入：
 
-    php artisan db:seed --class=WordpressSeeder
+    php artisan wordpress:import[ --class=TableName]
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

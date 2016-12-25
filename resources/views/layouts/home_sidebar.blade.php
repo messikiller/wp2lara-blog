@@ -36,6 +36,7 @@
     <div class="sidebar-box">
         <div class="sidebar-box-title">
             <i class="fa fa-folder-open"></i>&nbsp;文章归档
+            <!-- <i class="fa fa-calendar"></i>&nbsp;文章归档 -->
         </div>
         <div class="sidebar-box-divider"></div>
         <div class="siderbar-box-content">
@@ -43,7 +44,8 @@
             @foreach ($sidebarArchives as $archive_time => $archive)
             <div>
                 <a href="{{ url('articles/archive/'.$archive_time) }}" class="sidebar-archive-item">
-                    <i class="fa fa-xs fa-folder-open-o"></i>&nbsp;
+                    <!-- <i class="fa fa-xs fa-folder-open-o"></i>&nbsp; -->
+                    <i class="fa fa-calendar"></i>&nbsp;
                     {{ date('Y年m月', $archive_time) }}({{ count($archive) }})
                 </a>
             </div>

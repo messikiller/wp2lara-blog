@@ -1,24 +1,78 @@
 <?php
 
-use Illuminate\Database\Seeder;
+namespace App\Console\Commands;
 
+use Illuminate\Console\Command;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+
+use League\HTMLToMarkdown\HtmlConverter;
 use Faker\Factory as Faker;
 
-class WordpressSeeder extends Seeder
+class WordpressImport extends Command
 {
     /**
-     * Run the database seeds.
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'wordpress:import {--table=}';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Import database form wordpress to laravel blog';
+
+    /**
+     * Create a new command instance.
      *
      * @return void
      */
-    public function run()
+    public function __construct()
     {
-        $this->generateArticles();
-        $this->generateCates();
-        $this->generateTags();
+        parent::__construct();
+    }
 
-        $this->generateArticleCates();
-        $this->generateArticleTags();
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $table = $this->option('table');
+
+        $tables = [
+            'Articles',
+            'Cates',
+            'Tags',
+            'ArticleTags',
+            'ArticleCates'
+        ];
+
+        if (! is_null($table) && ! in_array($table, $tables)) {
+            $this->error('Invalid Option: table');
+            exit();
+        }
+
+        if (is_null($table))
+        {
+            foreach ($tables as $method) {
+                $methodName = 'generate' . $method;
+                $this->{$methodName}();
+            }
+
+            $this->info('All Table Imported!');
+            exit();
+        }
+
+        $method = 'generate' . $table;
+        $this->{$method}();
+
+        $this->info('Imported Table: '. $table);
     }
 
     private function generateArticles()
@@ -50,7 +104,8 @@ class WordpressSeeder extends Seeder
                 'wp_post_id' => $post->ID,
                 'title' => $post->post_title,
                 'summary' => $summary,
-                'content' => $content,
+                // 'content' => $content,
+                'content' => $this->_getMarkedContent($content),
                 'read_num' => $post->read_num,
                 'published_at' => $post->post_date,
                 'created_at' => $post->post_date,
@@ -283,6 +338,52 @@ class WordpressSeeder extends Seeder
         }
 
         return trim($array[0]);
+    }
+
+    private function _getRealContent($content)
+    {
+        $array = explode('<!--more-->', $content);
+
+        if (! is_array($array) || count($array) < 2) {
+            return '';
+        }
+
+        return trim($array[1]);
+    }
+
+    private function _getMarkedContent($content)
+    {
+        $first = trim($this->_getSummaryByContent($content));
+        $realContent = $this->_getRealContent($content);
+
+        $realContentArr = explode(PHP_EOL, $realContent);
+        $ret = [];
+
+        if (! empty($first)) {
+            $ret[] = $first;
+        }
+
+        $converter = new HtmlConverter();
+        $parsedown = new \Parsedown();
+
+        foreach ($realContentArr as $val)
+        {
+            $val = trim($val);
+            if (empty($val)) {
+                continue;
+            }
+
+            // if ($val[0] == '<' && $val[strlen($val)-1] == '>') {
+            //     continue;
+            // }
+            $val = '<p>'.$val.'</p>';
+
+            // $val = $converter->convert($val);
+            // $val = $parsedown->text($val);
+            $ret[] = $val;
+        }
+
+        return implode($ret, '');
     }
 
     private function _getColumnsMap($table, $key_column, $value_column)

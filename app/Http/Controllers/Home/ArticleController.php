@@ -43,9 +43,18 @@ class ArticleController extends HomeController
         ]);
     }
 
-    public function view()
+    public function view($id)
     {
+        $article = Article::with(['tags', 'cates'])
+            ->where('Id', '=', $id)
+            ->firstOrFail();
 
+        // dd($article->toArray());
+
+        return view('home.view')->with([
+            'current_cate' => 0,
+            'article'      => $article
+        ]);
     }
 
     public function tag()

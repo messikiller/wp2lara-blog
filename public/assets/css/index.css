@@ -569,4 +569,11 @@
     color: #3498db;
 }
 
+#content{
+    background-color: #ffffff;
+    border: 1px solid #e7ebee;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
 /*# sourceMappingURL=index.css.map */

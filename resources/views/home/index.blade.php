@@ -44,7 +44,7 @@
 
             @inject('carbon', 'Carbon\Carbon')
             <span class="header-meta pubtime-meta">
-                <i class="fa fa-clock-o"></i>
+                <i class="fa fa-calendar"></i>
                 &nbsp;发表：
                 {{ $carbon->createFromFormat('Y-m-d H:i:s', $article['published_at'])->diffForHumans() }}
             </span>
@@ -55,20 +55,12 @@
     <div class="box-divider"></div>
 
     <div class="box-body">
-        <p>{{ $article['summary'] }}</p>
+        <p>{!! $article['summary'] !!}</p>
     </div>
 
     <div class="box-footer">
         <div class="box-footer-meta">
 
-            <!-- <div class="footer-meta social-share"
-                data-url="{{ url('articles/view/'.$article['Id']) }}"
-                data-source="{{ $article['title'] }}"
-                data-title="{{ $article['title'] }}"
-                data-description="{{ $article['summary'] }}"
-                data-image="{{ asset('assets/images/header-logo.jpg') }}"
-                data-disabled="diandian"
-            ></div> -->
             <div class="footer-meta tags-meta">
                 <i class="fa fa-tags"></i>
                 &nbsp;标签：
