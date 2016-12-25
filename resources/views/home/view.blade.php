@@ -10,19 +10,55 @@
             {{ $article->title }}
         </h1>
         <dl class="dl-inline">
-            <dt>发布于：</dt>
-            <dd>{{ $article->published_at }}</dd>
+            <dt><i class="fa fa-calendar"></i>&nbsp;&nbsp;发布：</dt>
+            <dd>{{ date('Y-m-d', strtotime($article->published_at)) }}</dd>
 
-            <dt>最后修订：</dt>
-            <dd>{{ $article->updated_at }}</dd>
-          <dt></dt>
-          <dd class="pull-right">
-              @foreach ($article->tags as $tag)
-              <span class="label" style="background-color: {{ $tag->color }};">
-                  {{ $tag->name }}
-              </span>&nbsp;
-              @endforeach
-          </dd>
+            <dt><i class="fa fa-eye"></i>&nbsp;&nbsp;浏览：</dt>
+            <dd>{{ $article->read_num }}</dd>
+
+            <dt><i class="fa fa-tags"></i>&nbsp;&nbsp;标签：</dt>
+            <dd>
+                @if (count($article->tags) == 0)
+                    无
+                @elseif (count($article->tags) > 0 && count($article->tags) <= 3)
+                    @foreach ($article->tags as $tag)
+                    <span class="label" style="background-color: {{ $tag->color }};">
+                        {{ $tag->name }}
+                    </span>&nbsp;
+                    @endforeach
+                @elseif (count($article->tags) > 0 && count($article->tags) <= 3)
+                    @foreach ($article->tags as $tag)
+                    <span class="label" style="background-color: {{ $tag->color }};">
+                        {{ $tag->name }}
+                    </span>&nbsp;
+                    @endforeach
+                    <span class="label" style="background-color: #adadad;">
+                        <i class="icon icon-ellipsis-h"></i>
+                    </span>
+                @endif
+            </dd>
+
+            <dt><i class="fa fa-list-ul"></i>&nbsp;&nbsp;分类：</dt>
+            <dd>
+                @if (count($article->cates) == 0)
+                    无
+                @elseif (count($article->cates) > 0 && count($article->cates) <= 3)
+                    @foreach ($article->cates as $cate)
+                    <span class="label" style="background-color: {{ $cate->color }};">
+                        {{ $cate->name }}
+                    </span>&nbsp;
+                    @endforeach
+                @elseif (count($article->cates) > 0 && count($article->cates) <= 3)
+                    @foreach ($article->cates as $cate)
+                    <span class="label" style="background-color: {{ $cate->color }};">
+                        {{ $cate->name }}
+                    </span>&nbsp;
+                    @endforeach
+                    <span class="label" style="background-color: #adadad;">
+                        <i class="icon icon-ellipsis-h"></i>
+                    </span>
+                @endif
+            </dd>
         </dl>
         <section class="abstract">
           <p>
@@ -38,13 +74,13 @@
 
       <footer>
           <p class="text-muted">
-              <i class="fa fa-rss"></i>
+              <i class="fa fa-share-alt"></i>
               &nbsp;分享：
               <span class="footer-meta social-share"
-                  data-url="{{ url('articles/view/'.$article['Id']) }}"
-                  data-source="{{ $article['title'] }}"
-                  data-title="{{ $article['title'] }}"
-                  data-description="{{ $article['summary'] }}"
+                  data-url="{{ url('articles/view/' . $article->Id) }}"
+                  data-source="{{ $article->title }}"
+                  data-title="{{ $article->title }}"
+                  data-description="{{ $article->summary }}"
                   data-image="{{ asset('assets/images/header-logo.jpg') }}"
                   data-disabled="diandian"
               ></span>

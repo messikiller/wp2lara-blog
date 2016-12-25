@@ -44,7 +44,6 @@
             @foreach ($sidebarArchives as $archive_time => $archive)
             <div>
                 <a href="{{ url('articles/archive/'.$archive_time) }}" class="sidebar-archive-item">
-                    <!-- <i class="fa fa-xs fa-folder-open-o"></i>&nbsp; -->
                     <i class="fa fa-calendar"></i>&nbsp;
                     {{ date('Y年m月', $archive_time) }}({{ count($archive) }})
                 </a>

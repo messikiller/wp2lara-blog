@@ -91,9 +91,14 @@ class HomeController extends Controller
             ->where('pid', '>', 0)
             ->orderBy('pid', 'asc')
             ->orderBy('created_at', 'asc')
-            ->take($size)
             ->get()
+            ->filter(function ($item) {
+                return $item->articles_count > 0;
+            })
+            ->take($size)
             ->toArray();
+
+        // dd($sidebarCates);
 
         return $sidebarCates;
     }
@@ -103,7 +108,7 @@ class HomeController extends Controller
         $size = $this->getBlogInfo('sidebar_archives_size', 50);
 
         $sidebarArchives = Article::select(['Id', 'published_at'])
-            ->orderBy('published_at', 'asc')
+            ->orderBy('published_at', 'desc')
             ->published()
             ->visible()
             ->get()
