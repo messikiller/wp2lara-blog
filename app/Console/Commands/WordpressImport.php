@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Schema;
 use League\HTMLToMarkdown\HtmlConverter;
 use Faker\Factory as Faker;
 
+use App\Libraries\ContentParser;
+
 class WordpressImport extends Command
 {
     /**

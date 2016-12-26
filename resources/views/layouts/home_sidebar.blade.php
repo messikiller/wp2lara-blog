@@ -16,6 +16,7 @@
     <div class="sidebar-box">
         <div class="sidebar-box-title">
             <i class="fa fa-list-ul"></i>&nbsp;文章分类
+            <a href="javascript:;" class="btn btn-default btn-xs btn-sidebox-toggle pull-right" style="border-radius: 1px;"><i class="fa fa-angle-down"></i></a>
         </div>
         <div class="sidebar-box-divider"></div>
         <div class="siderbar-box-content">
@@ -36,7 +37,6 @@
     <div class="sidebar-box">
         <div class="sidebar-box-title">
             <i class="fa fa-folder-open"></i>&nbsp;文章归档
-            <!-- <i class="fa fa-calendar"></i>&nbsp;文章归档 -->
         </div>
         <div class="sidebar-box-divider"></div>
         <div class="siderbar-box-content">
