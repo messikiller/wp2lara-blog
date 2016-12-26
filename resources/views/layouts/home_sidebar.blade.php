@@ -16,7 +16,7 @@
     <div class="sidebar-box">
         <div class="sidebar-box-title">
             <i class="fa fa-list-ul"></i>&nbsp;文章分类
-            <a href="javascript:;" class="btn btn-default btn-xs btn-sidebox-toggle pull-right" style="border-radius: 1px;"><i class="fa fa-angle-down"></i></a>
+            <a href="javascript:;" class="btn btn-default btn-xs btn-sidebox-toggle pull-right" style="border-radius: 1px;color: #555;"><i class="fa fa-plus fa-xs"></i></a>
         </div>
         <div class="sidebar-box-divider"></div>
         <div class="siderbar-box-content">
@@ -37,6 +37,7 @@
     <div class="sidebar-box">
         <div class="sidebar-box-title">
             <i class="fa fa-folder-open"></i>&nbsp;文章归档
+            <a href="javascript:;" class="btn btn-default btn-xs btn-sidebox-toggle pull-right" style="border-radius: 1px;color: #555;"><i class="fa fa-caret-down fa-xs"></i></a>
         </div>
         <div class="sidebar-box-divider"></div>
         <div class="siderbar-box-content">
@@ -52,10 +53,11 @@
 
         </div>
     </div>
-
+<!-- btn btn-default btn-xs -->
     <div class="sidebar-box">
         <div class="sidebar-box-title">
             <i class="fa fa-tags"></i>&nbsp;标签云
+            <a href="javascript:;" class="btn btn-default btn-xs btn-sidebox-toggle pull-right" style="border-radius: 1px;color: #555;"><i class="fa fa-caret-down fa-xs"></i></a>
         </div>
         <div class="sidebar-box-divider"></div>
         <div class="siderbar-box-content">

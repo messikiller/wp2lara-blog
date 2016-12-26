@@ -1768,9 +1768,9 @@ function disable() {
 
 // Add the state property to jQuery's event object so we can use it in
 // $(window).bind('popstate')
-if ( $.inArray('state', $.event.props) < 0 ) {
-	$.event.props.push('state')
-}
+if ( $.inArray('state', $.event.props) < 0 )
+  $.event.props.push('state')
+
 // Is pjax supported by this browser?
 $.support.pjax =
   window.history && window.history.pushState && window.history.replaceState &&
@@ -1830,12 +1830,12 @@ var QRCode;!function(){function t(t){this.mode=l.MODE_8BIT_BYTE,this.data=t,this
 
     // sidebar content toggle btn
     $('#sidebar .sidebar-box .btn-sidebox-toggle').click(function(){
-        if ($(this).is('.fa-rotate-90')) {
+        if ($(this).children('i.fa').is('.fa-rotate-90')) {
             $(this).children('i.fa').removeClass('fa-rotate-90');
-            $(this).parents('.sidebar-box').first().children('.siderbar-box-content').first().slideToggle();
+            $(this).parents('.sidebar-box').first().children('.siderbar-box-content').first().slideDown('fast');
         } else {
             $(this).children('i.fa').addClass('fa-rotate-90');
-            $(this).parents('.sidebar-box').first().children('.siderbar-box-content').first().slideToggle();
+            $(this).parents('.sidebar-box').first().children('.siderbar-box-content').first().slideUp('fast');
         }
     });
 });

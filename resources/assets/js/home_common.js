@@ -46,12 +46,12 @@
 
     // sidebar content toggle btn
     $('#sidebar .sidebar-box .btn-sidebox-toggle').click(function(){
-        if ($(this).is('.fa-rotate-90')) {
+        if ($(this).children('i.fa').is('.fa-rotate-90')) {
             $(this).children('i.fa').removeClass('fa-rotate-90');
-            $(this).parents('.sidebar-box').first().children('.siderbar-box-content').first().slideToggle();
+            $(this).parents('.sidebar-box').first().children('.siderbar-box-content').first().slideDown('fast');
         } else {
             $(this).children('i.fa').addClass('fa-rotate-90');
-            $(this).parents('.sidebar-box').first().children('.siderbar-box-content').first().slideToggle();
+            $(this).parents('.sidebar-box').first().children('.siderbar-box-content').first().slideUp('fast');
         }
     });
 });
