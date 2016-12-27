@@ -62,8 +62,8 @@
         <div class="box-footer-meta">
 
             <div class="footer-meta tags-meta">
-                <i class="fa fa-tags"></i>
-                &nbsp;标签：
+                <!-- <i class="fa fa-tags"></i> -->
+                <!-- &nbsp;标签： -->
                 @if (count($article['tags']) == 0)
 
                     <span>无</span>
@@ -71,19 +71,13 @@
                 @elseif (count($article['tags']) >0 && count($article['tags']) <= 5)
 
                     @foreach($article['tags'] as $tag)
-                    <span class="footer-tag" style="
-                        background-color: {{ $tag['color'] }};
-                        border-color: {{ $tag['color'] }};
-                    ">{{ $tag['name'] }}</span>
+                    <span class="footer-tag"><i class="ion-pricetag"></i>&nbsp;{{ $tag['name'] }}</span>
                     @endforeach
 
                 @elseif (count($article['tags']) > 5)
 
                     @for ($i = 0; $i <= 4; $i++)
-                        <span class="footer-tag" style="
-                            background-color: {{ $article['tags'][$i]['color'] }};
-                            border-color: {{ $article['tags'][$i]['color'] }};
-                        ">{{ $article['tags'][0]['name'] }}</span>
+                    <span class="footer-tag"><i class="ion-pricetag"></i>&nbsp;{{ $tag['name'] }}</span>
                     @endfor
 
                     <span class="footer-tag" style="font-weight:bold;">&middot;&middot;&middot;</span>

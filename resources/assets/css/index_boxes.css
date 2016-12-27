@@ -91,12 +91,14 @@
 
 #boxes .box .box-footer .tags-meta .footer-tag{
     display: inline-block;
-    border-width: 1px;
-    border-style: solid;
+    /*border-width: 1px;*/
+    /*border-style: solid;*/
     border-radius: 1px;
-    padding: 2px 8px;
+    padding: 1px 6px;
     font-weight: bold;
-    color: #ffffff;
+    /*color: #ffffff;*/
+    background-color: #e8e8e8;
+    color: #555555;
 }
 
 #boxes .box .box-footer .btn-view-container{

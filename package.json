@@ -8,6 +8,7 @@
     "animate.css": "^3.5.2",
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
+    "ionicons-npm": "^2.0.1",
     "jquery": "^3.1.1",
     "jquery-migrate": "^3.0.0",
     "jquery-pjax": "^1.9.6",
@@ -19,6 +20,5 @@
     "social-share.js": "^1.0.15",
     "stickUp": "^2.3.1",
     "zui": "^1.5.0"
-  },
-  "dependencies": {}
+  }
 }

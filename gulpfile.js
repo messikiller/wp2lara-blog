@@ -17,6 +17,7 @@ require('laravel-elixir-compress');
 var basecss = [
     'node_modules/zui/dist/css/zui.min.css',
     'node_modules/font-awesome/css/font-awesome.min.css',
+    'node_modules/ionicons-npm/css/ionicons.min.css',
     'node_modules/animate.css/animate.min.css',
     'node_modules/nprogress/nprogress.css',
     'node_modules/social-share.js/dist/css/share.min.css'
@@ -39,6 +40,14 @@ elixir(function(mix) {
             'node_modules/zui/dist/fonts/zenicon.svg',
             'node_modules/zui/dist/fonts/zenicon.ttf',
             'node_modules/zui/dist/fonts/zenicon.woff'
+        ], 'public/assets/fonts/')
+
+        .copy([
+            'node_modules/ionicons-npm/fonts/ionicons.eot',
+            'node_modules/ionicons-npm/fonts/ionicons.svg',
+            'node_modules/ionicons-npm/fonts/ionicons.ttf',
+            'node_modules/ionicons-npm/fonts/ionicons.woff',
+            'node_modules/ionicons-npm/fonts/ionicons.woff2'
         ], 'public/assets/fonts/')
 
         .copy([
