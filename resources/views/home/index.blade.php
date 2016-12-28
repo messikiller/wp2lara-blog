@@ -30,7 +30,7 @@
                 @elseif (count($article['cates']) > 3)
 
                     @for ($i = 0; $i <= 2; $i++)
-                        <span class="label label-badge" style="background-color: {{         $article['cates'][$i]['color'] }}">{{ $article['cates'][$i]['name'] }}</span>
+                        <span class="label label-badge" style="background-color: {{ $article['cates'][$i]['color'] }}">{{ $article['cates'][$i]['name'] }}</span>
                     @endfor
                     <span class="label label-badge label-default" style="font-weight:bold;">&middot;&middot;&middot;</span>
 
@@ -62,11 +62,9 @@
         <div class="box-footer-meta">
 
             <div class="footer-meta tags-meta">
-                <!-- <i class="fa fa-tags"></i> -->
-                <!-- &nbsp;标签： -->
                 @if (count($article['tags']) == 0)
 
-                    <span>无</span>
+                    <span><i class="fa fa-tags"></i>&nbsp;标签：无</span>
 
                 @elseif (count($article['tags']) >0 && count($article['tags']) <= 3)
 
