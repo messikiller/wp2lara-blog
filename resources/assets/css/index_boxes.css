@@ -35,29 +35,6 @@
     color: #3498db;
 }
 
-#boxes .box .box-header .box-header-meta{
-    width: 100%;
-    margin-top: 15px;
-}
-
-#boxes .box .box-header .box-header-meta .header-meta{
-    display: inline-block;
-    text-align: left;
-    color: #999999;
-}
-
-#boxes .box .box-header .box-header-meta .cate-meta{
-    width: 40%;
-}
-
-#boxes .box .box-header .box-header-meta .view-meta{
-    width: 30%;
-}
-
-#boxes .box .box-header .box-header-meta .pubtime-meta{
-    width: 28%;
-}
-
 #boxes .box .box-divider{
     border-top: 1px solid #e7ebee;
     margin-bottom: 15px;
@@ -79,25 +56,26 @@
 }
 
 #boxes .box .box-footer{
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 #boxes .box .box-footer .footer-meta{
     display: inline-block;
-}
-
-#boxes .box .box-footer .tags-meta{
     color: #999999;
 }
 
-#boxes .box .box-footer .tags-meta .footer-tag{
-    display: inline-block;
-    border-radius: 1px;
-    padding: 4px 8px;
-    font-weight: bold;
+#boxes .box .box-footer .box-footer-meta .footer-meta .label-cate{
     background-color: #e8e8e8;
     color: #555555;
-    margin-right: 3px;
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+#boxes .box .box-footer .box-footer-meta .footer-meta .label-tag{
+    background-color: #e8e8e8;
+    color: #555555;
+    font-weight: 700;
+    margin-right: 5px;
 }
 
 #boxes .box .box-footer .btn-view-container{

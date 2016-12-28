@@ -8,46 +8,9 @@
 <div class="box">
 
     <div class="box-header">
-
         <div class="box-header-title">
             <a href="{{ url('articles/view/'.$article['Id']) }}">{{ $article['title'] }}</a>
         </div>
-
-        <div class="box-header-meta">
-            <span class="header-meta cate-meta">
-                <i class="fa fa-list-ul"></i>&nbsp;分类：
-
-                <?php $counter = count($article['cates']); ?>
-                @if($counter > 0)
-                    <?php $index = 1; ?>
-                    @foreach($article['cates'] as $cate)
-                        <!-- <span class="label label-badge" style="background-color: {{ $cate['color'] }}">{{ $cate['name'] }}</span> -->
-                        <span class="label label-badge label-cate">{{ $cate['name'] }}</span>
-                        @if ($counter > 2 && $index == 2)
-                            <span class="label label-badge label-default" style="font-weight:bold;">&middot;&middot;&middot;</span>
-                            <?php break; ?>
-                        @endif
-                        <?php $index++; ?>
-                    @endforeach
-                @else
-                    <span>无</span>
-                @endif
-
-            </span>
-
-            <span class="header-meta view-meta">
-                <i class="fa fa-eye"></i>&nbsp;
-                浏览：{{ $article['read_num'] }}
-            </span>
-
-            @inject('carbon', 'Carbon\Carbon')
-            <span class="header-meta pubtime-meta">
-                <i class="fa fa-calendar"></i>
-                &nbsp;发表：
-                {{ $carbon->createFromFormat('Y-m-d H:i:s', $article['published_at'])->diffForHumans() }}
-            </span>
-        </div>
-
     </div>
 
     <div class="box-divider"></div>
@@ -59,22 +22,65 @@
     <div class="box-footer">
         <div class="box-footer-meta">
 
-            <div class="footer-meta tags-meta">
+            <div class="footer-meta">
 
-                <?php $counter = count($article['tags']); ?>
-                @if($counter > 0)
-                    <?php $index = 1; ?>
-                    @foreach($article['tags'] as $tag)
-                        <span class="footer-tag"><i class="ion-pricetag"></i>&nbsp;{{ $tag['name'] }}</span>
-                        @if ($counter > 2 && $index == 2)
-                            <span class="footer-tag" style="font-weight:bold;">&middot;&middot;&middot;</span>
-                            <?php break; ?>
-                        @endif
-                        <?php $index++; ?>
-                    @endforeach
-                @else
-                    <span>无</span>
-                @endif
+                @inject('carbon', 'Carbon\Carbon')
+                <span class="footer-meta pubtime-meta">
+                    <i class="fa fa-calendar"></i>
+                    {{ $carbon->createFromFormat('Y-m-d H:i:s', $article['published_at'])->diffForHumans() }}
+                </span>
+
+                <span>&nbsp;/&nbsp;</span>
+
+                <span class="footer-meta view-meta">
+                    <i class="fa fa-eye"></i>
+                    {{ $article['read_num'] }}
+                </span>
+
+                <span>&nbsp;/&nbsp;</span>
+
+                <span class="footer-meta cate-meta">
+                    <?php $counter = count($article['cates']); ?>
+                    @if($counter > 0)
+                        <?php $index = 1; ?>
+                        @foreach($article['cates'] as $cate)
+                            <span class="label label-badge label-cate">
+                                <i class="fa fa-list-ul"></i>
+                                {{ $cate['name'] }}
+                            </span>
+                            @if ($counter > 2 && $index == 2)
+                                <span class="label label-badge label-cate">&middot;&middot;&middot;</span>
+                                <?php break; ?>
+                            @endif
+                            <?php $index++; ?>
+                        @endforeach
+                    @else
+                        <span>无</span>
+                    @endif
+
+                </span>
+
+                <span>&nbsp;/&nbsp;</span>
+
+                <span class="footer-meta tag-meta">
+                    <?php $counter = count($article['tags']); ?>
+                    @if($counter > 0)
+                        <?php $index = 1; ?>
+                        @foreach($article['tags'] as $tag)
+                            <span class="label label-tag">
+                                <i class="ion-pricetag"></i>
+                                {{ $tag['name'] }}
+                            </span>
+                            @if ($counter > 2 && $index == 2)
+                                <span class="label label-tag" style="font-weight:bold;">&middot;&middot;&middot;</span>
+                                <?php break; ?>
+                            @endif
+                            <?php $index++; ?>
+                        @endforeach
+                    @else
+                        <span>无</span>
+                    @endif
+                </span>
 
             </div>
 
