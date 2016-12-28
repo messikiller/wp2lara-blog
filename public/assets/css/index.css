@@ -294,6 +294,7 @@
     line-height: 27px;
     text-indent: 2em;
     font-size: 15px;
+    word-break: break-word;
 }
 
 #boxes .box .box-footer{
@@ -310,14 +311,12 @@
 
 #boxes .box .box-footer .tags-meta .footer-tag{
     display: inline-block;
-    /*border-width: 1px;*/
-    /*border-style: solid;*/
     border-radius: 1px;
-    padding: 1px 6px;
+    padding: 4px 8px;
     font-weight: bold;
-    /*color: #ffffff;*/
     background-color: #e8e8e8;
     color: #555555;
+    margin-right: 3px;
 }
 
 #boxes .box .box-footer .btn-view-container{

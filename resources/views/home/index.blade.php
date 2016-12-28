@@ -68,16 +68,16 @@
 
                     <span>无</span>
 
-                @elseif (count($article['tags']) >0 && count($article['tags']) <= 5)
+                @elseif (count($article['tags']) >0 && count($article['tags']) <= 3)
 
                     @foreach($article['tags'] as $tag)
                     <span class="footer-tag"><i class="ion-pricetag"></i>&nbsp;{{ $tag['name'] }}</span>
                     @endforeach
 
-                @elseif (count($article['tags']) > 5)
+                @elseif (count($article['tags']) > 3)
 
-                    @for ($i = 0; $i <= 4; $i++)
-                    <span class="footer-tag"><i class="ion-pricetag"></i>&nbsp;{{ $tag['name'] }}</span>
+                    @for ($i = 0; $i <= 2; $i++)
+                    <span class="footer-tag"><i class="ion-pricetag"></i>&nbsp;{{ $article['tags'][$i]['name'] }}</span>
                     @endfor
 
                     <span class="footer-tag" style="font-weight:bold;">&middot;&middot;&middot;</span>

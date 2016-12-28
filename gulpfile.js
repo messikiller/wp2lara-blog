@@ -46,8 +46,7 @@ elixir(function(mix) {
             'node_modules/ionicons-npm/fonts/ionicons.eot',
             'node_modules/ionicons-npm/fonts/ionicons.svg',
             'node_modules/ionicons-npm/fonts/ionicons.ttf',
-            'node_modules/ionicons-npm/fonts/ionicons.woff',
-            'node_modules/ionicons-npm/fonts/ionicons.woff2'
+            'node_modules/ionicons-npm/fonts/ionicons.woff'
         ], 'public/assets/fonts/')
 
         .copy([
