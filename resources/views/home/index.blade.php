@@ -22,7 +22,7 @@
     <div class="box-footer">
         <div class="box-footer-meta">
 
-            <div class="footer-meta">
+            <div class="footer-meta meta-container">
 
                 @inject('carbon', 'Carbon\Carbon')
                 <span class="footer-meta pubtime-meta">
@@ -55,7 +55,7 @@
                             <?php $index++; ?>
                         @endforeach
                     @else
-                        <span>无</span>
+                        <span>未分类</span>
                     @endif
 
                 </span>
@@ -78,7 +78,7 @@
                             <?php $index++; ?>
                         @endforeach
                     @else
-                        <span>无</span>
+                        <span>无标签</span>
                     @endif
                 </span>
 
