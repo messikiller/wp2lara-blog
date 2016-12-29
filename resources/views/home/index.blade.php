@@ -101,25 +101,49 @@
             @if ($articles['prev_page_url'] == null)
             disabled
             @endif
-        "><a href="{{ $articles['prev_page_url'] }}"><i class="icon-double-angle-left"></i></a></li>
+        "><a href="{{ $articles['prev_page_url'] }}"><i class="icon-double-angle-left"></i>&nbsp;上一页</a></li>
 
-        @for ($p = 1; $p <= $articles['last_page']; $p++)
-        <li class="
-            @if ($p == $articles['current_page'])
-            active
-            @endif
-        ">
-            <a href="{{ url('/articles') }}?page={{ $p }}">
-                {{ $p }}
-            </a>
-        </li>
-        @endfor
+        @if ($articles['last_page'] <= $articles['per_page'])
+            @for ($p = 1; $p <= $articles['last_page']; $p++)
+            <li class="
+                @if ($p == $articles['current_page'])
+                active
+                @endif
+            ">
+                <a href="{{ url('/articles') }}?page={{ $p }}">
+                    {{ $p }}
+                </a>
+            </li>
+            @endfor
+        @else
+            @for ($p = 1; $p <= $articles['per_page']; $p++)
+            <li class="
+                @if ($p == $articles['current_page'])
+                active
+                @endif
+            ">
+                <a href="{{ url('/articles') }}?page={{ $p }}">
+                    {{ $p }}
+                </a>
+            </li>
+            @endfor
+            <li><a href="javascript:;">&middot;&middot;&middot;</a></li>
+            <li class="
+                @if ($articles['current_page'] == $articles['last_page'])
+                active
+                @endif
+            ">
+                <a href="{{ url('/articles') }}?page={{ $articles['last_page'] }}">
+                    {{ $articles['last_page'] }}
+                </a>
+            </li>
+        @endif
 
         <li class="next
             @if ($articles['next_page_url'] == null)
             disabled
             @endif
-        "><a href="{{ $articles['next_page_url'] }}"><i class="icon-double-angle-right"></i></a></li>
+        "><a href="{{ $articles['next_page_url'] }}">下一页&nbsp;<i class="icon-double-angle-right"></i></a></li>
     </ul>
 
 </div>
