@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 
 use App\Article;
+use App\Libraries\ZuiThreePresenter;
 
 class ArticleController extends HomeController
 {
@@ -32,14 +33,14 @@ class ArticleController extends HomeController
             ->visible()
             ->orderBy('published_at', 'desc')
             ->orderBy('Id', 'asc')
-            ->paginate($pagesize)
-            ->toArray();
+            ->paginate($pagesize);
 
-        // dd($articles);
+        // dd($articles->links());
 
         return view('home.index')->with([
             'current_cate' => 0,
             'articles'     => $articles,
+            'pagination'   => $articles->render(new ZuiThreePresenter($articles))
         ]);
     }
 
