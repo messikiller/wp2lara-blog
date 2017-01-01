@@ -18,7 +18,7 @@ class BlogInfoSeeder extends Seeder
             'sidebar_motto'         => '一万年来谁著史，八千里外觅封侯',
             'sidebar_motto_sub'     => '—— 李鸿章',
             'sidebar_cates_size'    => 15,
-            'sidebar_archives_size' => 12,
+            'sidebar_archives_size' => 8,
             'sidebar_tags_size'     => 30,
             'boxes_max_size'        => 5,
             'footer_weibo_url'      => 'http://weibo.com/5451465984/profile?rightmod=1'

@@ -30,8 +30,12 @@ Route::group(['middleware' => 'web'], function () {
 
 
 // admin pages routes
-Route::get('/admin/articles',             'Admin\ArticleController@index');
-Route::post('/admin/article/store',       'Admin\ArticleController@store');
+Route::get('/admin',                      'AdminController@index');
+Route::get('/admin/index',                'AdminController@index');
+Route::get('/admin/login',                'AdminController@login');
+
+Route::get('/admin/article/index',        'Admin\ArticleController@index');
+Route::post('/admin/article/add',         'Admin\ArticleController@add');
 Route::get('/admin/article/edit/{id}',    'Admin\ArticleController@edit');
 Route::post('/admin/article/update/{id}', 'Admin\ArticleController@update');
-Route::get('/admin/article/delete/{id}',  'Admin\ArticleController@destroy');
+Route::get('/admin/article/delete/{id}',  'Admin\ArticleController@delete');
