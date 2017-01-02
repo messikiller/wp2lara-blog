@@ -34,8 +34,9 @@ Route::get('/admin',                      'AdminController@index');
 Route::get('/admin/index',                'AdminController@index');
 Route::get('/admin/login',                'AdminController@login');
 
-Route::get('/admin/article/index',        'Admin\ArticleController@index');
-Route::post('/admin/article/add',         'Admin\ArticleController@add');
-Route::get('/admin/article/edit/{id}',    'Admin\ArticleController@edit');
-Route::post('/admin/article/update/{id}', 'Admin\ArticleController@update');
-Route::get('/admin/article/delete/{id}',  'Admin\ArticleController@delete');
+Route::get('/admin/article/index',             'Admin\ArticleController@index');
+Route::get('/admin/article/add',               'Admin\ArticleController@add');
+Route::post('/admin/article/add',              'Admin\ArticleController@create');
+Route::get('/admin/article/edit/{id}',         'Admin\ArticleController@edit');
+Route::post('/admin/article/edit/{id}',        'Admin\ArticleController@update');
+Route::get('/admin/article/act/{act}/Id/{id}', 'Admin\ArticleController@act');

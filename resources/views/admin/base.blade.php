@@ -10,13 +10,14 @@
 }
 
 body{
-    background-color: #eff0f4;
+    /*background-color: #f9f9f9;*/
+    background-color: #ffffff;
     padding: 15px;
 }
 </style>
-<style type="text/css">
-    @yield('own-css')
-</style>
+
+@yield('own-css')
+
 </head>
 <body>
 
@@ -26,8 +27,8 @@ body{
 <script type="text/javascript">
     $('html').niceScroll({styler:"fb",cursorcolor:"#65cea7", cursorwidth: '6', cursorborderradius: '0px', background: '#424f63', spacebarenabled:false, cursorborder: '0'});
 </script>
-<script type="text/javascript">
-    @yield('own-js')
-</script>
+
+@yield('own-js')
+
 </body>
 </html>

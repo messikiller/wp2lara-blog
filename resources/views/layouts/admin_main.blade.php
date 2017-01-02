@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Blank Page</title>
+  <title>admin</title>
   <link href="{{ asset('assets/css/admin_frame.css') }}" rel="stylesheet">
 </head>
 

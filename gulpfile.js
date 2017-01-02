@@ -3,6 +3,8 @@ var elixir = require('laravel-elixir');
 require('laravel-elixir-livereload');
 require('laravel-elixir-compress');
 
+require('laravel-elixir-vue');
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -145,6 +147,8 @@ elixir(function(mix) {
             'public/assets/js/admin_base.js',
             './'
         )
+
+        .webpack('main.js')
 
         .version([
             'assets/js/index.js',

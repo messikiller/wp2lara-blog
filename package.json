@@ -16,12 +16,18 @@
     "jquery-ui": "^1.12.1",
     "jquery.nicescroll": "^3.6.8",
     "laravel-elixir": "^6.0.0-15",
+    "laravel-elixir-browsersync-official": "^1.0.0",
     "laravel-elixir-compress": "^1.0.2",
     "laravel-elixir-livereload": "^1.1.6",
+    "laravel-elixir-vue": "^0.1.8",
+    "laravel-elixir-webpack-official": "^1.0.10",
     "nprogress": "^0.2.0",
     "orchestrator": "^0.3.8",
     "social-share.js": "^1.0.15",
     "stickUp": "^2.3.1",
+    "vue": "^2.1.8",
+    "vue-resource": "^1.0.3",
+    "vue-router": "^2.1.1",
     "zui": "^1.5.0"
   }
 }
