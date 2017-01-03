@@ -1,8 +1,5 @@
 var elixir = require('laravel-elixir');
 
-require('laravel-elixir-livereload');
-require('laravel-elixir-compress');
-
 require('laravel-elixir-vue');
 
 /*

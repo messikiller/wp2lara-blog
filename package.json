@@ -18,7 +18,6 @@
     "laravel-elixir": "^6.0.0-15",
     "laravel-elixir-browsersync-official": "^1.0.0",
     "laravel-elixir-compress": "^1.0.2",
-    "laravel-elixir-livereload": "^1.1.6",
     "laravel-elixir-vue": "^0.1.8",
     "laravel-elixir-webpack-official": "^1.0.10",
     "nprogress": "^0.2.0",
