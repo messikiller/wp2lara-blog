@@ -7,6 +7,7 @@
   "devDependencies": {
     "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
+    "buble-loader": "^0.4.0",
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
     "ionicons-npm": "^2.0.1",
@@ -18,15 +19,18 @@
     "laravel-elixir": "^6.0.0-15",
     "laravel-elixir-browsersync-official": "^1.0.0",
     "laravel-elixir-compress": "^1.0.2",
-    "laravel-elixir-vue": "^0.1.8",
+    "laravel-elixir-vue-2": "^0.2.0",
     "laravel-elixir-webpack-official": "^1.0.10",
     "nprogress": "^0.2.0",
     "orchestrator": "^0.3.8",
     "social-share.js": "^1.0.15",
     "stickUp": "^2.3.1",
     "vue": "^2.1.8",
+    "vue-loader": "^10.0.2",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.1.1",
+    "vue-template-compiler": "^2.1.6",
+    "vuex": "^2.0.0",
     "zui": "^1.5.0"
   }
 }
