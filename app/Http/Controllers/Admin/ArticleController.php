@@ -10,6 +10,8 @@ use App\Http\Controllers\AdminController;
 
 use App\Libraries\ZuiThreePresenter;
 use App\Article;
+use App\Cate;
+use App\Tag;
 
 class ArticleController extends AdminController
 {
@@ -35,7 +37,18 @@ class ArticleController extends AdminController
 
     public function add()
     {
-        return view('admin/article_add');
+        $cates = Cate::where('pid', '>', 0)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        $tags = Tag::orderBy('created_at', 'desc')
+            ->get();
+
+        // dd($tags);
+        return view('admin/article_add')->with([
+            'cates' => $cates,
+            'tags'  => $tags
+        ]);
     }
 
     public function create(Request $request)

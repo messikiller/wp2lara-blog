@@ -2,6 +2,11 @@
 
 @section('main')
 
+<ol class="breadcrumb">
+    <li><span class="text-primary">文章管理</span></li>
+    <li class="active">发布文章</li>
+</ol>
+
 <div style="width:800px;">
 
     <form class="form-horizontal">
@@ -17,6 +22,9 @@
           <div class="col-md-6 col-sm-10">
             <select class="form-control" id="input-cate">
                 <option value="0">请选择</option>
+                @foreach ($cates as $cate)
+                <option value="{{ $cate->Id }}">{{ $cate->name }}</option>
+                @endforeach
             </select>
           </div>
         </div>
@@ -24,8 +32,10 @@
         <div class="form-group">
           <label for="input-title" class="col-sm-2">标签</label>
           <div class="col-md-6 col-sm-10">
-            <select class="form-control" id="input-tag">
-                <option value="0">请选择</option>
+            <select class="form-control chosen-select" id="input-tag" multiple="true">
+                @foreach ($tags as $tag)
+                <option value="{{ $tag->Id }}">{{ $tag->name }}</option>
+                @endforeach
             </select>
           </div>
         </div>

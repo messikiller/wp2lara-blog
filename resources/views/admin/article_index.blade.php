@@ -1,5 +1,17 @@
 @extends('admin/base')
 
+@section('own-css')
+<style>
+.article-title{
+    display: block;
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+</style>
+@endsection
+
 @section('main')
 
 <ol class="breadcrumb">
@@ -30,7 +42,9 @@
             @foreach ($articles as $article)
             <tr>
                 <td>{{ $index++ }}</td>
-                <td>{{ $article->title }}</td>
+                <td>
+                    <a href="{{ url('articles/view', ['Id' => $article->Id]) }}" data-toggle="tooltip" title="{{ $article->title }}" target="blank" class="article-title">{{ $article->title }}</a>
+                </td>
                 <td>
                     @if (count($article->tags))
                         @foreach ($article->tags as $tag)
