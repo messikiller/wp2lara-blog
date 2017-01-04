@@ -45,7 +45,6 @@
       });
    }
 
-   mainContentHeightAdjust();
    function mainContentHeightAdjust() {
     var h_window = jQuery(window).outerHeight();
     var h_header = jQuery('.header-section').outerHeight();
@@ -53,6 +52,10 @@
     var _h_content = h_window - h_header;
     $('.wrapper').height(_h_content - 5);
    }
+   mainContentHeightAdjust();
+   $(window).resize(function(){
+       mainContentHeightAdjust();
+   });
 
    //  class add mouse hover
    jQuery('.custom-nav > li').hover(function(){
