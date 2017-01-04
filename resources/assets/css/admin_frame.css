@@ -557,17 +557,17 @@ h5.left-nav-title {
     padding: 15px;
     cursor: pointer;
     float: left;
-    color: #212121;
-    border-right: 1px solid #e7e7e7;
+    color: #ffffff;
+    border-right: 1px solid #01b674;
     -moz-transition: all 0.2s ease-out 0s;
     -webkit-transition: all 0.2s ease-out 0s;
     transition: all 0.2s ease-out 0s;
 }
 
 .toggle-btn:hover {
-    background: #65CEA7;
+    background: #00a769;
     color: #fff;
-    border-right-color: #65CEA7;
+    /*border-right-color: #65CEA7;*/
 }
 
 .searchform input {
@@ -608,8 +608,9 @@ h5.left-nav-title {
 
 .notification-menu .dropdown-toggle {
     padding: 12px 10px;
-    border-color: #fff;
-    background: #fff;
+    color: #ffffff;
+    border-color: #ffffff;
+    background: #01b674;
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
@@ -856,6 +857,7 @@ h5.left-nav-title {
     left: 240px;
     width: 100%;
     z-index: 100;
+    background-color: #02c27c;
 }
 
 .sticky-header .main-content {
