@@ -21,6 +21,7 @@
     "laravel-elixir-compress": "^1.0.2",
     "laravel-elixir-vue-2": "^0.2.0",
     "laravel-elixir-webpack-official": "^1.0.10",
+    "markdown": "^0.5.0",
     "nprogress": "^0.2.0",
     "orchestrator": "^0.3.8",
     "social-share.js": "^1.0.15",

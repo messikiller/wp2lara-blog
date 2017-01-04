@@ -50,7 +50,7 @@
       <div class="form-group">
         <label for="input-summary" class="col-sm-2">内容</label>
         <div class="col-md-6 col-sm-10">
-            <textarea rows="10" cols="40" class="form-control" id="input-summary"></textarea>
+            <textarea rows="10" cols="40" class="form-control" id="input-content" oninput="preview_content()"></textarea>
         </div>
       </div>
 
@@ -63,6 +63,8 @@
 
 </div>
 
+<div id="preview"> </div>
+
 <div id="app">
 
 </div>
@@ -71,4 +73,11 @@
 
 @section('own-js')
 <script src="{{ asset('js/main.js') }}"></script>
+<script type="text/javascript">
+function preview_content()
+{
+    var input = $('#input-content').val();
+    $('#preview-content').html(markdown.toHTML(input));
+}
+</script>
 @endsection

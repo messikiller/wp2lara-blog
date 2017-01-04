@@ -142,6 +142,7 @@ elixir(function(mix) {
             'node_modules/jquery.nicescroll/jquery.nicescroll.min.js',
             'node_modules/zui/dist/js/zui.min.js',
             'node_modules/zui/dist/lib/chosen/chosen.min.js',
+            'node_modules/markdown/lib/markdown.js',
             'resources/assets/js/admin_common.js'
         ],
             'public/assets/js/admin_base.js',
