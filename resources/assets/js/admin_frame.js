@@ -20,15 +20,11 @@
          if(sub.is(':visible')) {
             sub.slideUp(200, function(){
                parent.removeClass('nav-active');
-               jQuery('.main-content').css({height: ''});
-               mainContentHeightAdjust();
             });
          } else {
             visibleSubMenuClose();
             parent.addClass('nav-active');
-            sub.slideDown(200, function(){
-                mainContentHeightAdjust();
-            });
+            sub.slideDown(200);
          }
       }
       return false;
