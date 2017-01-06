@@ -96,6 +96,8 @@ elixir(function(mix) {
 
         .copy('resources/assets/images/', 'public/assets/images/')
 
+        .copy('resources/assets/images/', 'public/build/assets/images/')
+
         .styles(
             basecss.concat([
                 'resources/assets/css/index_header.css',
@@ -155,7 +157,10 @@ elixir(function(mix) {
 
         .version([
             'assets/js/index.js',
-            'assets/js/admin.js',
-            'assets/css/index.css'
+            'assets/js/admin_frame.js',
+            'assets/js/admin_base.js',
+            'assets/css/index.css',
+            'assets/css/admin_frame.css',
+            'assets/css/admin_base.css'
         ]);
 });

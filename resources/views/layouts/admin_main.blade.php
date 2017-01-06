@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>admin</title>
-  <link href="{{ asset('assets/css/admin_frame.css') }}" rel="stylesheet">
+  <link href="{{ elixir('assets/css/admin_frame.css') }}" rel="stylesheet">
 </head>
 
 <body class="sticky-header">
@@ -65,6 +65,6 @@
     <!-- main content end-->
 </section>
 
-<script type="text/javascript" src="{{ asset('assets/js/admin_frame.js') }}"></script>
+<script type="text/javascript" src="{{ elixir('assets/js/admin_frame.js') }}"></script>
 </body>
 </html>
