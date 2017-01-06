@@ -44,6 +44,15 @@ var admin_basejs = [
     'node_modules/jquery.nicescroll/jquery.nicescroll.min.js'
 ];
 
+var admin_pagejs = [
+    'node_modules/jquery/dist/jquery.min.js',
+    'node_modules/jquery-migrate/dist/jquery-migrate.min.js',
+    'node_modules/jquery.nicescroll/jquery.nicescroll.min.js',
+    'node_modules/zui/dist/js/zui.min.js',
+    'node_modules/zui/dist/lib/chosen/chosen.min.js',
+    'node_modules/markdown/lib/markdown.js'
+];
+
 elixir(function(mix) {
     mix
         .copy([
@@ -83,11 +92,9 @@ elixir(function(mix) {
             'node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.woff'
         ], 'public/assets/fonts/')
 
-        .copy([
-            'node_modules/designmodo-flat-ui/dist/fonts/lato/'
-        ], 'public/assets/fonts/lato/')
-
         .copy('public/assets/fonts/', 'public/build/assets/fonts/')
+
+        .copy('resources/assets/images/', 'public/assets/images/')
 
         .styles(
             basecss.concat([
@@ -136,15 +143,10 @@ elixir(function(mix) {
             './'
         )
 
-        .scripts([
-            'node_modules/jquery/dist/jquery.min.js',
-            'node_modules/jquery-migrate/dist/jquery-migrate.min.js',
-            'node_modules/jquery.nicescroll/jquery.nicescroll.min.js',
-            'node_modules/zui/dist/js/zui.min.js',
-            'node_modules/zui/dist/lib/chosen/chosen.min.js',
-            'node_modules/markdown/lib/markdown.js',
-            'resources/assets/js/admin_common.js'
-        ],
+        .scripts(
+            admin_pagejs.concat([
+                'resources/assets/js/admin_common.js'
+            ]),
             'public/assets/js/admin_base.js',
             './'
         )
