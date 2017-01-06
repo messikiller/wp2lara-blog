@@ -40,3 +40,10 @@ Route::post('/admin/article/add',              'Admin\ArticleController@create')
 Route::get('/admin/article/edit/{id}',         'Admin\ArticleController@edit');
 Route::post('/admin/article/edit/{id}',        'Admin\ArticleController@update');
 Route::get('/admin/article/act/{act}/Id/{id}', 'Admin\ArticleController@act');
+
+Route::get('/admin/blogroll/index',             'Admin\BlogrollController@index');
+Route::get('/admin/blogroll/add',               'Admin\BlogrollController@add');
+Route::post('/admin/blogroll/add',              'Admin\BlogrollController@create');
+Route::get('/admin/blogroll/edit/{id}',         'Admin\BlogrollController@edit');
+Route::post('/admin/blogroll/edit/{id}',        'Admin\BlogrollController@update');
+Route::get('/admin/blogroll/act/{act}/Id/{id}', 'Admin\BlogrollController@act');
