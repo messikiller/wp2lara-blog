@@ -30,23 +30,21 @@ Route::group(['middleware' => 'web'], function () {
 
 
 // admin pages routes
-Route::get('/admin',                      'AdminController@index');
-Route::get('/admin/index',                'AdminController@index');
-Route::get('/admin/login',                'AdminController@login');
+Route::get('/admin',       'AdminController@index');
+Route::get('/admin/index', 'AdminController@index');
+Route::get('/admin/login', 'AdminController@login');
 
-Route::get('/admin/article/index',             'Admin\ArticleController@index');
-Route::get('/admin/article/add',               'Admin\ArticleController@add');
-Route::post('/admin/article/add',              'Admin\ArticleController@create');
-Route::get('/admin/article/edit/{id}',         'Admin\ArticleController@edit');
-Route::post('/admin/article/edit/{id}',        'Admin\ArticleController@update');
-Route::get('/admin/article/act/{act}/Id/{id}', 'Admin\ArticleController@act');
+Route::get('/admin/article',                 'Admin\ArticleController@index');
+Route::get('/admin/article/create',          'Admin\ArticleController@create');
+Route::post('/admin/article',                'Admin\ArticleController@store');
+Route::get('/admin/article/{id}/edit',       'Admin\ArticleController@edit');
+Route::post('/admin/article/{id}/edit',      'Admin\ArticleController@update');
+Route::get('/admin/article/{$id}/act/{act}', 'Admin\ArticleController@act');
 
-// Route::get('/admin/blogroll/index',             'Admin\BlogrollController@index');
-// Route::get('/admin/blogroll/add',               'Admin\BlogrollController@add');
-// Route::post('/admin/blogroll/add',              'Admin\BlogrollController@create');
-// Route::get('/admin/blogroll/edit/{id}',         'Admin\BlogrollController@edit');
-// Route::post('/admin/blogroll/edit/{id}',        'Admin\BlogrollController@update');
-// Route::get('/admin/blogroll/act/{act}/Id/{id}', 'Admin\BlogrollController@act');
-Route::resource('/admin/blogroll', 'Admin\BlogrollController', [
-    'except' => ['show']
-]);
+Route::get('/admin/blogroll',                'Admin\BlogrollController@index');
+Route::get('/admin/blogroll/create',         'Admin\BlogrollController@create');
+Route::post('/admin/blogroll',               'Admin\BlogrollController@store');
+Route::get('/admin/blogroll/{id}/edit',      'Admin\BlogrollController@edit');
+Route::post('/admin/blogroll/{id}',          'Admin\BlogrollController@update');
+Route::get('/admin/blogroll/{id}/delete',    'Admin\BlogrollController@destroy');
+Route::get('/admin/blogroll/{id}/act/{act}', 'Admin\BlogrollController@act');

@@ -38,7 +38,7 @@ class BlogrollController extends Controller
      */
     public function create()
     {
-        return view('admin/blogroll_add');
+        return view('admin/blogroll_create');
     }
 
     /**
@@ -49,7 +49,18 @@ class BlogrollController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'blogroll.title' => 'required|max:255',
+            'blogroll.link'  => 'required|url|max:255'
+        ]);
+
+        $blogroll = new Blogroll;
+        $blogroll->title = $request->input('blogroll.title');
+        $blogroll->link  = $request->input('blogroll.link');
+
+        $blogroll->save();
+
+        return redirect('/admin/blogroll');
     }
 
     /**

@@ -7,20 +7,30 @@
     <li class="active">添加链接</li>
 </ol>
 
-<div class="container-fluid">
-    <form class="form-horizontal">
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
+<div class="container-fluid">
+    <form class="form-horizontal" method="post" action="/admin/blogroll">
+        {{ csrf_field() }}
         <div class="form-group">
             <label for="input-title" class="col-sm-1">链接标题</label>
             <div class="col-md-5">
-                <input type="text" class="form-control" id="input-title" />
+                <input type="text" class="form-control" name="blogroll[title]" id="input-title" />
             </div>
         </div>
 
         <div class="form-group">
             <label for="input-title" class="col-sm-1">链接地址</label>
             <div class="col-md-5">
-                <input type="text" class="form-control" id="input-link" />
+                <input type="text" class="form-control" name="blogroll[link]" id="input-link" />
             </div>
         </div>
 

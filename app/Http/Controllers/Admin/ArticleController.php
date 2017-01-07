@@ -21,6 +21,11 @@ class ArticleController extends AdminController
         // $this->middleware('auth');
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $articles = Article::with(['tags', 'cates'])
@@ -35,7 +40,12 @@ class ArticleController extends AdminController
         ]);
     }
 
-    public function add()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         $cates = Cate::where('pid', '>', 0)
             ->orderBy('created_at', 'desc')
@@ -45,28 +55,42 @@ class ArticleController extends AdminController
             ->get();
 
         // dd($tags);
-        return view('admin/article_add')->with([
+        return view('admin/article_create')->with([
             'cates' => $cates,
             'tags'  => $tags
         ]);
     }
 
-    public function create(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
         //
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
-        echo $id;
-    }
-
-    public function update(Request $request, $id)
-    {
         //
     }
 
-    public function act($act, $id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
     {
         //
     }

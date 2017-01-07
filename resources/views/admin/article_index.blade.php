@@ -20,7 +20,7 @@
 </ol>
 
 <div class="container-fluid" style="margin-bottom: 15px;">
-    <a href="/admin/article/add" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;发布新文章</a>
+    <a href="/admin/article/create" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;发布新文章</a>
 </div>
 
 <div class="container-fluid">
@@ -73,11 +73,11 @@
                 <td>{{ $article->published_at }}</td>
                 <td>{{ $article->created_at }}</td>
                 <td>
-                    <a href="/admin/article/edit/{{ $article->Id }}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i>&nbsp;编辑</a>
+                    <a href="/admin/article/{{ $article->Id }}/edit" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i>&nbsp;编辑</a>
                     @if ($article->is_hidden == 1)
-                    <a href="/admin/article/act/show/Id/{{ $article->Id }}" class="btn btn-danger btn-sm"><i class="fa fa-eye"></i>&nbsp;显示</a>
+                    <a href="/admin/article/{{ $article->Id }}/act/show" class="btn btn-danger btn-sm"><i class="fa fa-eye"></i>&nbsp;显示</a>
                     @else
-                    <a href="/admin/article/act/hide/Id/{{ $article->Id }}" class="btn btn-danger btn-sm"><i class="fa fa-eye-slash"></i>&nbsp;隐藏</a>
+                    <a href="/admin/article/{{ $article->Id }}/act/hide" class="btn btn-danger btn-sm"><i class="fa fa-eye-slash"></i>&nbsp;隐藏</a>
                     @endif
                 </td>
             </tr>
