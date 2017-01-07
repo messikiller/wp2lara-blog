@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Cate;
 use App\Tag;
 use App\Article;
+use App\Blogroll;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,8 @@ class HomeController extends Controller
                 'navbarCates'     => $this->getNavbarCates(),
                 'sidebarTags'     => $this->getSidebarTags(),
                 'sidebarCates'    => $this->getSidebarCates(),
-                'sidebarArchives' => $this->getSidebarArchives()
+                'sidebarArchives' => $this->getSidebarArchives(),
+                'footerBlogrolls' => $this->getFooterBlogrolls()
             ]);
         });
 
@@ -130,6 +132,15 @@ class HomeController extends Controller
         // dd($sidebarArchives);
 
         return $sidebarArchives;
+    }
+
+    private function getFooterBlogrolls()
+    {
+        $footerBlogrolls = Blogroll::orderBy('created_at', 'asc')
+            ->orderBy('Id', 'asc')
+            ->get();
+
+        return $footerBlogrolls;
     }
 
     private function _generateCatesMenu($cates)

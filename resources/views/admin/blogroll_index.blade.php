@@ -7,6 +7,10 @@
     <li class="active">链接列表</li>
 </ol>
 
+<div class="container-fluid" style="margin-bottom: 15px;">
+    <a href="/admin/blogroll/create" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;添加新链接</a>
+</div>
+
 <div class="container-fluid">
     <table class="table table-bordered table-hover">
         <thead>
@@ -29,8 +33,9 @@
                 </td>
                 <td>{{ $blogroll->created_at }}</td>
                 <td>
-                    <a href="#" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i>&nbsp;编辑</a>
-                    <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>&nbsp;删除</a>
+                    <!-- <a href="/admin/blogroll/{{ $blogroll->Id }}/edit" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i>&nbsp;编辑</a> -->
+                    <a href="{{ route('/admin/blogroll.delete', ['id' => $blogroll->Id]) }}" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i>&nbsp;编辑</a>
+                    <a href="/admin/blogroll/delete/{{ $blogroll->Id }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>&nbsp;删除</a>
                 </td>
             </tr>
             @endforeach

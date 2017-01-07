@@ -30,13 +30,9 @@
             友情链接
         </div>
         <div class="footer-divider"></div>
-        <a href="#" target="_blank" class="btn friend-link-btn">Laravel China</a>
-        <a href="#" target="_blank" class="btn friend-link-btn">心里路程</a>
-        <a href="#" target="_blank" class="btn friend-link-btn">bootstrap</a>
-        <a href="#" target="_blank" class="btn friend-link-btn">Github</a>
-        <a href="#" target="_blank" class="btn friend-link-btn">FlatUI</a>
-        <a href="#" target="_blank" class="btn friend-link-btn">jQuery API</a>
-        <a href="#" target="_blank" class="btn friend-link-btn">Laravel 学院</a>
+        @foreach ($footerBlogrolls as $blogroll)
+        <a href="{{ $blogroll->link }}" target="_blank" class="btn friend-link-btn">{{ $blogroll->title }}</a>
+        @endforeach
     </div>
 
     <div class="footer-box donation">

@@ -7,7 +7,6 @@
     <li class="active">发布文章</li>
 </ol>
 
-<!-- <div style="width:800px;"> -->
 <div class="container-fluid">
 
     <form class="form-horizontal">
