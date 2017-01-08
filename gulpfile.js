@@ -44,12 +44,20 @@ var admin_basejs = [
     'node_modules/jquery.nicescroll/jquery.nicescroll.min.js'
 ];
 
+var admin_pagecss = [
+    'node_modules/zui/dist/css/zui.min.css',
+    'node_modules/font-awesome/css/font-awesome.min.css',
+    'node_modules/zui/dist/lib/chosen/chosen.min.css',
+    'node_modules/zui/dist/lib/colorpicker/zui.colorpicker.min.css'
+];
+
 var admin_pagejs = [
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/jquery-migrate/dist/jquery-migrate.min.js',
     'node_modules/jquery.nicescroll/jquery.nicescroll.min.js',
     'node_modules/zui/dist/js/zui.min.js',
     'node_modules/zui/dist/lib/chosen/chosen.min.js',
+    'node_modules/zui/dist/lib/colorpicker/zui.colorpicker.min.js',
     'node_modules/markdown/lib/markdown.js'
 ];
 
@@ -136,11 +144,8 @@ elixir(function(mix) {
             './'
         )
 
-        .styles([
-            'node_modules/zui/dist/css/zui.min.css',
-            'node_modules/zui/dist/lib/chosen/chosen.min.css',
-            'node_modules/font-awesome/css/font-awesome.min.css'
-        ],
+        .styles(
+            admin_pagecss,
             'public/assets/css/admin_base.css',
             './'
         )

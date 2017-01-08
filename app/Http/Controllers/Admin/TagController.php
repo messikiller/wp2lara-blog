@@ -8,9 +8,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Libraries\ZuiThreePresenter;
-use App\Blogroll;
+use App\Tag;
 
-class BlogrollController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,15 +19,15 @@ class BlogrollController extends Controller
      */
     public function index()
     {
-        $blogrolls = Blogroll::orderBy('created_at', 'asc')
+        $tags = Tag::orderBy('created_at', 'asc')
             ->orderBy('Id', 'asc')
             ->paginate(15);
 
-        // dd($blogrolls);
+        // dd($tags);
 
-        return view('admin/blogroll_index')->with([
-            'blogrolls'  => $blogrolls,
-            'pagination' => $blogrolls->render(new ZuiThreePresenter($blogrolls))
+        return view('admin/tag_index')->with([
+            'tags'       => $tags,
+            'pagination' => $tags->render(new ZuiThreePresenter($tags))
         ]);
     }
 
@@ -38,7 +38,7 @@ class BlogrollController extends Controller
      */
     public function create()
     {
-        return view('admin/blogroll_create');
+        return view('admin/tag_create');
     }
 
     /**
@@ -50,16 +50,16 @@ class BlogrollController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'blogroll.title' => 'required|max:255',
-            'blogroll.link'  => 'required|url|max:255'
+            'tag.name'  => 'required|max:255',
+            'tag.color' => 'required|max:255'
         ]);
 
-        $blogroll = new Blogroll;
-        $blogroll->title = $request->input('blogroll.title');
-        $blogroll->link  = $request->input('blogroll.link');
+        $tag = new tag;
+        $tag->name  = $request->input('tag.name');
+        $tag->color = $request->input('tag.color');
 
-        if ($blogroll->save()) {
-            return redirect('/admin/blogroll');
+        if ($tag->save()) {
+            return redirect('/admin/tag');
         } else {
             return back();
         }
@@ -73,8 +73,8 @@ class BlogrollController extends Controller
      */
     public function edit($id)
     {
-        return view('admin/blogroll_edit')->with([
-            'blogroll' => Blogroll::find($id)
+        return view('admin/tag_edit')->with([
+            'tag' => tag::find($id)
         ]);
     }
 
@@ -88,16 +88,16 @@ class BlogrollController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'blogroll.title' => 'required|max:255',
-            'blogroll.link'  => 'required|url|max:255'
+            'tag.name'  => 'required|max:255',
+            'tag.color' => 'required|max:255'
         ]);
 
-        $blogroll = Blogroll::find($id);
-        $blogroll->title = $request->input('blogroll.title');
-        $blogroll->link  = $request->input('blogroll.link');
+        $tag = tag::find($id);
+        $tag->name  = $request->input('tag.name');
+        $tag->color = $request->input('tag.color');
 
-        if ($blogroll->save()) {
-            return redirect('/admin/blogroll');
+        if ($tag->save()) {
+            return redirect('/admin/tag');
         } else {
             return back();
         }
@@ -111,9 +111,9 @@ class BlogrollController extends Controller
      */
     public function destroy($id)
     {
-        $blogroll = Blogroll::find($id);
-        if ($blogroll->delete()) {
-            return redirect('/admin/blogroll');
+        $tag = Tag::find($id);
+        if ($tag->delete()) {
+            return redirect('/admin/tag');
         } else {
             return back();
         }
