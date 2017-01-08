@@ -59,7 +59,7 @@
         </div>
 
         <!--body wrapper start-->
-        <iframe class="wrapper" frameborder="0" src="" name="content"></iframe>
+        <iframe class="wrapper" frameborder="0" src="/admin/bloginfo" name="content"></iframe>
         <!--body wrapper end-->
     </div>
     <!-- main content end-->

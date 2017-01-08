@@ -34,6 +34,8 @@ Route::get('/admin',       'AdminController@index');
 Route::get('/admin/index', 'AdminController@index');
 Route::get('/admin/login', 'AdminController@login');
 
+Route::get('/admin/bloginfo', 'Admin\BloginfoController@index');
+
 Route::get('/admin/article',                 'Admin\ArticleController@index');
 Route::get('/admin/article/create',          'Admin\ArticleController@create');
 Route::post('/admin/article',                'Admin\ArticleController@store');

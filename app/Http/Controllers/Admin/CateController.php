@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\AdminController;
 
 use App\Libraries\ZuiThreePresenter;
 use App\Cate;
 
-class CateController extends Controller
+class CateController extends AdminController
 {
     /**
      * Display a listing of the resource.

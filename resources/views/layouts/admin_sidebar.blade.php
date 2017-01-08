@@ -1,5 +1,5 @@
 <ul class="nav nav-pills nav-stacked custom-nav">
-    <li class="active"><a href="javascript:;"><i class="fa fa-home"></i><span>Dashboard</span></a>
+    <li class="active"><a href="/admin/bloginfo" target="content"><i class="fa fa-home"></i><span>Dashboard</span></a>
     </li>
 
     <li class="menu-list"><a href="javascript:;"><i class="fa fa-book"></i><span>文章管理</span></a>
