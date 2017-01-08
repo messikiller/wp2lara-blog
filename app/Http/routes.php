@@ -41,6 +41,14 @@ Route::get('/admin/article/{id}/edit',       'Admin\ArticleController@edit');
 Route::post('/admin/article/{id}/edit',      'Admin\ArticleController@update');
 Route::get('/admin/article/{$id}/act/{act}', 'Admin\ArticleController@act');
 
+Route::get('/admin/cate',                'Admin\CateController@index');
+Route::get('/admin/cate/create',         'Admin\CateController@create');
+Route::post('/admin/cate',               'Admin\CateController@store');
+Route::get('/admin/cate/{id}/edit',      'Admin\CateController@edit');
+Route::post('/admin/cate/{id}',          'Admin\CateController@update');
+Route::get('/admin/cate/{id}/delete',    'Admin\CateController@destroy');
+Route::get('/admin/cate/{id}/act/{act}', 'Admin\CateController@act');
+
 Route::get('/admin/tag',                'Admin\TagController@index');
 Route::get('/admin/tag/create',         'Admin\TagController@create');
 Route::post('/admin/tag',               'Admin\TagController@store');
