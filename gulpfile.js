@@ -106,6 +106,11 @@ elixir(function(mix) {
 
         .copy('resources/assets/images/', 'public/build/assets/images/')
 
+        .less(
+            'app.less',
+            'resources/assets/css/zui.css'
+        )
+
         .styles(
             basecss.concat([
                 'resources/assets/css/index_header.css',
