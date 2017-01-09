@@ -154,7 +154,8 @@ return [
          * Package Service Providers...
          */
         Barryvdh\Debugbar\ServiceProvider::class,
-
+		Douyasi\Editor\EditorServiceProvider::class,
+		
         /*
          * Application Service Providers...
          */
