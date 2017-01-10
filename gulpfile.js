@@ -158,8 +158,6 @@ elixir(function(mix) {
             './'
         )
 
-        .webpack('main.js')
-
         .version([
             'assets/js/index.js',
             'assets/js/admin_frame.js',
