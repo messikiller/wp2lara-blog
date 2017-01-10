@@ -22,6 +22,6 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        $this->blogInfo = BlogInfo::first()->toArray();;
+        $this->blogInfo = BlogInfo::first()->toArray();
     }
 }

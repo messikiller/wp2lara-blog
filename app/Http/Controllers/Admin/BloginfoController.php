@@ -10,8 +10,6 @@ use App\Http\Controllers\Controller;
 
 use App\BlogInfo;
 
-use App\Libraries\Oss;
-
 class BloginfoController extends AdminController
 {
     public function index()
@@ -27,11 +25,9 @@ class BloginfoController extends AdminController
 
     public function edit()
     {
-        // return view('admin/bloginfo_edit')->with([
-        //     'bloginfo' => BlogInfo::first()
-        // ]);
-
-        dd(Oss::create()->setBucket('logs-access')->getAllObjectKey());
+        return view('admin/bloginfo_edit')->with([
+            'bloginfo' => BlogInfo::first()
+        ]);
     }
 
     public function update()

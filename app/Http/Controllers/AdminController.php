@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        \Debugbar::disable();
+        //
     }
 
     public function index()
