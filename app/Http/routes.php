@@ -25,14 +25,15 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/articles/tag/{tag_id}',         'Home\ArticleController@tag');
     Route::get('/articles/cate/{cate_id}',       'Home\ArticleController@cate');
     Route::get('/articles/archive/{archive_id}', 'Home\ArticleController@archive');
-    Route::auth();
 });
 
 
 // admin pages routes
-Route::get('/admin',       'AdminController@index');
-Route::get('/admin/index', 'AdminController@index');
-Route::get('/admin/login', 'AdminController@login');
+Route::get('/admin',        'AdminController@index');
+Route::get('/admin/index',  'AdminController@index');
+Route::get('/admin/login',  'AdminController@login');
+Route::post('/admin/check', 'AdminController@check');
+Route::get('/admin/logout', 'AdminController@logout');
 
 Route::get('/admin/bloginfo',         'Admin\BloginfoController@index');
 Route::get('/admin/bloginfo/edit',    'Admin\BloginfoController@edit');
