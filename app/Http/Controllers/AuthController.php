@@ -31,7 +31,7 @@ class AuthController extends Controller
             $request->session()->put('user', $user);
             return redirect('/admin/index');
         } else {
-            return redirect('/login');
+            return redirect('/login')->with('error', '登录失败！');
         }
     }
 

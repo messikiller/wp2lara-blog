@@ -23,9 +23,16 @@
             <img src="{{ asset('assets/images/header-logo.jpg') }}" class="img-circle" alt=""/>
         </div>
         <div class="login-wrap">
-            <input type="text" name="user[username]" class="form-control" placeholder="用户名" autofocus>
+            @if (session('error'))
+            <div class="alert alert-danger with-icon">
+              <i class="fa fa-exclamation-circle fa-lg"></i>&nbsp;
+              <span class="content">{{ session('error') }}</span>
+            </div>
+            @endif
 
-            <input type="password" name="user[password]" class="form-control" placeholder="密码">
+            <input type="text" name="user[username]" class="form-control" autocomplete="off" placeholder="用户名" autofocus>
+
+            <input type="password" name="user[password]" class="form-control" autocomplete="off" placeholder="密码">
 
             <button class="btn btn-login btn-block" type="submit"><span style="font-size: 18px;"><i class="fa fa-sign-in"></i>&nbsp;登陆</span></button>
 
