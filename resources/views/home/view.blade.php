@@ -40,24 +40,15 @@
 
             <dt><i class="fa fa-list-ul"></i>&nbsp;&nbsp;分类：</dt>
             <dd>
-                @if (count($article->cates) == 0)
-                    无
-                @elseif (count($article->cates) > 0 && count($article->cates) <= 3)
-                    @foreach ($article->cates as $cate)
-                    <span class="label" style="background-color: {{ $cate->color }};">
-                        {{ $cate->name }}
-                    </span>&nbsp;
-                    @endforeach
-                @elseif (count($article->cates) > 0 && count($article->cates) <= 3)
-                    @foreach ($article->cates as $cate)
-                    <span class="label" style="background-color: {{ $cate->color }};">
-                        {{ $cate->name }}
-                    </span>&nbsp;
-                    @endforeach
-                    <span class="label" style="background-color: #adadad;">
-                        <i class="icon icon-ellipsis-h"></i>
+
+                @if (empty($article->cate))
+                    <span>无</span>
+                @else
+                    <span class="label" style="background-color: {{ $article->cate->color }};">
+                        {{ $article->cate->name }}
                     </span>
                 @endif
+
             </dd>
         </dl>
         <section class="abstract">

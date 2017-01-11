@@ -52,7 +52,7 @@ class WordpressImport extends Command
             'Cates',
             'Tags',
             'ArticleTags',
-            'ArticleCates'
+            'ArticleCateId'
         ];
 
         if (! is_null($table) && ! in_array($table, $tables)) {
@@ -229,11 +229,8 @@ class WordpressImport extends Command
         DB::connection('mysql')->table('tags')->insert($tags);
     }
 
-    private function generateArticleCates()
+    private function generateArticleCateId()
     {
-        DB::connection('mysql')->table('article_cates')->truncate();
-        $faker = Faker::create();
-
         $posts = DB::connection('wordpress')->table('posts')
             ->where('post_status', '=', 'publish')
             ->where('post_type', '=', 'post')
@@ -257,7 +254,6 @@ class WordpressImport extends Command
         $termIdCateIdMap    = $this->_getColumnsMap('cates',    'wp_term_id', 'Id');
         $postIdArticleIdMap = $this->_getColumnsMap('articles', 'wp_post_id', 'Id');
 
-        $article_cates = [];
         foreach ($term_relationships as $term_relationship)
         {
             $post_id = intval($term_relationship->object_id);
@@ -267,17 +263,11 @@ class WordpressImport extends Command
                 continue;
             }
 
-            $article_cates[] = [
-                'article_id' => $postIdArticleIdMap[$post_id],
-                'cate_id'    => $termIdCateIdMap[$term_id],
-                'created_at' => date('Y-m-d H:i:s', time()),
-                'updated_at' => date('Y-m-d H:i:s', time())
-            ];
+            $article_id = $postIdArticleIdMap[$post_id];
+            $cate_id    = $termIdCateIdMap[$term_id];
+
+            DB::connection('mysql')->table('articles')->where('Id', $article_id)->update(['cate_id' => $cate_id]);
         }
-
-
-        // dd($article_cates);
-        DB::connection('mysql')->table('article_cates')->insert($article_cates);
     }
 
     private function generateArticleTags()

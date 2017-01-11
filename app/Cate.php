@@ -10,7 +10,7 @@ class Cate extends Model
 
     public function articles()
     {
-        return $this->belongsToMany('App\Article', 'article_cates', 'cate_id', 'article_id');
+        return $this->hasMany('App\Article', 'cate_id', 'Id');
     }
 
     public function parentCates()

@@ -26,8 +26,8 @@ class Article extends Model
         return $this->belongsToMany('App\Tag', 'article_tags', 'article_id', 'tag_id');
     }
 
-    public function cates()
+    public function cate()
     {
-        return $this->belongsToMany('App\Cate', 'article_cates', 'article_id', 'cate_id');
+        return $this->belongsTo('App\Cate', 'cate_id', 'Id');
     }
 }

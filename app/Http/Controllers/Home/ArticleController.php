@@ -27,15 +27,15 @@ class ArticleController extends HomeController
     {
         $pagesize = $this->getBlogInfo('boxes_max_size', 5);
 
-        $articles = Article::with(['tags', 'cates'])
-            ->select(['Id', 'title', 'summary', 'is_hidden', 'read_num', 'published_at', 'created_at',  'updated_at'])
+        $articles = Article::with(['tags', 'cate'])
+            ->select(['Id', 'cate_id', 'title', 'summary', 'is_hidden', 'read_num', 'published_at', 'created_at',  'updated_at'])
             ->published()
             ->visible()
             ->orderBy('published_at', 'desc')
             ->orderBy('Id', 'asc')
             ->paginate($pagesize);
 
-        // dd($articles->links());
+        // dd($articles->toArray());
 
         return view('home.index')->with([
             'current_cate' => 0,
@@ -46,7 +46,7 @@ class ArticleController extends HomeController
 
     public function view($id)
     {
-        $article = Article::with(['tags', 'cates'])
+        $article = Article::with(['tags', 'cate'])
             ->where('Id', '=', $id)
             ->firstOrFail();
 

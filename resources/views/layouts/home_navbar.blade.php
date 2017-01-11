@@ -15,7 +15,7 @@
                         class="active"
                         @endif
                     >
-                        <a href="{{ $cate['Id'] }}">
+                        <a href="/articles/cate/{{ $cate['Id'] }}">
 
                             {{ $cate['name'] }}
 
@@ -23,7 +23,7 @@
                                 &nbsp;&nbsp;<i class="fa fa-angle-left"></i></a>
                                 <ul class="children">
                                     @foreach ($cate['children'] as $child)
-                                    <li><a href="{{ $child['Id'] }}">{{ $child['name'] }}</a></li>
+                                    <li><a href="/articles/cate/{{ $child['Id'] }}">{{ $child['name'] }}</a></li>
                                     @endforeach
                                 </ul>
                             @endif

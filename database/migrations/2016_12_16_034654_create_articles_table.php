@@ -15,6 +15,7 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('Id');
             $table->integer('wp_post_id')->unsigned()->default(0);
+            $table->integer('cate_id')->unsigned()->default(0);
             $table->string('title', 255);
             $table->text('summary');
             $table->text('content');

@@ -40,22 +40,14 @@
                 <span>&nbsp;/&nbsp;</span>
 
                 <span class="footer-meta cate-meta">
-                    <?php $counter = count($article->cates); ?>
-                    @if($counter > 0)
-                        <?php $index = 1; ?>
-                        @foreach($article->cates as $cate)
-                            <span class="label label-badge label-cate">
-                                <i class="fa fa-list-ul"></i>
-                                {{ $cate->name }}
-                            </span>
-                            @if ($counter > 2 && $index == 2)
-                                <span class="label label-badge label-cate">&middot;&middot;&middot;</span>
-                                <?php break; ?>
-                            @endif
-                            <?php $index++; ?>
-                        @endforeach
-                    @else
+
+                    @if (empty($article->cate))
                         <span>未分类</span>
+                    @else
+                        <span class="label label-badge label-cate">
+                            <i class="fa fa-list-ul"></i>
+                            {{ $article->cate->name }}
+                        </span>
                     @endif
 
                 </span>
