@@ -16,14 +16,14 @@
 
 <div class="container">
 
-    <form class="form-signin" method="post" action="{{ url('/admin/check') }}">
+    <form class="form-signin" method="post" action="{{ url('/check') }}">
         {{ csrf_field() }}
         <div class="form-signin-heading text-center">
             <h1 class="sign-title">登陆系统</h1>
             <img src="{{ asset('assets/images/header-logo.jpg') }}" class="img-circle" alt=""/>
         </div>
         <div class="login-wrap">
-            <input type="text" name="user[name]" class="form-control" placeholder="用户名" autofocus>
+            <input type="text" name="user[username]" class="form-control" placeholder="用户名" autofocus>
 
             <input type="password" name="user[password]" class="form-control" placeholder="密码">
 

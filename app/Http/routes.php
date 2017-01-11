@@ -33,9 +33,10 @@ Route::group(['middleware' => 'web'], function () {
  */
 Route::get('/admin',        'AdminController@index');
 Route::get('/admin/index',  'AdminController@index');
-Route::get('/admin/login',  'AdminController@login');
-Route::post('/admin/check', 'AdminController@check');
-Route::get('/admin/logout', 'AdminController@logout');
+
+Route::get('/login',        'AuthController@login');
+Route::post('/check',       'AuthController@check');
+Route::get('/logout',       'AuthController@logout');
 
 Route::get('/admin/bloginfo',         'Admin\BloginfoController@index');
 Route::get('/admin/bloginfo/edit',    'Admin\BloginfoController@edit');
