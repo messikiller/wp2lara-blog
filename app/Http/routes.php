@@ -11,13 +11,11 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
-// home pages routes
-
+/*
+|================================================================================
+| home pages routes part
+|================================================================================
+ */
 Route::group(['middleware' => 'web'], function () {
     Route::get('/',                              'Home\ArticleController@index');
     Route::get('/articles',                      'Home\ArticleController@index');
@@ -28,7 +26,11 @@ Route::group(['middleware' => 'web'], function () {
 });
 
 
-// admin pages routes
+/*
+|================================================================================
+| admin pages routes part
+|================================================================================
+ */
 Route::get('/admin',        'AdminController@index');
 Route::get('/admin/index',  'AdminController@index');
 Route::get('/admin/login',  'AdminController@login');

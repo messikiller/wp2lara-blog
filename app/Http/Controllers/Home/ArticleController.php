@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 
 use App\Article;
+use App\Cate;
+use App\Tag;
 use App\Libraries\ZuiThreePresenter;
 
 class ArticleController extends HomeController
@@ -63,9 +65,45 @@ class ArticleController extends HomeController
 
     }
 
-    public function cate()
+    public function cate($cate_id)
     {
+        $pagesize = $this->getBlogInfo('boxes_max_size', 5);
 
+        $cate = Cate::where('Id', $cate_id)->first();
+        $pid = $cate->pid;
+
+        $current_cate = $pid > 0 ? $pid : $cate_id;
+
+        if ($pid == 0) {
+            $current_cate = $cate_id;
+            $cateIds = Cate::where('pid', $cate_id)->lists('Id')->push($cate_id)->toArray();
+            $articles = Article::with(['tags', 'cate'])
+                ->select(['Id', 'cate_id', 'title', 'summary', 'is_hidden', 'read_num', 'published_at', 'created_at',  'updated_at'])
+                ->whereIn('cate_id', $cateIds)
+                ->published()
+                ->visible()
+                ->orderBy('published_at', 'desc')
+                ->orderBy('Id', 'asc')
+                ->paginate($pagesize);
+        } else {
+            $current_cate = $pid;
+            $articles = Article::with(['tags', 'cate'])
+                ->select(['Id', 'cate_id', 'title', 'summary', 'is_hidden', 'read_num', 'published_at', 'created_at',  'updated_at'])
+                ->where('cate_id', $cate_id)
+                ->published()
+                ->visible()
+                ->orderBy('published_at', 'desc')
+                ->orderBy('Id', 'asc')
+                ->paginate($pagesize);
+        }
+
+        // dd($articles->toArray());
+
+        return view('home.index')->with([
+            'current_cate' => $current_cate,
+            'articles'     => $articles,
+            'pagination'   => $articles->render(new ZuiThreePresenter($articles))
+        ]);
     }
 
     public function archive()
