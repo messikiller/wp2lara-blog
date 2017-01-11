@@ -53,7 +53,7 @@
 
         </div>
     </div>
-<!-- btn btn-default btn-xs -->
+
     <div class="sidebar-box">
         <div class="sidebar-box-title">
             <i class="fa fa-tags"></i>&nbsp;标签云
