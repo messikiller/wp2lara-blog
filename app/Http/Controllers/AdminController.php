@@ -9,8 +9,11 @@ use Illuminate\Routing\Redirector;
 
 class AdminController extends Controller
 {
-    public function __construct(Request $request, Redirector $redirect)
+    public function __construct()
     {
+        $request  = App('Illuminate\Http\Request');
+        $redirect = App('Illuminate\Routing\Redirector');
+        
         if (! $request->session()->has('user')) {
             $redirect->to('/login')->send();
         }

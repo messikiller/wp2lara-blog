@@ -32,10 +32,6 @@ a:focus, a:active, a:hover {
     color: #353F4F;
 }
 
-h1, h2, h3, h4, h5 {
-    font-family: 'Open Sans', sans-serif;
-}
-
 .mtop10 {
     margin-top: 10px;
 }

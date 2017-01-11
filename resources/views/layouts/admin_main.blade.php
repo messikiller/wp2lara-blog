@@ -44,13 +44,12 @@
                     <li>
                         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             <img src="{{ asset('assets/images/header-logo.jpg') }}" alt="" />
-                            John Doe
+                            @inject('request', 'Illuminate\Http\Request')
+                            {{ $request->session()->get('user')->username }}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-                            <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>
-                            <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                            <li><a href="/logout"><i class="fa fa-sign-out"></i> 退出</a></li>
                         </ul>
                     </li>
 

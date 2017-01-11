@@ -24,11 +24,20 @@ class AuthController extends Controller
         $username = $request->input('user.username');
         $password = $request->input('user.password');
 
-        // User::where('username', '=', $username)->where('password', '=', bcrypt($))
+        $user = User::where('username', '=', $username)->first();
+
+        if (! empty($user) && \Crypt::decrypt($user->password) == $password) {
+            $request->session()->forget('user');
+            $request->session()->put('user', $user);
+            return redirect('/admin/index');
+        } else {
+            return redirect('/login');
+        }
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-
+        $request->session()->forget('user');
+        return redirect('/');
     }
 }

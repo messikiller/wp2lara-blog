@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Routing\Redirector;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\AdminController;
 
@@ -27,7 +28,7 @@ class ArticleController extends AdminController
      */
     public function index()
     {
-        $articles = Article::with(['tags', 'cates'])
+        $articles = Article::with(['tags', 'cate'])
             ->orderBy('published_at', 'desc')
             ->paginate(15);
 

@@ -55,10 +55,8 @@
                     @endif
                 </td>
                 <td>
-                    @if (count($article->cates))
-                        @foreach ($article->cates as $cate)
-                        <span class="label" style="background-color: {{ $cate->color }}">{{ $cate->name }}</span>
-                        @endforeach
+                    @if (count($article->cate))
+                        <span class="label" style="background-color: {{ $article->cate->color }}">{{ $article->cate->name }}</span>
                     @else
                         无
                     @endif

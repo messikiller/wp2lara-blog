@@ -52,7 +52,8 @@ class WordpressImport extends Command
             'Cates',
             'Tags',
             'ArticleTags',
-            'ArticleCateId'
+            'ArticleCateId',
+            'Users'
         ];
 
         if (! is_null($table) && ! in_array($table, $tables)) {
@@ -319,6 +320,20 @@ class WordpressImport extends Command
 
         // dd($article_tags);
         DB::connection('mysql')->table('article_tags')->insert($article_tags);
+    }
+
+    private function generateUsers()
+    {
+        DB::connection('mysql')->table('users')->truncate();
+
+        $user = [
+            'username'   => 'admin',
+            'password'   => \Crypt::encrypt('admin'),
+            'created_at' => date('Y-m-d H:i:s', time()),
+            'updated_at' => date('Y-m-d H:i:s', time())
+        ];
+
+        DB::connection('mysql')->table('users')->insert($user);
     }
 
     private function _getSummaryByContent($content)
