@@ -64,7 +64,7 @@
 
             @foreach($sidebarTags as $tag)
 
-                <a href="#" class="btn-tag"
+                <a href="/articles/tag/{{ $tag['Id'] }}" class="btn-tag"
                     style="color:{{ $tag['color'] }};background-color:#ffffff;border-color:{{ $tag['color'] }};"
                     onmouseover="this.style.cssText='color:#ffffff;background-color:{{ $tag['color'] }};border-color: {{ $tag['color'] }};'"
                     onmouseout="this.style.cssText='color:{{ $tag['color'] }};background-color:#ffffff;border-color:{{ $tag['color'] }};border-color:{{ $tag['color'] }};'"

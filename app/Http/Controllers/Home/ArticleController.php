@@ -11,6 +11,7 @@ use App\Http\Controllers\HomeController;
 use App\Article;
 use App\Cate;
 use App\Tag;
+use App\ArticleTag;
 use App\Libraries\ZuiThreePresenter;
 
 class ArticleController extends HomeController
@@ -60,9 +61,27 @@ class ArticleController extends HomeController
         ]);
     }
 
-    public function tag()
+    public function tag($tag_id)
     {
+        $pagesize = $this->getBlogInfo('boxes_max_size', 5);
 
+        $articleIds = ArticleTag::where('tag_id', $tag_id)->lists('article_id')->unique()->toArray();
+        $articles = Article::with(['tags', 'cate'])
+            ->select(['Id', 'cate_id', 'title', 'summary', 'is_hidden', 'read_num', 'published_at', 'created_at',  'updated_at'])
+            ->whereIn('Id', $articleIds)
+            ->published()
+            ->visible()
+            ->orderBy('published_at', 'desc')
+            ->orderBy('Id', 'asc')
+            ->paginate($pagesize);
+
+        // dd($articles->toArray());
+
+        return view('home.index')->with([
+            'current_cate' => 0,
+            'articles'     => $articles,
+            'pagination'   => $articles->render(new ZuiThreePresenter($articles))
+        ]);
     }
 
     public function cate($cate_id)
