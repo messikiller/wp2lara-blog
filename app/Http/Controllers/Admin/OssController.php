@@ -12,6 +12,11 @@ use App\Libraries\Oss;
 
 class OssController extends AdminController
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    
     public function index()
     {
         dd(Oss::create()->getParentAllFolders('wp-content/uploads/2014/'));

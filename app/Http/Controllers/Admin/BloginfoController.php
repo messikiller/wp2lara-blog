@@ -12,6 +12,11 @@ use App\BlogInfo;
 
 class BloginfoController extends AdminController
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    
     public function index()
     {
         $bloginfo = BlogInfo::first();

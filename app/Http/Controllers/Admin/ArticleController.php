@@ -17,8 +17,7 @@ class ArticleController extends AdminController
 {
     public function __construct()
     {
-        \Debugbar::enable();
-        // $this->middleware('auth');
+        parent::__construct();
     }
 
     /**

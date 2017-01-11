@@ -13,6 +13,11 @@ use App\Cate;
 
 class CateController extends AdminController
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    
     /**
      * Display a listing of the resource.
      *
