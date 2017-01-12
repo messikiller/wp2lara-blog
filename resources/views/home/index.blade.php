@@ -24,10 +24,10 @@
 
             <div class="footer-meta meta-container">
 
-                @inject('carbon', 'Carbon\Carbon')
+                @inject('util', '\App\Libraries\Util')
                 <span class="footer-meta pubtime-meta">
                     <i class="fa fa-calendar"></i>
-                    {{ $carbon->createFromFormat('Y-m-d H:i:s', $article->published_at)->diffForHumans() }}
+                    {{ $util->getPrettyDate(strtotime($article->published_at)) }}
                 </span>
 
                 <span>&nbsp;/&nbsp;</span>
