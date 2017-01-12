@@ -17,12 +17,11 @@
 |================================================================================
  */
 Route::group(['middleware' => 'web'], function () {
-    Route::get('/',                              'Home\ArticleController@index');
-    Route::get('/articles',                      'Home\ArticleController@index');
-    Route::get('/articles/view/{id}',            'Home\ArticleController@view');
-    Route::get('/articles/tag/{tag_id}',         'Home\ArticleController@tag');
-    Route::get('/articles/cate/{cate_id}',       'Home\ArticleController@cate');
-    Route::get('/articles/archive/{monthstamp}', 'Home\ArticleController@archive');
+    Route::get('/',                     'Home\ArticleController@index');
+    Route::get('/view/{id}',            'Home\ArticleController@view');
+    Route::get('/tag/{tag_id}',         'Home\ArticleController@tag');
+    Route::get('/cate/{cate_id}',       'Home\ArticleController@cate');
+    Route::get('/archive/{monthstamp}', 'Home\ArticleController@archive');
 });
 
 

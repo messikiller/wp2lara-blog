@@ -9,7 +9,7 @@
 
     <div class="box-header">
         <div class="box-header-title">
-            <a href="{{ url('articles/view/'.$article->Id) }}">{{ $article->title }}</a>
+            <a href="{{ url('/view/'.$article->Id) }}">{{ $article->title }}</a>
         </div>
     </div>
 
@@ -77,7 +77,7 @@
             </div>
 
             <div class="footer-meta btn-view-container">
-                <a href="{{ url('articles/view/'.$article->Id) }}" class="btn btn-primary btn-view"><i class="fa fa-search"></i>&nbsp;阅读全文</a>
+                <a href="{{ url('/view/'.$article->Id) }}" class="btn btn-primary btn-view"><i class="fa fa-search"></i>&nbsp;阅读全文</a>
             </div>
 
         </div>

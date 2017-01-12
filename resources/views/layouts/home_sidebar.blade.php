@@ -23,7 +23,7 @@
 
             @foreach ($sidebarCates as $cate)
             <div>
-                <a href="{{ url('articles/cate/'.$cate['Id']) }}" class="sidebar-cate-item">
+                <a href="{{ url('/cate/'.$cate['Id']) }}" class="sidebar-cate-item">
                     <i class="fa fa-angle-double-right"></i>&nbsp;
                     {{ $cate['name'] }}
                     ({{ $cate['articles_count'] }})
@@ -44,7 +44,7 @@
 
             @foreach ($sidebarArchives as $archive_time => $archive)
             <div>
-                <a href="{{ url('articles/archive/'.$archive_time) }}" class="sidebar-archive-item">
+                <a href="{{ url('/archive/'.$archive_time) }}" class="sidebar-archive-item">
                     <i class="fa fa-calendar"></i>&nbsp;
                     {{ date('Y年m月', $archive_time) }}({{ count($archive) }})
                 </a>
@@ -64,7 +64,7 @@
 
             @foreach($sidebarTags as $tag)
 
-                <a href="/articles/tag/{{ $tag['Id'] }}" class="btn-tag"
+                <a href="/tag/{{ $tag['Id'] }}" class="btn-tag"
                     style="color:{{ $tag['color'] }};background-color:#ffffff;border-color:{{ $tag['color'] }};"
                     onmouseover="this.style.cssText='color:#ffffff;background-color:{{ $tag['color'] }};border-color: {{ $tag['color'] }};'"
                     onmouseout="this.style.cssText='color:{{ $tag['color'] }};background-color:#ffffff;border-color:{{ $tag['color'] }};border-color:{{ $tag['color'] }};'"
