@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 
+use Carbon\Carbon;
+
 use App\Article;
 use App\Cate;
 use App\Tag;
@@ -125,8 +127,28 @@ class ArticleController extends HomeController
         ]);
     }
 
-    public function archive()
+    public function archive($monthstamp)
     {
+        $pagesize = $this->getBlogInfo('boxes_max_size', 5);
 
+        $date = getdate($monthstamp);
+
+        $min = date('Y-m-d H:i:s', $monthstamp);
+        $max = Carbon::create($date['year'], $date['mon'], $date['mday'], 0, 0, 0)->addMonths(1)->toDateTimeString();
+
+        $articles = Article::with(['tags', 'cate'])
+            ->select(['Id', 'cate_id', 'title', 'summary', 'is_hidden', 'read_num', 'published_at', 'created_at',  'updated_at'])
+            ->whereBetween('published_at', [$min, $max])
+            ->published()
+            ->visible()
+            ->orderBy('published_at', 'desc')
+            ->orderBy('Id', 'asc')
+            ->paginate($pagesize);
+
+        return view('home.index')->with([
+            'current_cate' => 0,
+            'articles'     => $articles,
+            'pagination'   => $articles->render(new ZuiThreePresenter($articles))
+        ]);
     }
 }
