@@ -80,7 +80,22 @@ class ArticleController extends AdminController
      */
     public function edit($id)
     {
-        //
+        $cates = Cate::where('pid', '>', 0)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        $tags = Tag::orderBy('created_at', 'desc')
+            ->get();
+
+        $article = Article::with(['tags', 'cate'])->find($id);
+
+        // dd($article->toArray());
+
+        return view('admin/article_edit')->with([
+            'article' => $article,
+            'cates'   => $cates,
+            'tags'    => $tags
+        ]);
     }
 
     /**

@@ -17,7 +17,7 @@
         <div class="form-group">
           <label for="input-title" class="col-sm-1">文章标题</label>
           <div class="col-md-10">
-            <input type="text" class="form-control" name="article[title]" id="input-title">
+            <input type="text" class="form-control" name="article[title]" id="input-title" value="{{ $article->title }}">
           </div>
         </div>
 
@@ -27,7 +27,11 @@
             <select class="form-control" name="article[cate]" id="input-cate">
                 <option value="0">请选择</option>
                 @foreach ($cates as $cate)
-                <option value="{{ $cate->Id }}">{{ $cate->name }}</option>
+                <option value="{{ $cate->Id }}"
+                    @if ($cate->Id == $article->cate->Id)
+                    selected="selected"
+                    @endif
+                >{{ $cate->name }}</option>
                 @endforeach
             </select>
           </div>
@@ -47,14 +51,14 @@
         <div class="form-group" style="height: 150px;">
             <label for="input-summary" class="col-sm-1">摘要</label>
             <div class="col-md-5" style="height: 100%;">
-                <textarea class="form-control" name="article[summary]" id="input-summary" oninput="preview_content(this.id, 'preview-summary')" style="height: 100%; resize: none;"></textarea>
+                <textarea class="form-control" name="article[summary]" id="input-summary" oninput="preview_content(this.id, 'preview-summary')" style="height: 100%; resize: none;">{{ $article->summary }}</textarea>
             </div>
             <div class="col-md-5" id="preview-summary" style="height: 100%;overflow-y: scroll;border: 1px dashed #555;"></div>
         </div>
 
         <div class="form-group">
             <div class="editormd editormd-vertical" id="mdeditor">
-                <textarea class="form-control" name="article[content]" id="input-content" style="display:none;"></textarea>
+                <textarea class="form-control" name="article[content]" id="input-content" style="display:none;">{{ $article->content }}</textarea>
             </div>
         </div>
 
