@@ -11,10 +11,11 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        $request  = App('Illuminate\Http\Request');
-        $redirect = App('Illuminate\Routing\Redirector');
+        parent::__construct();
         
-        if (! $request->session()->has('user')) {
+        $redirect = App('Illuminate\Routing\Redirector');
+
+        if (! $this->auth->isAuthed()) {
             $redirect->to('/login')->send();
         }
     }

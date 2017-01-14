@@ -44,8 +44,7 @@
                     <li>
                         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             <img src="{{ asset('assets/images/header-logo.jpg') }}" alt="" />
-                            @inject('request', 'Illuminate\Http\Request')
-                            {{ $request->session()->get('user')->username }}
+                            {{ $AUTH->getUserInfo('username') }}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-usermenu pull-right">

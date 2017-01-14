@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\User;
-use Crypt;
+use App\Libraries\Auth;
 
 class AuthController extends Controller
 {
@@ -25,11 +24,9 @@ class AuthController extends Controller
         $username = $request->input('user.username');
         $password = $request->input('user.password');
 
-        $user = User::where('username', '=', $username)->first();
+        $userinfo = ['username' => $username, 'password' => $password];
 
-        if (! empty($user) && Crypt::decrypt($user->password) == $password) {
-            $request->session()->forget('user');
-            $request->session()->put('user', $user);
+        if ($this->auth->login($userinfo)->isAuthed()) {
             return redirect('/admin/index');
         } else {
             return redirect('/login')->with('error', '登录失败！');
@@ -38,7 +35,7 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        $request->session()->forget('user');
+        $this->auth->logout();
         return redirect('/');
     }
 }

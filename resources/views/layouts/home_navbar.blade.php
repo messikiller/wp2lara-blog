@@ -30,13 +30,12 @@
                     </li>
                     @endforeach
 
-                    @inject('request', 'Illuminate\Http\Request')
-                    @if ($request->session()->has('user'))
+                    @if ($AUTH->isAuthed())
                     <li>
                         <a href="{{ url('/admin') }}" class="admin-link">
                             <img src="{{ url($blogInfo['header_logo']) }}"
-                                alt="{{ $request->session()->get('user')->username }}"
-                                title="{{ $request->session()->get('user')->username }}"
+                                alt="{{ $AUTH->getUserInfo('username') }}"
+                                title="{{ $AUTH->getUserInfo('username') }}"
                                 class="img-circle"
                                 style="width:30px;"
                             />
