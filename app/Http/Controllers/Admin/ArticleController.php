@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\AdminController;
 
 use App\Libraries\ZuiThreePresenter;
+use App\Libraries\Markdown;
+
 use App\Article;
 use App\Cate;
 use App\Tag;
@@ -87,9 +89,17 @@ class ArticleController extends AdminController
         $tags = Tag::orderBy('created_at', 'desc')
             ->get();
 
-        $article = Article::with(['tags', 'cate'])->find($id);
+        $article = Article::with(['tags', 'cate'])
+            ->find($id);
 
-        // dd($article->toArray());
+        // $converter = new HtmlConverter();
+        // $article->content = $converter->convert($article->content);
+
+        // $converter = Markdown::create();
+        $article->content = Markdown::create()->htmlToMarkdown($article->content);
+
+
+        // dd($article);
 
         return view('admin/article_edit')->with([
             'article' => $article,

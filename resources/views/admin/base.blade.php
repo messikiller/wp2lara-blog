@@ -23,9 +23,6 @@ body{
 @yield('main')
 
 <script type="text/javascript" src="{{ elixir('assets/js/admin_base.js') }}"></script>
-<script type="text/javascript">
-    $('html').niceScroll({styler:"fb",cursorcolor:"#65cea7", cursorwidth: '6', cursorborderradius: '0px', background: '#424f63', spacebarenabled:false, cursorborder: '0'});
-</script>
 
 @yield('own-js')
 

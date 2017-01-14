@@ -44,7 +44,7 @@
           </div>
         </div>
 
-        <div class="form-group" style="height: 150px;">
+        <div class="form-group" style="height: 100px;">
             <label for="input-summary" class="col-sm-1">摘要</label>
             <div class="col-md-5" style="height: 100%;">
                 <textarea class="form-control" name="article[summary]" id="input-summary" oninput="preview_content(this.id, 'preview-summary')" style="height: 100%; resize: none;"></textarea>

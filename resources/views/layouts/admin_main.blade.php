@@ -14,11 +14,11 @@
 
         <!--logo and iconic logo start-->
         <div class="logo">
-            <a href="index.html"><img src="{{ asset('assets/images/adminex-logo.png') }}" alt=""></a>
+            <a href="/admin"><img src="{{ asset('assets/images/adminex-logo.png') }}" alt=""></a>
         </div>
 
         <div class="logo-icon text-center">
-            <a href="index.html"><img src="{{ asset('assets/images/adminex-icon.png') }}" alt=""></a>
+            <a href="/admin"><img src="{{ asset('assets/images/adminex-icon.png') }}" alt=""></a>
         </div>
         <!--logo and iconic logo end-->
 

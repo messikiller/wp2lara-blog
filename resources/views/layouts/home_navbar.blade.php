@@ -29,6 +29,21 @@
                             @endif
                     </li>
                     @endforeach
+
+                    @inject('request', 'Illuminate\Http\Request')
+                    @if ($request->session()->has('user'))
+                    <li>
+                        <a href="{{ url('/admin') }}" class="admin-link">
+                            <img src="{{ url($blogInfo['header_logo']) }}"
+                                alt="{{ $request->session()->get('user')->username }}"
+                                title="{{ $request->session()->get('user')->username }}"
+                                class="img-circle"
+                                style="width:30px;"
+                            />
+                            &nbsp;管理博客
+                        </a>
+                    </li>
+                    @endif
                 </ul>
 
             </div>

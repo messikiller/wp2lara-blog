@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
+use Crypt;
 
 class AuthController extends Controller
 {
@@ -26,7 +27,7 @@ class AuthController extends Controller
 
         $user = User::where('username', '=', $username)->first();
 
-        if (! empty($user) && \Crypt::decrypt($user->password) == $password) {
+        if (! empty($user) && Crypt::decrypt($user->password) == $password) {
             $request->session()->forget('user');
             $request->session()->put('user', $user);
             return redirect('/admin/index');
