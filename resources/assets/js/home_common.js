@@ -16,18 +16,16 @@
 
     // navbar configure
     $('.catebar > li > a').hover(function(){
-        // $(this).children('i.fa').removeClass('fa-rotate-270').addClass('fa-rotate-270');
         $(this).next('ul.children').show();
     }, function(){
-        // $(this).children('i.fa').removeClass('fa-rotate-270');
         $(this).next('ul.children').hide();
     });
 
     $('.catebar > li > ul.children').mouseover(function(){
-        $(this).prev('a').children('i.fa').removeClass('fa-rotate-270').addClass('fa-rotate-270');
+        $(this).prev('a').children('i.fa-angle-left').removeClass('fa-rotate-270').addClass('fa-rotate-270');
         $(this).show();
     }).mouseout(function(){
-        $(this).prev('a').children('i.fa').removeClass('fa-rotate-270');
+        $(this).prev('a').children('i.fa-angle-left').removeClass('fa-rotate-270');
         $(this).hide();
     });
 

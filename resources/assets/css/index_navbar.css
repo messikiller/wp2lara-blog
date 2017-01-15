@@ -45,7 +45,7 @@
     line-height: 50px;
 }
 
-#navbar ul.catebar > li > a:hover > i{
+#navbar ul.catebar > li > a:hover > i.fa-angle-left{
     transform: rotate(-90deg);
     transition: transform 0.2s ease
 }
@@ -72,4 +72,12 @@
 
 #navbar ul.catebar > li > ul.children a:hover{
     color: #3498db;
+}
+
+#navbar ul.catebar > li.auth-item{
+    width: 100px;
+}
+
+#navbar ul.catebar > li.auth-item > ul.children{
+    width: 100px;
 }

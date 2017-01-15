@@ -31,7 +31,7 @@
                     @endforeach
 
                     @if ($AUTH->isAuthed())
-                    <li>
+                    <li class="auth-item pull-right">
                         <a href="{{ url('/admin') }}" class="admin-link">
                             <img src="{{ url($blogInfo['header_logo']) }}"
                                 alt="{{ $AUTH->getUserInfo('username') }}"
@@ -39,7 +39,17 @@
                                 class="img-circle"
                                 style="width:30px;"
                             />
-                            &nbsp;管理博客
+                        </a>
+                        <ul class="children">
+                            <li><a href="/admin"><i class="fa fa-cog"></i>&nbsp;管理</a></li>
+                            <li><a href="/logout"><i class="fa fa-sign-out"></i>&nbsp;退出</a></li>
+                        </ul>
+                    </li>
+                    @else
+                    <li class="auth-item pull-right">
+                        <a href="{{ url('/admin') }}" class="admin-link">
+                            <i class="fa fa-sign-in"></i>
+                            登录
                         </a>
                     </li>
                     @endif

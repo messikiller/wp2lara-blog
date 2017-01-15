@@ -48,6 +48,7 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="/logout"><i class="fa fa-home"></i> Home</a></li>
                             <li><a href="/logout"><i class="fa fa-sign-out"></i> 退出</a></li>
                         </ul>
                     </li>
