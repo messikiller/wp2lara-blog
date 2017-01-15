@@ -42,7 +42,13 @@
           <div class="col-md-10">
             <select class="form-control chosen-select" name="article[tag]" id="input-tag" multiple="true">
                 @foreach ($tags as $tag)
-                <option value="{{ $tag->Id }}">{{ $tag->name }}</option>
+                <option value="{{ $tag->Id }}"
+                    @foreach ($article->tags as $article_tag)
+                        @if ($article_tag->Id == $tag->Id)
+                        selected="selected"
+                        @endif
+                    @endforeach
+                >{{ $tag->name }}</option>
                 @endforeach
             </select>
           </div>
@@ -51,9 +57,15 @@
         <div class="form-group" style="height: 100px;">
             <label for="input-summary" class="col-sm-1">摘要</label>
             <div class="col-md-5" style="height: 100%;">
-                <textarea class="form-control" name="article[summary]" id="input-summary" oninput="preview_content(this.id, 'preview-summary')" style="height: 100%; resize: none;">{{ $article->summary }}</textarea>
+                <textarea
+                    class="form-control"
+                    name="article[summary]"
+                    id="input-summary"
+                    oninput="preview_content(this.id, 'preview-summary');"
+                    style="height: 100%; resize: none;"
+                >{{ $article->summary }}</textarea>
             </div>
-            <div class="col-md-5" id="preview-summary" style="height: 100%;overflow-y: scroll;border: 1px dashed #555;"></div>
+            <div class="col-md-5" id="preview-summary" style="height: 100%;overflow-y: scroll;border: 1px dashed #555;background-color:#555;color:#ffffff;border-radius:3px;padding:10px;"></div>
         </div>
 
         <div class="form-group">
@@ -82,5 +94,6 @@ function preview_content(src_id, preview_id)
     var input = $('#'+src_id).val();
     $('#'+preview_id).html(markdown.toHTML(input));
 }
+window.onload = preview_content('input-summary', 'preview-summary');
 </script>
 @endsection

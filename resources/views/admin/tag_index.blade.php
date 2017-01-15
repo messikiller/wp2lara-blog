@@ -7,7 +7,7 @@
 </ol>
 
 <div class="container-fluid" style="margin-bottom: 15px;">
-    <a href="/admin/tag/create" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;添加新链接</a>
+    <a href="/admin/tag/create" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;添加新标签</a>
 </div>
 
 <div class="container-fluid">

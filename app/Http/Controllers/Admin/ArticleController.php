@@ -92,14 +92,11 @@ class ArticleController extends AdminController
         $article = Article::with(['tags', 'cate'])
             ->find($id);
 
-        // $converter = new HtmlConverter();
-        // $article->content = $converter->convert($article->content);
+        $markdown = Markdown::create();
+        $article->summary = $markdown->htmlToMarkdown($article->summary);
+        $article->content = $markdown->htmlToMarkdown($article->content);
 
-        // $converter = Markdown::create();
-        $article->content = Markdown::create()->htmlToMarkdown($article->content);
-
-
-        // dd($article);
+        // dd($article->tags);
 
         return view('admin/article_edit')->with([
             'article' => $article,
