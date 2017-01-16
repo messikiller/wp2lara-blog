@@ -53,7 +53,8 @@ class WordpressImport extends Command
             'Tags',
             'ArticleTags',
             'ArticleCateId',
-            'Users'
+            'Users',
+            'Comments'
         ];
 
         if (! is_null($table) && ! in_array($table, $tables)) {
@@ -334,6 +335,54 @@ class WordpressImport extends Command
         ];
 
         DB::connection('mysql')->table('users')->insert($user);
+    }
+
+    private function generateComments()
+    {
+        DB::connection('mysql')->table('comments')->truncate();
+
+        $comments = DB::connection('wordpress')->table('comments')->get();
+
+        $map = $this->_getColumnsMap('articles', 'wp_post_id', 'Id');
+
+        $data = [];
+        foreach ($comments as $comment)
+        {
+            $post_id = $comment->comment_post_ID;
+            $article_id = $map[$post_id];
+
+            $author = $comment->comment_author;
+            $is_admin = 0;
+
+            if ($author == 'messikiller') {
+                $is_admin = 1;
+            }
+
+            $ip = ip2long($comment->comment_author_IP);
+            if ($ip == -1 || $ip == false) {
+                $ip = 0;
+            } else {
+                $ip = sprintf("%u", $ip);
+            }
+
+            $tmp = [
+                'Id' => $comment->comment_ID,
+                'article_id' => $article_id,
+                'parent_id' => $comment->comment_parent,
+                'is_admin' => $is_admin,
+                'author' => $author,
+                'email' => $comment->comment_author_email,
+                'url' => $comment->comment_author_url,
+                'ip' => $ip,
+                'content' => $comment->comment_content,
+                'created_at' => $comment->comment_date,
+                'updated_at' => $comment->comment_date
+            ];
+
+            $data[] = $tmp;
+        }
+
+        DB::connection('mysql')->table('comments')->insert($data);
     }
 
     private function _getSummaryByContent($content)
