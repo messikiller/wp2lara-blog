@@ -13,8 +13,10 @@ require('laravel-elixir-vue-2');
  |
  */
 
+var zui_css = 'resources/assets/css/zui.css';
+
 var basecss = [
-    'node_modules/zui/dist/css/zui.min.css',
+    zui_css,
     'node_modules/font-awesome/css/font-awesome.min.css',
     'node_modules/ionicons-npm/css/ionicons.min.css',
     'node_modules/animate.css/animate.min.css',
@@ -45,7 +47,7 @@ var admin_basejs = [
 ];
 
 var admin_pagecss = [
-    'node_modules/zui/dist/css/zui.min.css',
+    zui_css,
     'node_modules/font-awesome/css/font-awesome.min.css',
     'node_modules/zui/dist/lib/chosen/chosen.min.css',
     'node_modules/zui/dist/lib/colorpicker/zui.colorpicker.min.css'
@@ -63,6 +65,8 @@ var admin_pagejs = [
 
 elixir(function(mix) {
     mix
+        .less('app.less', zui_css)
+
         .copy([
             'node_modules/zui/dist/fonts/zenicon.eot',
             'node_modules/zui/dist/fonts/zenicon.svg',
@@ -114,7 +118,8 @@ elixir(function(mix) {
                 'resources/assets/css/index_boxes.css',
                 'resources/assets/css/index_sidebar.css',
                 'resources/assets/css/index_footer.css',
-                'resources/assets/css/index_content.css'
+                'resources/assets/css/index_content.css',
+                'resources/assets/css/index_comments.css'
             ]),
             'public/assets/css/index.css',
             './'

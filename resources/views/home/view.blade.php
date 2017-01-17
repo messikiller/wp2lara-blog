@@ -81,4 +81,8 @@
 
 </div>
 
+<div id="comments">
+
+</div>
+
 @endsection

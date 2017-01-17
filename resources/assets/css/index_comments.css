@@ -1,0 +1,21 @@
+#comments{
+    padding: 15px 25px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e7ebee;
+}
+
+#comments a.avatar{
+    background-color: #e5e5e5;
+    text-align: center;
+    color: #aaa;
+    margin-top: 0px;
+}
+
+#comments a.avatar:hover{
+    text-decoration: none;
+}
+
+#comments a.avatar > i{
+    line-height: 40px;
+}
