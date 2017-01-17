@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 use App\Cate;
 use App\Tag;
@@ -20,13 +21,44 @@ class HomeController extends Controller
         view()->composer([
             'layouts.home_main'
         ], function ($view) {
+
+            $navbarCates = Cache::get('home.navbarCates', function() {
+                $val = $this->getNavbarCates();
+                Cache::put('home.navbarCates', $val, 10);
+                return $val;
+            });
+
+            $sidebarTags = Cache::get('home.sidebarTags', function() {
+                $val = $this->getSidebarTags();
+                Cache::put('home.sidebarTags', $val, 10);
+                return $val;
+            });
+
+            $sidebarCates = Cache::get('home.sidebarCates', function() {
+                $val = $this->getSidebarCates();
+                Cache::put('home.sidebarCates', $val, 10);
+                return $val;
+            });
+
+            $sidebarArchives = Cache::get('home.sidebarArchives', function() {
+                $val = $this->getSidebarArchives();
+                Cache::put('home.sidebarArchives', $val, 10);
+                return $val;
+            });
+
+            $footerBlogrolls = Cache::get('home.footerBlogrolls', function() {
+                $val = $this->getFooterBlogrolls();
+                Cache::put('home.footerBlogrolls', $val, 10);
+                return $val;
+            });
+            
             $view->with([
-                'blogInfo'        => $this->blogInfo,
-                'navbarCates'     => $this->getNavbarCates(),
-                'sidebarTags'     => $this->getSidebarTags(),
-                'sidebarCates'    => $this->getSidebarCates(),
-                'sidebarArchives' => $this->getSidebarArchives(),
-                'footerBlogrolls' => $this->getFooterBlogrolls()
+                'blogInfo'        => $this->getBlogInfo(),
+                'navbarCates'     => $navbarCates,
+                'sidebarTags'     => $sidebarTags,
+                'sidebarCates'    => $sidebarCates,
+                'sidebarArchives' => $sidebarArchives,
+                'footerBlogrolls' => $footerBlogrolls
             ]);
         });
 
