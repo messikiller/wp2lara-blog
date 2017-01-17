@@ -13,6 +13,7 @@ use App\Blogroll;
 
 class HomeController extends Controller
 {
+    private $expire = 10;
 
     public function __construct()
     {
@@ -21,44 +22,13 @@ class HomeController extends Controller
         view()->composer([
             'layouts.home_main'
         ], function ($view) {
-
-            $navbarCates = Cache::get('home.navbarCates', function() {
-                $val = $this->getNavbarCates();
-                Cache::put('home.navbarCates', $val, 10);
-                return $val;
-            });
-
-            $sidebarTags = Cache::get('home.sidebarTags', function() {
-                $val = $this->getSidebarTags();
-                Cache::put('home.sidebarTags', $val, 10);
-                return $val;
-            });
-
-            $sidebarCates = Cache::get('home.sidebarCates', function() {
-                $val = $this->getSidebarCates();
-                Cache::put('home.sidebarCates', $val, 10);
-                return $val;
-            });
-
-            $sidebarArchives = Cache::get('home.sidebarArchives', function() {
-                $val = $this->getSidebarArchives();
-                Cache::put('home.sidebarArchives', $val, 10);
-                return $val;
-            });
-
-            $footerBlogrolls = Cache::get('home.footerBlogrolls', function() {
-                $val = $this->getFooterBlogrolls();
-                Cache::put('home.footerBlogrolls', $val, 10);
-                return $val;
-            });
-            
             $view->with([
                 'blogInfo'        => $this->getBlogInfo(),
-                'navbarCates'     => $navbarCates,
-                'sidebarTags'     => $sidebarTags,
-                'sidebarCates'    => $sidebarCates,
-                'sidebarArchives' => $sidebarArchives,
-                'footerBlogrolls' => $footerBlogrolls
+                'navbarCates'     => $this->getNavbarCates(),
+                'sidebarTags'     => $this->getSidebarTags(),
+                'sidebarCates'    => $this->getSidebarCates(),
+                'sidebarArchives' => $this->getSidebarArchives(),
+                'footerBlogrolls' => $this->getFooterBlogrolls()
             ]);
         });
 
@@ -95,17 +65,27 @@ class HomeController extends Controller
 
     private function getNavbarCates()
     {
+        if (Cache::has('home.navbarCates')) {
+            return Cache::get('home.navbarCates');
+        }
+
         $navbarCates = Cate::orderBy('order_num', 'asc')
             ->orderBy('created_at', 'asc')
             ->orderBy('Id', 'asc')
             ->get()
             ->toArray();
 
-        return $this->_generateCatesMenu($navbarCates);
+        $val = $this->_generateCatesMenu($navbarCates);
+        Cache::put('home.navbarCates', $val, $this->expire);
+        return $val;
     }
 
     private function getSidebarTags()
     {
+        if (Cache::has('home.sidebarTags')) {
+            return Cache::get('home.sidebarTags');
+        }
+
         $size = $this->getBlogInfo('sidebar_tags_size', 20);
 
         $sidebarTags = Tag::orderBy('created_at', 'asc')
@@ -114,11 +94,16 @@ class HomeController extends Controller
             ->get()
             ->toArray();
 
+        Cache::put('home.sidebarTags', $sidebarTags, $this->expire);
         return $sidebarTags;
     }
 
     private function getSidebarCates()
     {
+        if (Cache::has('home.sidebarCates')) {
+            return Cache::get('home.sidebarCates');
+        }
+
         $size = $this->getBlogInfo('sidebar_cates_size', 20);
 
         $sidebarCates = Cate::withCount('articles')
@@ -134,11 +119,16 @@ class HomeController extends Controller
 
         // dd($sidebarCates);
 
+        Cache::put('home.sidebarCates', $sidebarCates, $this->expire);
         return $sidebarCates;
     }
 
     private function getSidebarArchives()
     {
+        if (Cache::has('home.sidebarArchives')) {
+            return Cache::get('home.sidebarArchives');
+        }
+
         $size = $this->getBlogInfo('sidebar_archives_size', 50);
 
         $sidebarArchives = Article::select(['Id', 'published_at'])
@@ -163,15 +153,21 @@ class HomeController extends Controller
 
         // dd($sidebarArchives);
 
+        Cache::put('home.sidebarArchives', $sidebarArchives, $this->expire);
         return $sidebarArchives;
     }
 
     private function getFooterBlogrolls()
     {
+        if (Cache::has('home.footerBlogrolls')) {
+            return Cache::get('home.footerBlogrolls');
+        }
+
         $footerBlogrolls = Blogroll::orderBy('created_at', 'asc')
             ->orderBy('Id', 'asc')
             ->get();
 
+        Cache::put('home.footerBlogrolls', $footerBlogrolls, $this->expire);
         return $footerBlogrolls;
     }
 
