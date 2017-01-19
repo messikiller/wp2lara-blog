@@ -12,7 +12,8 @@
         "league/html-to-markdown": "^4.3",
         "erusev/parsedown": "^1.6",
 		"johnlui/aliyun-oss": "*",
-		"douyasi/laravel-editor-md": "dev-master"
+		"douyasi/laravel-editor-md": "dev-master",
+        "dingo/api": "1.0.*@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -16,7 +16,7 @@ class CommentController extends ApiController
 
     public function list($article_id)
     {
-        //
+        
     }
 
     public function add($article_id, Request $request)

@@ -155,7 +155,8 @@ return [
          */
         Barryvdh\Debugbar\ServiceProvider::class,
 		Douyasi\Editor\EditorServiceProvider::class,
-		
+        Dingo\Api\Provider\LaravelServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
