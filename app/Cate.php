@@ -8,6 +8,8 @@ class Cate extends Model
 {
     protected $primaryKey = 'Id';
 
+    protected $table = 'cates';
+
     public function articles()
     {
         return $this->hasMany('App\Article', 'cate_id', 'Id');

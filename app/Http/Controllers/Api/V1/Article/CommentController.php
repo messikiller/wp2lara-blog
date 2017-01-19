@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\ApiController;
 
+use App\Article;
+use App\Comment;
+
 class CommentController extends ApiController
 {
     public function __construct()
@@ -16,11 +19,17 @@ class CommentController extends ApiController
 
     public function index($article_id)
     {
-        return array('v1' => $article_id);
+        $comments = Article::find($article_id)->comments()->get();
+
+        if (empty($comments)) {
+            return $this->response(STATUS_EMPTY_SETS, $comments);
+        }
+
+        return $this->response(STATUS_OK, $comments);
     }
 
     public function add($article_id, Request $request)
     {
-        return array('v2' => $article_id);
+        //
     }
 }
