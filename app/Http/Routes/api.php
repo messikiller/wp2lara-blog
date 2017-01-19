@@ -2,14 +2,16 @@
 
 $api = app('Dingo\Api\Routing\Router');
 
-# v1
+/**
+ * version v1
+ */
 $api->version('v1', function ($api) {
-    # test
-    $api->get('hello', 'App\Api\Controllers\V1\FirstController@hello');
+    $api->get('article/{article_id}/comments', 'App\Http\Controllers\Api\V1\Article\CommentController@index');
 });
 
-# v2
+/**
+ * version v2
+ */
 $api->version('v2', function ($api) {
-    # test
-    $api->get('hello', 'App\Api\Controllers\V1\FirstController@two');
+    $api->get('article/{article_id}/comments', 'App\Http\Controllers\Api\V1\Article\CommentController@add');
 });

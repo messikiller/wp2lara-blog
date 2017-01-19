@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Article;
+namespace App\Http\Controllers\Api\V1\Article;
 
 use Illuminate\Http\Request;
 
@@ -14,13 +14,13 @@ class CommentController extends ApiController
         parent::__construct();
     }
 
-    public function list($article_id)
+    public function index($article_id)
     {
-        
+        return array('v1' => $article_id);
     }
 
     public function add($article_id, Request $request)
     {
-        //
+        return array('v2' => $article_id);
     }
 }
