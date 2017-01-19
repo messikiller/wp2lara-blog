@@ -17,19 +17,34 @@ class CommentController extends ApiController
         parent::__construct();
     }
 
-    public function index($article_id)
+    public function _list($article_id)
     {
-        $comments = Article::find($article_id)->comments()->get();
+        $comments = Article::find($article_id)->comments()->get()->toArray();
 
         if (empty($comments)) {
-            return $this->response(STATUS_EMPTY_SETS, $comments);
+            return $this->response(STATUS_EMPTY_SETS, 'Empty Sets');
         }
 
-        return $this->response(STATUS_OK, $comments);
+        $list = $this->format_comments($comments);
+        return $this->response(STATUS_OK, $list);
     }
 
     public function add($article_id, Request $request)
     {
         //
+    }
+
+    private function format_comments($comments, $name = 'children', $pid = 0)
+    {
+        $ret = [];
+        foreach ($comments as $comment)
+        {
+            if ($comment['parent_id'] == $pid) {
+                $comment[$name] = $this->format_comments($comments, $name, $comment['Id']);
+                $ret[] = $comment;
+            }
+        }
+
+        return $ret;
     }
 }
