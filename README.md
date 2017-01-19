@@ -36,20 +36,22 @@
 
 - 从 wordpress 中导入数据
 
-1. 首先需要配置 .env 中 wordpress 源数据库的连接信息
+    1. 首先需要配置 .env 中 wordpress 源数据库的连接信息
 
-```
-DB_WP_HOST=127.0.0.1        //主机地址
-DB_WP_PORT=3306             //端口
-DB_WP_DATABASE=homestead    //数据库名称
-DB_WP_USERNAME=homestead    //连接用户
-DB_WP_PASSWORD=secret       //连接密码
-DB_WP_PREFIX=wp_            //数据表前缀
-```
+    ```
+    DB_WP_HOST=127.0.0.1        //主机地址
+    DB_WP_PORT=3306             //端口
+    DB_WP_DATABASE=homestead    //数据库名称
+    DB_WP_USERNAME=homestead    //连接用户
+    DB_WP_PASSWORD=secret       //连接密码
+    DB_WP_PREFIX=wp_            //数据表前缀
+    ```
 
-2. 运行导入命令：
+    2. 运行导入命令：
 
+    ```
     php artisan wordpress:import
+    ```
 
 支持从 wordpress 中导入的数据有：
 
