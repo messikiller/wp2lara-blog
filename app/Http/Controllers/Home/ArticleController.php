@@ -15,6 +15,7 @@ use App\Cate;
 use App\Tag;
 use App\ArticleTag;
 use App\Libraries\ZuiThreePresenter;
+use App\Libraries\Util;
 
 class ArticleController extends HomeController
 {
@@ -58,8 +59,9 @@ class ArticleController extends HomeController
         $comments_api  = url('/api/article/'.$id.'/comments');
         $comments_json = file_get_contents($comments_api);
         $comments_arr  = json_decode($comments_json, true);
-        $comments      = $this->comments_wrap($comments_arr['data']);
+        $comments      = $comments_arr['errno'] == 0 ? $this->comments_wrap($comments_arr['data']) : '';
 
+        // dd($comments);
         // dd($article->toArray());
 
         return view('home.view')->with([
@@ -175,6 +177,8 @@ EOF;
 
         foreach ($comments as $comment)
         {
+            $comment['created_at'] = Util::create()->getPrettyDate(strtotime($comment['created_at']));
+
             $wrap = $tpl;
             $wrap = str_replace('__CREATED_AT__', $comment['created_at'], $wrap);
             $wrap = str_replace('__AUTHOR__',     $comment['author'],     $wrap);

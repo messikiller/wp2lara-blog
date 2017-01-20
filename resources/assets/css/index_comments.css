@@ -19,3 +19,12 @@
 #comments a.avatar > i{
     line-height: 40px;
 }
+
+/*
+ * comments reply
+ */
+#reply{
+    margin-top: 10px;
+    padding-bottom: 0px;
+    border-bottom-width: 0px;
+}

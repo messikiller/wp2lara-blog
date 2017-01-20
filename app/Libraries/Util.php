@@ -4,6 +4,17 @@ namespace App\Libraries;
 
 class Util
 {
+    private static $instance;
+
+    public static function create()
+    {
+        if (! self::$instance instanceof self) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
+    }
+
     public function getPrettyDate($timestamp)
     {
         $ctime  = time();

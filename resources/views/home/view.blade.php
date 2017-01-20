@@ -82,7 +82,49 @@
 </div>
 
 <div id="comments">
-{!! $comments !!}
+    <header>
+        <h4>
+            @if (empty($comments))
+                暂时还没有评论，等你坐沙发呢！
+            @else
+                {{ count($comments) }}条评论
+            @endif
+        </h4>
+    </header>
+    <section class="comments-list">
+        {!! $comments !!}
+    </section>
+    <footer>
+        <div id="reply" class="comment">
+            <a href="###" class="avatar"><i class="icon-user icon-2x"></i></a>
+            <div class="content">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="name" placeholder="请输入昵称（必填）" />
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="name" placeholder="请输入邮箱（必填）" />
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="name" placeholder="请输入个人网址" />
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-sm-12">
+                            <textarea class="form-control" rows="3" cols="40" style="resize:none;" placeholder="撰写评论……"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <a href="#" class="btn btn-primary pull-right">发布评论</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </footer>
+
 </div>
+
 
 @endsection
