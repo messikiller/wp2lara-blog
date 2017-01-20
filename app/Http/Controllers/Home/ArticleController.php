@@ -167,7 +167,7 @@ class ArticleController extends HomeController
     <a href="###" class="avatar"><i class="icon-camera-retro icon-2x"></i></a>
     <div class="content">
         <div class="pull-right text-muted">__CREATED_AT__</div>
-        <div><a href="###"><strong>__AUTHOR__</strong></a></div>
+        <div><span class="text-primary"><strong>__AUTHOR__</strong></span></div>
         <div class="text">__CONTENT__</div>
         <div class="actions"><a href="##">回复</a></div>
     </div>
