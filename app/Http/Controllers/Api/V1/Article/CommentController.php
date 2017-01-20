@@ -17,7 +17,7 @@ class CommentController extends ApiController
         parent::__construct();
     }
 
-    public function _list($article_id)
+    public function index($article_id)
     {
         $comments = Article::find($article_id)->comments()->get()->toArray();
 

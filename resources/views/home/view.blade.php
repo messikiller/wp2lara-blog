@@ -82,7 +82,7 @@
 </div>
 
 <div id="comments">
-
+{!! $comments !!}
 </div>
 
 @endsection
