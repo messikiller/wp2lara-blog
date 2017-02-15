@@ -2,6 +2,11 @@
 
 基于 laravel 5.2 开发的轻量级个人博客，支持从 wordpress 博客中一键导入数据到 laravel 数据库。
 
+## DEMO
+
+- wordpress 博客：[blog.messikiller.net](blog.messikiller.net)
+- laravel 博客：[laravel.messikiller.net](laravel.messikiller.net)
+
 ## 环境：
 
 laravel 5.2 + zui + jquery
