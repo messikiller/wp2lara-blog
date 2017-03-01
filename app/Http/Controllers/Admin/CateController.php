@@ -17,7 +17,7 @@ class CateController extends AdminController
     {
         parent::__construct();
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -48,8 +48,6 @@ class CateController extends AdminController
             ->orderBy('order_num', 'asc')
             ->orderBy('created_at', 'asc')
             ->get();
-
-        // dd($parent_cates);
 
         return view('admin/cate_create')->with([
             'parent_cates' => $parent_cates

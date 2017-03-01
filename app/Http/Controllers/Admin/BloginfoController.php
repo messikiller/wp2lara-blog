@@ -16,12 +16,10 @@ class BloginfoController extends AdminController
     {
         parent::__construct();
     }
-    
+
     public function index()
     {
         $bloginfo = BlogInfo::first();
-
-        // dd($bloginfo->toArray());
 
         return view('admin/bloginfo_index')->with([
             'bloginfo' => $bloginfo

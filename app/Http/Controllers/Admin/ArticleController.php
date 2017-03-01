@@ -34,8 +34,6 @@ class ArticleController extends AdminController
             ->orderBy('published_at', 'desc')
             ->paginate(15);
 
-        // dd($articles->toArray());
-
         return view('admin/article_index')->with([
             'articles'   => $articles,
             'pagination' => $articles->render(new ZuiThreePresenter($articles))
@@ -56,7 +54,6 @@ class ArticleController extends AdminController
         $tags = Tag::orderBy('created_at', 'desc')
             ->get();
 
-        // dd($tags);
         return view('admin/article_create')->with([
             'cates' => $cates,
             'tags'  => $tags
@@ -96,7 +93,6 @@ class ArticleController extends AdminController
         $article->summary = $markdown->htmlToMarkdown($article->summary);
         $article->content = $markdown->htmlToMarkdown($article->content);
 
-        // dd($article->tags);
 
         return view('admin/article_edit')->with([
             'article' => $article,
