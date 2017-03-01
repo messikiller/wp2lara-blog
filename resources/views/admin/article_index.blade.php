@@ -43,7 +43,7 @@
             <tr>
                 <td>{{ $index++ }}</td>
                 <td>
-                    <a href="{{ url('articles/view', ['Id' => $article->Id]) }}" data-toggle="tooltip" title="{{ $article->title }}" target="blank" class="article-title">{{ $article->title }}</a>
+                    <a href="{{ url('view', ['Id' => $article->Id]) }}" data-toggle="tooltip" title="{{ $article->title }}" target="blank" class="article-title">{{ $article->title }}</a>
                 </td>
                 <td>
                     @if (count($article->tags))
