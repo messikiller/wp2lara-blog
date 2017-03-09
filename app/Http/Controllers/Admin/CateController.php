@@ -93,7 +93,25 @@ class CateController extends AdminController
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'cate.name'      => 'required|max:255',
+            'cate.color'     => 'required|max:50',
+            'cate.order_num' => 'required|numeric',
+            'cate.pid'       => 'required|numeric'
+        ]);
+
+        $cate = Cate::find($id);
+
+        $cate->name      = $request->input('cate.name');
+        $cate->color     = $request->input('cate.color');
+        $cate->order_num = $request->input('cate.order_num');
+        $cate->pid       = $request->input('cate.pid');
+
+        if ($cate->save()) {
+            return redirect('/admin/cate');
+        } else {
+            return back();
+        }
     }
 
     /**
