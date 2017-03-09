@@ -6,19 +6,19 @@
             社交账号
         </div>
         <div class="footer-divider"></div>
-        <a href="#" class="connect-link">
+        <a href="#" class="connect-link rss-link">
             <i class="fa fa-rss fa-5x"></i>
             <span class="connect-text">RSS</span>
         </a>
-        <a href="#" class="connect-link">
+        <a href="{{ $blogInfo['footer_weibo_url'] }}" class="connect-link weibo-link" target="_blank">
             <i class="fa fa-weibo fa-5x"></i>
             <span class="connect-text">weibo</span>
         </a>
-        <a href="#" class="connect-link">
+        <a href="{{ $blogInfo['footer_github_url'] }}" class="connect-link github-link" target="_blank">
             <i class="fa fa-github fa-5x"></i>
             <span class="connect-text">github</span>
         </a>
-        <a href="#" class="connect-link">
+        <a href="#" class="connect-link wechat-link">
             <i class="fa fa-weixin fa-5x"></i>
             <span class="connect-text">wechat</span>
         </a>

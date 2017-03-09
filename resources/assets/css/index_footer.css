@@ -50,6 +50,22 @@
     color: #3498db;
 }
 
+#footer .connect-me a.rss-link:hover{
+    color: #ffcc33;
+}
+
+#footer .connect-me a.weibo-link:hover{
+    color: #de2f2f;
+}
+
+#footer .connect-me a.github-link:hover{
+    color: #3498db;
+}
+
+#footer .connect-me a.wechat-link:hover{
+    color: #08ba08;
+}
+
 #footer .connect-me .connect-link i.fa{
     display: block;
 }
