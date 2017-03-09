@@ -66,6 +66,7 @@ class CommentController extends ApiController
         ];
 
         foreach ($comments as $comment) {
+            $userid   = $comment->is_admin == 1 ? 1 : 0;
             $usericon = $comment->is_admin == 1 ? url('/assets/images/header-logo.jpg') : url('/assets/images/guest.png');
             $push = [
                 'cmtid' => $comment->Id,
@@ -73,10 +74,10 @@ class CommentController extends ApiController
                 'content' => $comment->content,
                 'replyid' => $comment->parent_id,
                 'user' => [
-                    'userid' => 1,
+                    'userid'   => $userid,
                     'nickname' => $comment->author,
                     'usericon' => $usericon,
-                    'userurl' => $comment->url
+                    'userurl'  => $comment->url
                 ],
                 'ip' => long2ip($comment->ip),
                 'useragent' => '',

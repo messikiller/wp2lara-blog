@@ -132,8 +132,8 @@
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
-    appid: 'cysv3QPiU',
-    conf: 'prod_07b6f1ca1df7f042ab3d60ebf5051a78'
+    appid: '{{ env('SOHU_CHANGYAN_COMMENT_APPID') }}',
+    conf: '{{ env('SOHU_CHANGYAN_COMMENT_CONF') }}'
     });
 </script>
 
