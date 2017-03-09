@@ -66,6 +66,7 @@ class CommentController extends ApiController
         ];
 
         foreach ($comments as $comment) {
+            $usericon = $comment->is_admin == 1 ? url('/assets/images/header-logo.jpg') : url('/assets/images/guest.png');
             $push = [
                 'cmtid' => $comment->Id,
                 'ctime' => strtotime($comment->created_at) . '000',
@@ -74,7 +75,7 @@ class CommentController extends ApiController
                 'user' => [
                     'userid' => 1,
                     'nickname' => $comment->author,
-                    'usericon' => url('/assets/images/guest.png'),
+                    'usericon' => $usericon,
                     'userurl' => $comment->url
                 ],
                 'ip' => long2ip($comment->ip),
