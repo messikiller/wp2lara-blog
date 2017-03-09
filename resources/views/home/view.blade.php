@@ -81,7 +81,7 @@
 
 </div>
 
-<div id="comments">
+<!-- <div id="comments">
     <header>
         <h4>
             @if (empty($comments))
@@ -124,7 +124,17 @@
         </div>
     </footer>
 
-</div>
+</div> -->
 
+<div id="comments">
+    <div id="SOHUCS" sid="{{ $article->Id }}"></div>
+</div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+    appid: 'cysv3QPiU',
+    conf: 'prod_07b6f1ca1df7f042ab3d60ebf5051a78'
+    });
+</script>
 
 @endsection
