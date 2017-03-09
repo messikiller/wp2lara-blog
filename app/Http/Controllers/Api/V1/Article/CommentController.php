@@ -47,4 +47,46 @@ class CommentController extends ApiController
 
         return $ret;
     }
+
+    public function json($article_id)
+    {
+        $article  = Article::find($article_id);
+        $comments = $article->comments;
+
+        $ret = [
+            'title' => $article->title,
+            'url'   => url('/view/'.$article->Id),
+            'ttime' => strtotime($article->created_at) . '000',
+            'sourceid' => $article->Id,
+            'parentid' => 0,
+            'categoryid' => '',
+            'ownerid' => '',
+            'metadata' => '',
+            'comments' => []
+        ];
+
+        foreach ($comments as $comment) {
+            $push = [
+                'cmtid' => $comment->Id,
+                'ctime' => strtotime($comment->created_at) . '000',
+                'content' => $comment->content,
+                'replyid' => $comment->parent_id,
+                'user' => [
+                    'userid' => 1,
+                    'nickname' => $comment->author,
+                    'usericon' => url('/assets/images/guest.png'),
+                    'userurl' => $comment->url
+                ],
+                'ip' => long2ip($comment->ip),
+                'useragent' => '',
+                'channeltype' => '2',
+                'from' => '',
+                'spcount' => '',
+                'opcount' => ''
+            ];
+            $ret['comments'][] = $push;
+        }
+
+        return json_encode($ret);
+    }
 }
