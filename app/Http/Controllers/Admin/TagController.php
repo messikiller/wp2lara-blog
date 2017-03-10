@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminController;
 
 use App\Libraries\ZuiThreePresenter;
 use App\Tag;
+use Cache;
 
 class TagController extends AdminController
 {
