@@ -21,16 +21,23 @@
     <form class="form-horizontal" method="post" action="/admin/blogroll/{{ $blogroll->Id }}">
         {{ csrf_field() }}
         <div class="form-group">
-            <label for="input-title" class="col-sm-1">链接标题</label>
+            <label class="col-sm-1">链接标题</label>
             <div class="col-md-5">
                 <input type="text" class="form-control" name="blogroll[title]" value="{{ $blogroll->title }}" id="input-title" />
             </div>
         </div>
 
         <div class="form-group">
-            <label for="input-title" class="col-sm-1">链接地址</label>
+            <label class="col-sm-1">链接地址</label>
             <div class="col-md-5">
                 <input type="text" class="form-control" name="blogroll[link]" value="{{ $blogroll->link }}" id="input-link" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-1">排序值</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="blogroll[order_num]" value="{{ $blogroll->order_num }}" id="input-order_num" />
             </div>
         </div>
 

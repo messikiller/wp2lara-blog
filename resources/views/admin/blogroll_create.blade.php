@@ -35,6 +35,13 @@
         </div>
 
         <div class="form-group">
+            <label for="input-title" class="col-sm-1">排序值</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="blogroll[order_num]" id="input-order_num" value="0" />
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-sm-offset-1 col-sm-10">
                 <button type="submit" class="btn btn-success">提交</button>
             </div>

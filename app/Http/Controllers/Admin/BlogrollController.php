@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminController;
 
 use App\Libraries\ZuiThreePresenter;
 use App\Blogroll;
+use Cache;
 
 class BlogrollController extends AdminController
 {
@@ -17,7 +18,7 @@ class BlogrollController extends AdminController
     {
         parent::__construct();
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +26,8 @@ class BlogrollController extends AdminController
      */
     public function index()
     {
-        $blogrolls = Blogroll::orderBy('created_at', 'asc')
+        $blogrolls = Blogroll::orderBy('order_num', 'asc')
+            ->orderBy('created_at', 'asc')
             ->orderBy('Id', 'asc')
             ->paginate(15);
 
@@ -56,15 +58,18 @@ class BlogrollController extends AdminController
     public function store(Request $request)
     {
         $this->validate($request, [
-            'blogroll.title' => 'required|max:255',
-            'blogroll.link'  => 'required|url|max:255'
+            'blogroll.title'     => 'required|max:255',
+            'blogroll.link'      => 'required|url|max:255',
+            'blogroll.order_num' => 'required|integer|min:0'
         ]);
 
         $blogroll = new Blogroll;
-        $blogroll->title = $request->input('blogroll.title');
-        $blogroll->link  = $request->input('blogroll.link');
+        $blogroll->title      = $request->input('blogroll.title');
+        $blogroll->link       = $request->input('blogroll.link');
+        $blogroll->order_num  = $request->input('blogroll.order_num');
 
         if ($blogroll->save()) {
+            Cache::forget('home.footerBlogrolls');
             return redirect('/admin/blogroll');
         } else {
             return back();
@@ -94,15 +99,18 @@ class BlogrollController extends AdminController
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'blogroll.title' => 'required|max:255',
-            'blogroll.link'  => 'required|url|max:255'
+            'blogroll.title'     => 'required|max:255',
+            'blogroll.link'      => 'required|url|max:255',
+            'blogroll.order_num' => 'required|integer|min:0'
         ]);
 
         $blogroll = Blogroll::find($id);
-        $blogroll->title = $request->input('blogroll.title');
-        $blogroll->link  = $request->input('blogroll.link');
+        $blogroll->title      = $request->input('blogroll.title');
+        $blogroll->link       = $request->input('blogroll.link');
+        $blogroll->order_num  = $request->input('blogroll.order_num');
 
         if ($blogroll->save()) {
+            Cache::forget('home.footerBlogrolls');
             return redirect('/admin/blogroll');
         } else {
             return back();
@@ -119,6 +127,7 @@ class BlogrollController extends AdminController
     {
         $blogroll = Blogroll::find($id);
         if ($blogroll->delete()) {
+            Cache::forget('home.footerBlogrolls');
             return redirect('/admin/blogroll');
         } else {
             return back();

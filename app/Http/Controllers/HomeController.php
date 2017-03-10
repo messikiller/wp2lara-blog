@@ -162,7 +162,8 @@ class HomeController extends Controller
             return Cache::get('home.footerBlogrolls');
         }
 
-        $footerBlogrolls = Blogroll::orderBy('created_at', 'asc')
+        $footerBlogrolls = Blogroll::orderBy('order_num', 'asc')
+            ->orderBy('created_at', 'asc')
             ->orderBy('Id', 'asc')
             ->get();
 

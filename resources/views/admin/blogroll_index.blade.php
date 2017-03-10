@@ -18,6 +18,7 @@
                 <th>序号</th>
                 <th>标题</th>
                 <th>链接地址</th>
+                <th>排序值</th>
                 <th>创建时间</th>
                 <th>操作</th>
             </tr>
@@ -31,6 +32,7 @@
                 <td>
                     <a href="{{ $blogroll->link }}" target="blank">{{ $blogroll->link }}</a>
                 </td>
+                <td>{{ $blogroll->order_num }}</td>
                 <td>{{ $blogroll->created_at }}</td>
                 <td>
                     <a href="/admin/blogroll/{{ $blogroll->Id }}/edit" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i>&nbsp;编辑</a>
