@@ -195,11 +195,11 @@ class HomeController extends Controller
 
         }
 
-        $level1 = collect($level1)->sortByDesc('order_num')->values()->toArray();
+        $level1 = collect($level1)->sortBy('order_num')->values()->toArray();
 
         foreach ($level1 as &$v)
         {
-            $v['children'] = collect($v['children'])->sortByDesc('order_num')->values()->toArray();
+            $v['children'] = collect($v['children'])->sortBy('order_num')->values()->toArray();
         }
 
         return $level1;
