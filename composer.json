@@ -13,7 +13,8 @@
         "erusev/parsedown": "^1.6",
 		"johnlui/aliyun-oss": "*",
 		"douyasi/laravel-editor-md": "dev-master",
-        "dingo/api": "1.0.*@dev"
+        "dingo/api": "1.0.*@dev",
+        "spatie/laravel-backup": "^3.0.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

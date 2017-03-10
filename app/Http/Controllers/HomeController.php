@@ -74,7 +74,6 @@ class HomeController extends Controller
             ->orderBy('Id', 'asc')
             ->get()
             ->toArray();
-
         $val = $this->_generateCatesMenu($navbarCates);
         Cache::put('home.navbarCates', $val, $this->expire);
         return $val;
@@ -173,32 +172,36 @@ class HomeController extends Controller
 
     private function _generateCatesMenu($cates)
     {
-        $ret = array();
+        $level1 = $level2 = [];
 
-        $func = function ($array, $field, $desc = false) {
-            $fieldArr = array();
-            foreach ($array as $k => $v) {
-                $fieldArr[$k] = $v[$field];
-            }
-            $sort = $desc == false ? SORT_ASC : SORT_DESC;
-            array_multisort($fieldArr, $sort, $array);
-            return $array;
-        };
-
-        foreach ($cates as $key => $cate)
+        foreach ($cates as $cate)
         {
-            $Id  = $cate['Id'];
-            $pid = $cate['pid'];
-            $order_num = $cate['order_num'];
+            $Id  = intval($cate['Id']);
+            $pid = intval($cate['pid']);
+
             if ($pid == 0) {
-                $ret[$Id] = $cate;
+                $level1[$Id] = $cate;
+                $level1[$Id]['children'] = [];
             } else {
-                $ret[$pid]['children'][] = $cate;
-                call_user_func_array($func, array(&$ret[$pid]['children'], 'order_num', false));
+                $level2[] = $cate;
             }
         }
 
-        $ret = call_user_func_array($func, array(&$ret, 'order_num', false));
-        return $ret;
+
+        foreach ($level2 as $item)
+        {
+            $pid = intval($item['pid']);
+            $level1[$pid]['children'][] = $item;
+
+        }
+
+        $level1 = collect($level1)->sortBy('order_num')->values()->toArray();
+
+        foreach ($level1 as &$v)
+        {
+            $v['children'] = collect($v['children'])->sortBy('order_num')->values()->toArray();
+        }
+
+        return $level1;
     }
 }

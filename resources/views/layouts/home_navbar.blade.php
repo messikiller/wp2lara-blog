@@ -19,7 +19,7 @@
 
                             {{ $cate['name'] }}
 
-                            @if (isset($cate['children']))
+                            @if (! empty($cate['children']))
                                 &nbsp;&nbsp;<i class="fa fa-angle-left"></i></a>
                                 <ul class="children">
                                     @foreach ($cate['children'] as $child)

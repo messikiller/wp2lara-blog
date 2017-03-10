@@ -44,7 +44,7 @@
                     @endif
                     >顶级分类</option>
                     @foreach ($parent_cates as $parent)
-                    <option value="{{ $cate->Id }}"
+                    <option value="{{ $parent->Id }}"
                     @if ($cate->pid == $parent->Id)
                         selected="selected"
                     @endif
