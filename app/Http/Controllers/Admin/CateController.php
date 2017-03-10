@@ -11,12 +11,20 @@ use App\Http\Controllers\AdminController;
 use App\Libraries\ZuiThreePresenter;
 use App\Cate;
 use Cache;
+use Config;
 
 class CateController extends AdminController
 {
+    private $navbarCatesCacheKey;
+
+    private $sidebarCatesCacheKey;
+
     public function __construct()
     {
         parent::__construct();
+
+        $this->navbarCatesCacheKey  = Config::get('cache_keys.HomeNavabarCates');
+        $this->sidebarCatesCacheKey = Config::get('cache_keys.HomeSidebarCates');
     }
 
     /**
@@ -107,7 +115,8 @@ class CateController extends AdminController
         $cate->pid       = $request->input('cate.pid');
 
         if ($cate->save()) {
-            Cache::forget('home.navbarCates');
+            Cache::forget($this->navbarCatesCacheKey);
+            Cache::forget($this->sidebarCatesCacheKey);
             return redirect('/admin/cate');
         } else {
             return back();

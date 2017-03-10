@@ -11,12 +11,17 @@ use App\Http\Controllers\AdminController;
 use App\Libraries\ZuiThreePresenter;
 use App\Blogroll;
 use Cache;
+use Config;
 
 class BlogrollController extends AdminController
 {
+    private $footerBlogrollsCacheKey;
+
     public function __construct()
     {
         parent::__construct();
+
+        $this->footerBlogrollsCacheKey = Config::get('cache_keys.HomeFooterBlogrolls');
     }
 
     /**
@@ -69,7 +74,7 @@ class BlogrollController extends AdminController
         $blogroll->order_num  = $request->input('blogroll.order_num');
 
         if ($blogroll->save()) {
-            Cache::forget('home.footerBlogrolls');
+            Cache::forget($this->footerBlogrollsCacheKey);
             return redirect('/admin/blogroll');
         } else {
             return back();
@@ -110,7 +115,7 @@ class BlogrollController extends AdminController
         $blogroll->order_num  = $request->input('blogroll.order_num');
 
         if ($blogroll->save()) {
-            Cache::forget('home.footerBlogrolls');
+            Cache::forget($this->footerBlogrollsCacheKey);
             return redirect('/admin/blogroll');
         } else {
             return back();
@@ -127,7 +132,7 @@ class BlogrollController extends AdminController
     {
         $blogroll = Blogroll::find($id);
         if ($blogroll->delete()) {
-            Cache::forget('home.footerBlogrolls');
+            Cache::forget($this->footerBlogrollsCacheKey);
             return redirect('/admin/blogroll');
         } else {
             return back();

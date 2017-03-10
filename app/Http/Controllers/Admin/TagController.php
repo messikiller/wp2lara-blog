@@ -11,12 +11,17 @@ use App\Http\Controllers\AdminController;
 use App\Libraries\ZuiThreePresenter;
 use App\Tag;
 use Cache;
+use Config;
 
 class TagController extends AdminController
 {
+    private $sidebarTagsCacheKey;
+
     public function __construct()
     {
         parent::__construct();
+
+        $this->sidebarTagsCacheKey = Config::get('cache_keys.HomeSidebarTags');
     }
 
     /**
@@ -66,6 +71,7 @@ class TagController extends AdminController
         $tag->color = $request->input('tag.color');
 
         if ($tag->save()) {
+            Cache::forget($this->sidebarTagsCacheKey);
             return redirect('/admin/tag');
         } else {
             return back();
@@ -104,7 +110,7 @@ class TagController extends AdminController
         $tag->color = $request->input('tag.color');
 
         if ($tag->save()) {
-            Cache::forget('home.sidebarTags');
+            Cache::forget($this->sidebarTagsCacheKey);
             return redirect('/admin/tag');
         } else {
             return back();
