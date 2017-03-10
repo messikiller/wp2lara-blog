@@ -17,7 +17,7 @@ class TagController extends AdminController
     {
         parent::__construct();
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -103,6 +103,7 @@ class TagController extends AdminController
         $tag->color = $request->input('tag.color');
 
         if ($tag->save()) {
+            Cache::forget('home.sidebarTags');
             return redirect('/admin/tag');
         } else {
             return back();
