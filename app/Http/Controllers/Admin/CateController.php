@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminController;
 
 use App\Libraries\ZuiThreePresenter;
 use App\Cate;
+use Cache;
 
 class CateController extends AdminController
 {
@@ -29,8 +30,6 @@ class CateController extends AdminController
             ->orderBy('created_at', 'asc')
             ->get()
             ->groupBy('pid');
-
-        // dd($cates);
 
         return view('admin/cate_index')->with([
             'cates' => $cates
@@ -108,6 +107,7 @@ class CateController extends AdminController
         $cate->pid       = $request->input('cate.pid');
 
         if ($cate->save()) {
+            Cache::forget('home.navbarCates');
             return redirect('/admin/cate');
         } else {
             return back();
