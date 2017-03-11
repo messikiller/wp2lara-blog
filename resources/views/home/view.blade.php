@@ -40,7 +40,6 @@
 
             <dt><i class="fa fa-list-ul"></i>&nbsp;&nbsp;分类：</dt>
             <dd>
-
                 @if (empty($article->cate))
                     <span>无</span>
                 @else
@@ -48,8 +47,14 @@
                         {{ $article->cate->name }}
                     </span>
                 @endif
-
             </dd>
+
+            @if ($AUTH->isAuthed())
+            <dt><i class="fa fa-edit"></i>&nbsp;&nbsp;</dt>
+            <dd>
+                <a href="{{ url('admin/article/' . $article->Id . '/edit') }}">编辑文章</a>
+            </dd>
+            @endif
         </dl>
         <section class="abstract">
           <p>
