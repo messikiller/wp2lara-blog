@@ -15,6 +15,7 @@ use App\Libraries\Markdown;
 use App\Article;
 use App\Cate;
 use App\Tag;
+use App\ArticleTag;
 
 class ArticleController extends AdminController
 {
@@ -110,6 +111,29 @@ class ArticleController extends AdminController
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'article.title'   => 'required|max:255',
+            'article.cate'    => 'required|integer|min:0',
+            'article.summary' => 'required|max:500',
+            'article.content' => 'required'
+        ]);
+
+        $article  = Article::find($id);
+        $markdown = Markdown::create();
+
+        $article->title   = $request->input('article.title');
+        $article->summary = $markdown->markdownToHtml($request->input('article.summary'));
+        $article->content = $markdown->markdownToHtml($request->input('article.content'));
+
+        $cate = $request->input('article.cate');
+        $tags = $request->input('article.tag');
+
+
+        if ($article->save()) {
+            return redirect('admin/article');
+        } else {
+            return back();
+        }
+
     }
 }

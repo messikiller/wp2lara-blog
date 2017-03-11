@@ -13,7 +13,8 @@
 
 <div class="container-fluid">
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="post">
+        {!! csrf_field() !!}
         <div class="form-group">
           <label for="input-title" class="col-sm-1">文章标题</label>
           <div class="col-md-10">
@@ -40,7 +41,7 @@
         <div class="form-group">
           <label for="input-title" class="col-sm-1">标签</label>
           <div class="col-md-10">
-            <select class="form-control chosen-select" name="article[tag]" id="input-tag" multiple="true">
+            <select class="form-control chosen-select" name="article[tag][]" id="input-tag" multiple="multiple">
                 @foreach ($tags as $tag)
                 <option value="{{ $tag->Id }}"
                     @foreach ($article->tags as $article_tag)
