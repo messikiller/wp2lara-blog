@@ -19,7 +19,6 @@
     <form class="form-signin" method="post" action="{{ url('/check') }}">
         {{ csrf_field() }}
         <div class="form-signin-heading text-center">
-            <h1 class="sign-title">登陆系统</h1>
             <img src="{{ asset('assets/images/header-logo.jpg') }}" class="img-circle" alt=""/>
         </div>
         <div class="login-wrap">

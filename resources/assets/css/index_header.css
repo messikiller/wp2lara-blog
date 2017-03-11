@@ -10,8 +10,10 @@
 	background: -ms-linear-gradient(45deg,#020031 0,#2F5F67 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#020031',endColorstr='#2F5F67',GradientType=1);*/
 
-    background: url(/assets/images/header-banner.png) no-repeat;
+    background: url(/assets/images/header-banner.png);
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #header .motto{
