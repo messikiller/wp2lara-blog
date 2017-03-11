@@ -13,7 +13,8 @@
 
 <div class="container-fluid">
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" action="/admin/article" method="post">
+        {!! csrf_field() !!}
         <div class="form-group">
           <label for="input-title" class="col-sm-1">文章标题</label>
           <div class="col-md-10">
@@ -36,12 +37,19 @@
         <div class="form-group">
           <label for="input-title" class="col-sm-1">标签</label>
           <div class="col-md-10">
-            <select class="form-control chosen-select" name="article[tag]" id="input-tag" multiple="true">
+            <select class="form-control chosen-select" name="article[tag][]" id="input-tag" multiple="true">
                 @foreach ($tags as $tag)
                 <option value="{{ $tag->Id }}">{{ $tag->name }}</option>
                 @endforeach
             </select>
           </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-1">发布时间</label>
+            <div class="col-md-10">
+                <input type="text" name="article[published_at]" class="form-control form-datetime" value="{{ date('Y-m-d H:i:s', time()) }}"] />
+            </div>
         </div>
 
         <div class="form-group" style="height: 100px;">
@@ -79,5 +87,18 @@ function preview_content(src_id, preview_id)
     $('#'+preview_id).html(markdown.toHTML(input));
 }
 window.onload = preview_content('input-summary', 'preview-summary');
+
+$(document).ready(function(){
+    $(".form-datetime").datetimepicker({
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1,
+        format: "yyyy-mm-dd hh:ii:ss"
+    });
+});
 </script>
 @endsection

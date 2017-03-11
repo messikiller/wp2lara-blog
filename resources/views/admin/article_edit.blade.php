@@ -55,6 +55,13 @@
           </div>
         </div>
 
+        <div class="form-group">
+            <label class="col-sm-1">发布时间</label>
+            <div class="col-md-10">
+                <input type="text" name="article[published_at]" class="form-control form-datetime" value="{{ $article->published_at }}" />
+            </div>
+        </div>
+
         <div class="form-group" style="height: 100px;">
             <label for="input-summary" class="col-sm-1">摘要</label>
             <div class="col-md-5" style="height: 100%;">
@@ -96,5 +103,18 @@ function preview_content(src_id, preview_id)
     $('#'+preview_id).html(markdown.toHTML(input));
 }
 window.onload = preview_content('input-summary', 'preview-summary');
+
+$(document).ready(function(){
+    $(".form-datetime").datetimepicker({
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1,
+        format: "yyyy-mm-dd hh:ii:ss"
+    });
+});
 </script>
 @endsection

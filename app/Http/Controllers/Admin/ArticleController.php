@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminController;
 
 use App\Libraries\ZuiThreePresenter;
 use App\Libraries\Markdown;
+use DB;
 
 use App\Article;
 use App\Cate;
@@ -69,7 +70,45 @@ class ArticleController extends AdminController
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'article.title'        => 'required|max:255',
+            'article.cate'         => 'required|integer|min:1',
+            'article.tag'          => 'required|array',
+            'article.published_at' => 'required|date',
+            'article.summary'      => 'required|max:500',
+            'article.content'      => 'required'
+        ]);
+
+        $article  = new Article();
+        $markdown = Markdown::create();
+
+        $article->title        = $request->input('article.title');
+        $article->cate_id      = $request->input('article.cate');
+        $article->published_at = $request->input('article.published_at');
+        $article->summary      = $markdown->markdownToHtml($request->input('article.summary'));
+        $article->content      = $markdown->markdownToHtml($request->input('article.content'));
+
+        $res1 = $article->save();
+
+        $tags = $request->input('article.tag');
+
+        $article_id = $article->Id;
+        $toSaveTags = [];
+        foreach ($tags as $tag) {
+            $toSaveTags[] = [
+                'article_id' => $article_id,
+                'tag_id'     => $tag
+            ];
+        }
+
+        $res2 = DB::table('article_tags')->insert($toSaveTags);
+
+        if ($res1 && $res2) {
+            return redirect('admin/article');
+        } else {
+            return back();
+        }
+
     }
 
     /**
@@ -112,24 +151,37 @@ class ArticleController extends AdminController
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'article.title'   => 'required|max:255',
-            'article.cate'    => 'required|integer|min:0',
-            'article.summary' => 'required|max:500',
-            'article.content' => 'required'
+            'article.title'        => 'required|max:255',
+            'article.cate'         => 'required|integer|min:1',
+            'article.published_at' => 'required|date',
+            'article.tag'          => 'required|array',
+            'article.summary'      => 'required|max:500',
+            'article.content'      => 'required'
         ]);
 
         $article  = Article::find($id);
         $markdown = Markdown::create();
 
-        $article->title   = $request->input('article.title');
-        $article->summary = $markdown->markdownToHtml($request->input('article.summary'));
-        $article->content = $markdown->markdownToHtml($request->input('article.content'));
+        $article->title        = $request->input('article.title');
+        $article->cate_id      = $request->input('article.cate');
+        $article->published_at = $request->input('article.published_at');
+        $article->summary      = $markdown->markdownToHtml($request->input('article.summary'));
+        $article->content      = $markdown->markdownToHtml($request->input('article.content'));
 
-        $cate = $request->input('article.cate');
         $tags = $request->input('article.tag');
+        $toSaveTags = [];
+        foreach ($tags as $tag) {
+            $toSaveTags[] = [
+                'article_id' => $id,
+                'tag_id'     => $tag
+            ];
+        }
 
+        $res1 = $article->save();
+        $res2 = ArticleTag::where('article_id', '=', $id)->delete();
+        $res3 = DB::table('article_tags')->insert($toSaveTags);
 
-        if ($article->save()) {
+        if ($res1 && $res2 && $res3) {
             return redirect('admin/article');
         } else {
             return back();
