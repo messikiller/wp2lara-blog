@@ -135,6 +135,9 @@ class ArticleController extends AdminController
             ->orderBy('created_at', 'desc')
             ->get();
 
+        $push  = Cate::find(1);
+        $cates = $cates->push($push);
+
         $tags = Tag::orderBy('created_at', 'desc')
             ->get();
 
