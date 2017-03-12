@@ -37,7 +37,7 @@ class TagController extends AdminController
 
         // dd($tags);
 
-        return view('admin/tag_index')->with([
+        return view('admin/tag/tag_index')->with([
             'tags'       => $tags,
             'pagination' => $tags->render(new ZuiThreePresenter($tags))
         ]);
@@ -50,7 +50,7 @@ class TagController extends AdminController
      */
     public function create()
     {
-        return view('admin/tag_create');
+        return view('admin/tag/tag_create');
     }
 
     /**
@@ -86,7 +86,7 @@ class TagController extends AdminController
      */
     public function edit($id)
     {
-        return view('admin/tag_edit')->with([
+        return view('admin/tag/tag_edit')->with([
             'tag' => tag::find($id)
         ]);
     }

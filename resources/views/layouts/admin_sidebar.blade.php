@@ -30,10 +30,11 @@
         </ul>
     </li>
 
-    <li class="menu-list"><a href="javascript:;"><i class="fa fa-cogs"></i><span>配置管理</span></a>
+    <li class="menu-list"><a href="javascript:;"><i class="fa fa-cogs"></i><span>系统设置</span></a>
         <ul class="sub-menu-list">
             <li><a href="/admin/bloginfo" target="content"><i class="fa fa-angle-double-right"></i> 配置信息</a></li>
-            <li><a href="/admin/bloginfo/edit" target="content"><i class="fa fa-angle-double-right"></i> 配置修改</a></li>
+            <li><a href="/admin/bloginfo/edit" target="content"><i class="fa fa-angle-double-right"></i> 更新设置</a></li>
+            <li><a href="/admin/bloginfo/password" target="content"><i class="fa fa-angle-double-right"></i> 重置密码</a></li>
         </ul>
     </li>
 </ul>

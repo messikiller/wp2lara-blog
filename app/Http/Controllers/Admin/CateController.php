@@ -39,7 +39,7 @@ class CateController extends AdminController
             ->get()
             ->groupBy('pid');
 
-        return view('admin/cate_index')->with([
+        return view('admin/cate/cate_index')->with([
             'cates' => $cates
         ]);
     }
@@ -56,7 +56,7 @@ class CateController extends AdminController
             ->orderBy('created_at', 'asc')
             ->get();
 
-        return view('admin/cate_create')->with([
+        return view('admin/cate/cate_create')->with([
             'parent_cates' => $parent_cates
         ]);
     }
@@ -85,7 +85,7 @@ class CateController extends AdminController
             ->orderBy('created_at', 'asc')
             ->get();
 
-        return view('admin/cate_edit')->with([
+        return view('admin/cate/cate_edit')->with([
             'cate' => Cate::find($id),
             'parent_cates' => $parent_cates
         ]);
