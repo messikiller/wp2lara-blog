@@ -86,12 +86,31 @@
 <div id="comments">
     <div id="SOHUCS" sid="{{ $article->Id }}"></div>
 </div>
+
+@endsection
+
+@section('own-js')
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
-    window.changyan.api.config({
+window.changyan.api.config({
     appid: '{{ env('SOHU_CHANGYAN_COMMENT_APPID') }}',
     conf: '{{ env('SOHU_CHANGYAN_COMMENT_CONF') }}'
+});
+
+$(function(){
+    $('#content .content p > img').each(function(){
+        var a_ele = $("<a data-fancybox='images'></a>");
+        a_ele.attr({
+            href: $(this).attr('src')
+        });
+        $(this).wrap(a_ele).addClass('img-responsive');;
     });
+    $('[data-fancybox]').fancybox({
+    	image : {
+    		protect: true
+    	}
+    });
+});
 </script>
 
 @endsection

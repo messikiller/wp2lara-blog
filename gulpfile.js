@@ -21,7 +21,8 @@ var basecss = [
     'node_modules/ionicons-npm/css/ionicons.min.css',
     'node_modules/animate.css/animate.min.css',
     'node_modules/nprogress/nprogress.css',
-    'node_modules/social-share.js/dist/css/share.min.css'
+    'node_modules/social-share.js/dist/css/share.min.css',
+    'node_modules/fancybox/dist/jquery.fancybox.min.css'
 ];
 
 var basejs = [
@@ -31,7 +32,8 @@ var basejs = [
     'node_modules/nprogress/nprogress.js',
     'node_modules/stickUp/src/stickUp.js',
     'node_modules/jquery-pjax/jquery.pjax.js',
-    'node_modules/social-share.js/dist/js/social-share.min.js'
+    'node_modules/social-share.js/dist/js/social-share.min.js',
+    'node_modules/fancybox/dist/jquery.fancybox.min.js'
 ];
 
 var admin_basecss = [
@@ -111,6 +113,7 @@ elixir(function(mix) {
         .copy('resources/assets/images/', 'public/assets/images/')
 
         .copy('resources/assets/images/', 'public/build/assets/images/')
+
 
         .styles(
             basecss.concat([

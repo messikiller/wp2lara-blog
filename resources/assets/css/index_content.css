@@ -14,17 +14,21 @@
 }
 
 #content header p,
-#content .content p{
+#content .content > p{
     text-indent: 2em;
 }
 
-#content .content p{
+#content .content > p{
     font-size: 15px;
     line-height: 27px;
     margin: 0 0 10px;
     letter-spacing: 0.3px;
 }
 
-#content .content pre code{
+#content .content pre > code{
     font-family: "Consolas", "微软雅黑";
+}
+
+#content .content p > img{
+    margin: 0px;
 }
