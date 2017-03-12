@@ -72,8 +72,8 @@ class ArticleController extends AdminController
     {
         $this->validate($request, [
             'article.title'        => 'required|max:255',
-            'article.cate'         => 'required|integer|min:1',
-            'article.tag'          => 'required|array',
+            'article.cate'         => 'integer|min:0',
+            'article.tag'          => 'array',
             'article.published_at' => 'required|date',
             'article.summary'      => 'required|max:500',
             'article.content'      => 'required'
@@ -97,20 +97,25 @@ class ArticleController extends AdminController
 
         $res1 = $article->save();
 
+        $article_id = $article->Id;
         $tags = $request->input('article.tag');
 
-        $article_id = $article->Id;
-        $toSaveTags = [];
-        foreach ($tags as $tag) {
-            $toSaveTags[] = [
-                'article_id' => $article_id,
-                'tag_id'     => $tag
-            ];
+        $res2 = true;
+        if (! empty($tags))
+        {
+            $toSaveTags = [];
+            foreach ($tags as $tag) {
+                $toSaveTags[] = [
+                    'article_id' => $article_id,
+                    'tag_id'     => $tag
+                ];
+            }
+
+            $res2 = DB::table('article_tags')->insert($toSaveTags);
         }
 
-        $res2 = DB::table('article_tags')->insert($toSaveTags);
 
-        if ($res1 && $res2) {
+        if ($res1 !== false && $res2 !== false) {
             return redirect('admin/article');
         } else {
             return back();
@@ -154,9 +159,8 @@ class ArticleController extends AdminController
     {
         $this->validate($request, [
             'article.title'        => 'required|max:255',
-            'article.cate'         => 'required|integer|min:1',
-            'article.published_at' => 'required|date',
-            'article.tag'          => 'required|array',
+            'article.cate'         => 'integer|min:0',
+            'article.tag'          => 'array',
             'article.summary'      => 'required|max:500',
             'article.content'      => 'required'
         ]);
@@ -177,20 +181,25 @@ class ArticleController extends AdminController
         $article->summary = $markdown->markdownToHtml($summary);
         $article->content = $markdown->markdownToHtml($content);
 
-        $tags = $request->input('article.tag');
-        $toSaveTags = [];
-        foreach ($tags as $tag) {
-            $toSaveTags[] = [
-                'article_id' => $id,
-                'tag_id'     => $tag
-            ];
-        }
-
         $res1 = $article->save();
         $res2 = ArticleTag::where('article_id', '=', $id)->delete();
-        $res3 = DB::table('article_tags')->insert($toSaveTags);
 
-        if ($res1 && $res2 && $res3) {
+        $res3 = true;
+        $tags = $request->input('article.tag');
+        if (! empty($tags))
+        {
+            $toSaveTags = [];
+            foreach ($tags as $tag) {
+                $toSaveTags[] = [
+                    'article_id' => $id,
+                    'tag_id'     => $tag
+                ];
+            }
+
+            $res3 = DB::table('article_tags')->insert($toSaveTags);
+        }
+
+        if ($res1 !== false && $res2 !== false && $res3 !== false) {
             return redirect('admin/article');
         } else {
             return back();

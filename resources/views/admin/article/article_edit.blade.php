@@ -29,7 +29,7 @@
                 <option value="0">请选择</option>
                 @foreach ($cates as $cate)
                 <option value="{{ $cate->Id }}"
-                    @if ($cate->Id == $article->cate->Id)
+                    @if ($article->cate_id == $cate->Id)
                     selected="selected"
                     @endif
                 >{{ $cate->name }}</option>
