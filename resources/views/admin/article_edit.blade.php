@@ -71,14 +71,14 @@
                     id="input-summary"
                     oninput="preview_content(this.id, 'preview-summary');"
                     style="height: 100%; resize: none;"
-                >{{ $article->summary }}</textarea>
+                >{{ $article->summary_original }}</textarea>
             </div>
             <div class="col-md-5" id="preview-summary" style="height: 100%;overflow-y: scroll;border: 1px dashed #555;background-color:#555;color:#ffffff;border-radius:3px;padding:10px;"></div>
         </div>
 
         <div class="form-group">
             <div class="editormd editormd-vertical" id="mdeditor">
-                <textarea class="form-control" name="article[content]" id="input-content" style="display:none;">{{ $article->content }}</textarea>
+                <textarea class="form-control" name="article[content]" id="input-content" style="display:none;">{{ $article->content_original }}</textarea>
             </div>
         </div>
 

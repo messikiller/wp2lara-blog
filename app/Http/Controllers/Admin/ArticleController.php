@@ -85,8 +85,15 @@ class ArticleController extends AdminController
         $article->title        = $request->input('article.title');
         $article->cate_id      = $request->input('article.cate');
         $article->published_at = $request->input('article.published_at');
-        $article->summary      = $markdown->markdownToHtml($request->input('article.summary'));
-        $article->content      = $markdown->markdownToHtml($request->input('article.content'));
+
+        $summary = $request->input('article.summary');
+        $content = $request->input('article.content');
+
+        $article->summary_original = $summary;
+        $article->content_original = $content;
+
+        $article->summary = $markdown->markdownToHtml($summary);
+        $article->content = $markdown->markdownToHtml($content);
 
         $res1 = $article->save();
 
@@ -129,11 +136,6 @@ class ArticleController extends AdminController
         $article = Article::with(['tags', 'cate'])
             ->find($id);
 
-        $markdown = Markdown::create();
-        $article->summary = $markdown->htmlToMarkdown($article->summary);
-        $article->content = $markdown->htmlToMarkdown($article->content);
-
-
         return view('admin/article_edit')->with([
             'article' => $article,
             'cates'   => $cates,
@@ -165,8 +167,15 @@ class ArticleController extends AdminController
         $article->title        = $request->input('article.title');
         $article->cate_id      = $request->input('article.cate');
         $article->published_at = $request->input('article.published_at');
-        $article->summary      = $markdown->markdownToHtml($request->input('article.summary'));
-        $article->content      = $markdown->markdownToHtml($request->input('article.content'));
+
+        $summary = $request->input('article.summary');
+        $content = $request->input('article.content');
+
+        $article->summary_original = $summary;
+        $article->content_original = $content;
+
+        $article->summary = $markdown->markdownToHtml($summary);
+        $article->content = $markdown->markdownToHtml($content);
 
         $tags = $request->input('article.tag');
         $toSaveTags = [];
