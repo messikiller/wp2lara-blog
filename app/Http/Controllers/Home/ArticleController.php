@@ -56,18 +56,9 @@ class ArticleController extends HomeController
             ->where('Id', '=', $id)
             ->firstOrFail();
 
-        $comments_api  = url('/api/article/'.$id.'/comments');
-        $comments_json = file_get_contents($comments_api);
-        $comments_arr  = json_decode($comments_json, true);
-        $comments      = $comments_arr['errno'] == 0 ? $this->comments_wrap($comments_arr['data']) : '';
-
-        // dd($comments);
-        // dd($article->toArray());
-
         return view('home.view')->with([
             'current_cate' => 0,
-            'article'      => $article,
-            'comments'     => $comments
+            'article'      => $article
         ]);
     }
 
@@ -159,40 +150,5 @@ class ArticleController extends HomeController
             'pagination'   => $articles->render(new ZuiThreePresenter($articles))
         ]);
     }
-
-    private function comments_wrap($comments)
-    {
-        $tpl = <<<EOF
-<div class="comment">
-    <a href="###" class="avatar"><i class="icon-camera-retro icon-2x"></i></a>
-    <div class="content">
-        <div class="pull-right text-muted">__CREATED_AT__</div>
-        <div><span class="text-primary"><strong>__AUTHOR__</strong></span></div>
-        <div class="text">__CONTENT__</div>
-        <div class="actions"><a href="##">回复</a></div>
-    </div>
-    __CHILDREN__
-</div>
-EOF;
-
-        foreach ($comments as $comment)
-        {
-            $comment['created_at'] = Util::create()->getPrettyDate(strtotime($comment['created_at']));
-
-            $wrap = $tpl;
-            $wrap = str_replace('__CREATED_AT__', $comment['created_at'], $wrap);
-            $wrap = str_replace('__AUTHOR__',     $comment['author'],     $wrap);
-            $wrap = str_replace('__CONTENT__',    $comment['content'],    $wrap);
-
-            $children = '';
-            if (! empty($comment['children'])) {
-                $children = $this->comments_wrap($comment['children']);
-                $children = '<div class="comments-list">'.$children.'</div>';
-            }
-
-            $wrap = str_replace('__CHILDREN__', $children, $wrap);
-        }
-
-        return $wrap;
-    }
+    
 }

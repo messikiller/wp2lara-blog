@@ -38,7 +38,7 @@ class BlogrollController extends AdminController
 
         // dd($blogrolls);
 
-        return view('admin/blogroll_index')->with([
+        return view('admin/blogroll/blogroll_index')->with([
             'blogrolls'  => $blogrolls,
             'pagination' => $blogrolls->render(new ZuiThreePresenter($blogrolls))
         ]);
@@ -51,7 +51,7 @@ class BlogrollController extends AdminController
      */
     public function create()
     {
-        return view('admin/blogroll_create');
+        return view('admin/blogroll/blogroll_create');
     }
 
     /**
@@ -89,7 +89,7 @@ class BlogrollController extends AdminController
      */
     public function edit($id)
     {
-        return view('admin/blogroll_edit')->with([
+        return view('admin/blogroll/blogroll_edit')->with([
             'blogroll' => Blogroll::find($id)
         ]);
     }

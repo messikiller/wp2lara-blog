@@ -32,6 +32,9 @@
     "vue-router": "^2.1.1",
     "vue-template-compiler": "^2.1.6",
     "vuex": "^2.0.0",
-    "zui": "^1.5.0"
+    "zui": "^1.5.0",
+    "fancybox": "fancyapps/fancybox"
+  },
+  "dependencies": {
   }
 }

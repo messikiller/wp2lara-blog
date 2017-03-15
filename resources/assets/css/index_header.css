@@ -1,14 +1,19 @@
 #header{
     padding-top: 50px;
     padding-bottom: 50px;
-    background: #020031;
+    /*background: #020031;
 	background: linear-gradient(45deg,#020031 0,#2F5F67 100%);
 	background: -moz-linear-gradient(45deg,#020031 0,#2F5F67 100%);
 	background: -webkit-gradient(linear,left bottom,right top,color-stop(0%,#020031),color-stop(100%,#2F5F67));
 	background: -webkit-linear-gradient(45deg,#020031 0,#2F5F67 100%);
 	background: -o-linear-gradient(45deg,#020031 0,#2F5F67 100%);
 	background: -ms-linear-gradient(45deg,#020031 0,#2F5F67 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#020031',endColorstr='#2F5F67',GradientType=1);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#020031',endColorstr='#2F5F67',GradientType=1);*/
+
+    background: url(/assets/images/header-banner.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #header .motto{

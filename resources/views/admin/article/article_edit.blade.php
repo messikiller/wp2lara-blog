@@ -13,7 +13,8 @@
 
 <div class="container-fluid">
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="post">
+        {!! csrf_field() !!}
         <div class="form-group">
           <label for="input-title" class="col-sm-1">文章标题</label>
           <div class="col-md-10">
@@ -28,7 +29,7 @@
                 <option value="0">请选择</option>
                 @foreach ($cates as $cate)
                 <option value="{{ $cate->Id }}"
-                    @if ($cate->Id == $article->cate->Id)
+                    @if ($article->cate_id == $cate->Id)
                     selected="selected"
                     @endif
                 >{{ $cate->name }}</option>
@@ -40,7 +41,7 @@
         <div class="form-group">
           <label for="input-title" class="col-sm-1">标签</label>
           <div class="col-md-10">
-            <select class="form-control chosen-select" name="article[tag]" id="input-tag" multiple="true">
+            <select class="form-control chosen-select" name="article[tag][]" id="input-tag" multiple="multiple">
                 @foreach ($tags as $tag)
                 <option value="{{ $tag->Id }}"
                     @foreach ($article->tags as $article_tag)
@@ -54,6 +55,13 @@
           </div>
         </div>
 
+        <div class="form-group">
+            <label class="col-sm-1">发布时间</label>
+            <div class="col-md-10">
+                <input type="text" name="article[published_at]" class="form-control form-datetime" value="{{ $article->published_at }}" />
+            </div>
+        </div>
+
         <div class="form-group" style="height: 100px;">
             <label for="input-summary" class="col-sm-1">摘要</label>
             <div class="col-md-5" style="height: 100%;">
@@ -63,14 +71,14 @@
                     id="input-summary"
                     oninput="preview_content(this.id, 'preview-summary');"
                     style="height: 100%; resize: none;"
-                >{{ $article->summary }}</textarea>
+                >{{ $article->summary_original }}</textarea>
             </div>
             <div class="col-md-5" id="preview-summary" style="height: 100%;overflow-y: scroll;border: 1px dashed #555;background-color:#555;color:#ffffff;border-radius:3px;padding:10px;"></div>
         </div>
 
         <div class="form-group">
             <div class="editormd editormd-vertical" id="mdeditor">
-                <textarea class="form-control" name="article[content]" id="input-content" style="display:none;">{{ $article->content }}</textarea>
+                <textarea class="form-control" name="article[content]" id="input-content" style="display:none;">{{ $article->content_original }}</textarea>
             </div>
         </div>
 
@@ -95,5 +103,18 @@ function preview_content(src_id, preview_id)
     $('#'+preview_id).html(markdown.toHTML(input));
 }
 window.onload = preview_content('input-summary', 'preview-summary');
+
+$(document).ready(function(){
+    $(".form-datetime").datetimepicker({
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1,
+        format: "yyyy-mm-dd hh:ii:ss"
+    });
+});
 </script>
 @endsection

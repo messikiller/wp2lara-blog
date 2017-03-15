@@ -40,7 +40,6 @@
 
             <dt><i class="fa fa-list-ul"></i>&nbsp;&nbsp;分类：</dt>
             <dd>
-
                 @if (empty($article->cate))
                     <span>无</span>
                 @else
@@ -48,14 +47,17 @@
                         {{ $article->cate->name }}
                     </span>
                 @endif
-
             </dd>
+
+            @if ($AUTH->isAuthed())
+            <dt><i class="fa fa-edit"></i>&nbsp;&nbsp;</dt>
+            <dd>
+                <a href="{{ url('admin/article/' . $article->Id . '/edit') }}">编辑文章</a>
+            </dd>
+            @endif
         </dl>
         <section class="abstract">
-          <p>
-              <strong>摘要：</strong>
               {!! $article->summary !!}
-          </p>
         </section>
       </header>
 
@@ -81,60 +83,34 @@
 
 </div>
 
-<!-- <div id="comments">
-    <header>
-        <h4>
-            @if (empty($comments))
-                暂时还没有评论，等你坐沙发呢！
-            @else
-                {{ count($comments) }}条评论
-            @endif
-        </h4>
-    </header>
-    <section class="comments-list">
-        {!! $comments !!}
-    </section>
-    <footer>
-        <div id="reply" class="comment">
-            <a href="###" class="avatar"><i class="icon-user icon-2x"></i></a>
-            <div class="content">
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="name" placeholder="请输入昵称（必填）" />
-                        </div>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="name" placeholder="请输入邮箱（必填）" />
-                        </div>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="name" placeholder="请输入个人网址" />
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="col-sm-12">
-                            <textarea class="form-control" rows="3" cols="40" style="resize:none;" placeholder="撰写评论……"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <a href="#" class="btn btn-primary pull-right">发布评论</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </footer>
-
-</div> -->
-
 <div id="comments">
     <div id="SOHUCS" sid="{{ $article->Id }}"></div>
 </div>
+
+@endsection
+
+@section('own-js')
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
-    window.changyan.api.config({
+window.changyan.api.config({
     appid: '{{ env('SOHU_CHANGYAN_COMMENT_APPID') }}',
     conf: '{{ env('SOHU_CHANGYAN_COMMENT_CONF') }}'
+});
+
+$(function(){
+    $('#content .content p > img').each(function(){
+        var a_ele = $("<a data-fancybox='images'></a>");
+        a_ele.attr({
+            href: $(this).attr('src')
+        });
+        $(this).wrap(a_ele).addClass('img-responsive');;
     });
+    $('[data-fancybox]').fancybox({
+    	image : {
+    		protect: true
+    	}
+    });
+});
 </script>
 
 @endsection

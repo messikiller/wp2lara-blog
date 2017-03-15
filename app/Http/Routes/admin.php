@@ -11,9 +11,11 @@ Route::get('/login',        'AuthController@login');
 Route::post('/check',       'AuthController@check');
 Route::get('/logout',       'AuthController@logout');
 
-Route::get('/admin/bloginfo',         'Admin\BloginfoController@index');
-Route::get('/admin/bloginfo/edit',    'Admin\BloginfoController@edit');
-Route::post('/admin/bloginfo/update', 'Admin\BloginfoController@update');
+Route::get('/admin/bloginfo',           'Admin\BloginfoController@index');
+Route::get('/admin/bloginfo/edit',      'Admin\BloginfoController@edit');
+Route::post('/admin/bloginfo/update',   'Admin\BloginfoController@update');
+Route::get('/admin/bloginfo/password',  'Admin\BloginfoController@resetPassword');
+Route::post('/admin/bloginfo/password', 'Admin\BloginfoController@updatePassword');
 
 Route::get('/admin/article',                 'Admin\ArticleController@index');
 Route::get('/admin/article/create',          'Admin\ArticleController@create');

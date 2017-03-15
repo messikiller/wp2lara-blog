@@ -36,5 +36,8 @@
 @include('layouts/home_footer')
 
 <script type="text/javascript" src="{{ elixir('assets/js/index.js') }}"></script>
+
+@yield('own-js')
+
 </body>
 </html>
