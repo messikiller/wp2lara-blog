@@ -4,8 +4,8 @@
 
 ## DEMO
 
-- wordpress 博客：[blog.messikiller.net](http://blog.messikiller.net)
-- laravel 博客：[laravel.messikiller.net](http://laravel.messikiller.net)
+- laravel 博客：[blog.messikiller.net](http://blog.messikiller.net)
+- wordpress 博客(即将丢弃)：[wordpress.messikiller.net](http://wordpress.messikiller.net)
 
 ## 环境：
 
