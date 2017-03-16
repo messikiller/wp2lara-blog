@@ -78,10 +78,26 @@ class ArticleController extends HomeController
 
         // dd($articles->toArray());
 
+        $tag = Tag::find($tag_id);
+
+        $status = [];
+        if ($articles->count() == 0) {
+            $status = [
+                'type' => 0,
+                'desc' => '抱歉，您查看的标签下还没有发布过文章。'
+            ];
+        } else {
+            $status = [
+                'type' => 1,
+                'desc' => '您正在查看标签：'.$tag->name
+            ];
+        }
+
         return view('home.index')->with([
             'current_cate' => 0,
             'articles'     => $articles,
-            'pagination'   => $articles->render(new ZuiThreePresenter($articles))
+            'pagination'   => $articles->render(new ZuiThreePresenter($articles)),
+            'status'       => $status
         ]);
     }
 
@@ -119,10 +135,24 @@ class ArticleController extends HomeController
 
         // dd($articles->toArray());
 
+        $status = [];
+        if ($articles->count() == 0) {
+            $status = [
+                'type' => 0,
+                'desc' => '抱歉，您查看的分类下还没有发布过文章。'
+            ];
+        } else {
+            $status = [
+                'type' => 1,
+                'desc' => '您正在查看分类：'.$cate->name
+            ];
+        }
+
         return view('home.index')->with([
             'current_cate' => $current_cate,
             'articles'     => $articles,
-            'pagination'   => $articles->render(new ZuiThreePresenter($articles))
+            'pagination'   => $articles->render(new ZuiThreePresenter($articles)),
+            'status'       => $status
         ]);
     }
 
@@ -144,11 +174,25 @@ class ArticleController extends HomeController
             ->orderBy('Id', 'asc')
             ->paginate($pagesize);
 
+        $status = [];
+        if ($articles->count() == 0) {
+            $status = [
+                'type' => 0,
+                'desc' => '抱歉，您查看的日期之间还没有发布过文章。'
+            ];
+        } else {
+            $status = [
+                'type' => 1,
+                'desc' => '您正在查看发布在 <b>'.date('Y年m月', $monthstamp).'</b> 的全部文章'
+            ];
+        }
+
         return view('home.index')->with([
             'current_cate' => 0,
             'articles'     => $articles,
-            'pagination'   => $articles->render(new ZuiThreePresenter($articles))
+            'pagination'   => $articles->render(new ZuiThreePresenter($articles)),
+            'status'       => $status
         ]);
     }
-    
+
 }

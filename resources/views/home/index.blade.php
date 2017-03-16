@@ -4,6 +4,16 @@
 
 <div id="boxes">
 
+@if (! empty($status))
+    <div class="alert alert-{{ $status['type']==1?'info':'danger' }} alert-status">
+        @if($status['type']==1)
+        <i class="fa fa-bell-o"></i>
+        @else
+        <i class="fa fa-meh-o"></i>
+        @endif
+        &nbsp;{!! $status['desc'] !!}</div>
+@endif
+
 @foreach($articles as $article)
 <div class="box">
 
