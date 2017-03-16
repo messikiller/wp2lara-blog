@@ -52,4 +52,10 @@
             $(this).parents('.sidebar-box').first().children('.siderbar-box-content').first().slideUp('fast');
         }
     });
+
+    // highlight code in content
+    $('#content .content pre > code').each(function(i, block){
+        hljs.highlightBlock(block);
+    });
+    
 });

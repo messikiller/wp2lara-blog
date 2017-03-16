@@ -8,8 +8,10 @@
     "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
     "buble-loader": "^0.4.0",
+    "fancybox": "fancyapps/fancybox",
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
+    "highlight.js": "messikiller/highlight.js",
     "ionicons-npm": "^2.0.1",
     "jquery": "^3.1.1",
     "jquery-migrate": "^3.0.0",
@@ -32,9 +34,7 @@
     "vue-router": "^2.1.1",
     "vue-template-compiler": "^2.1.6",
     "vuex": "^2.0.0",
-    "zui": "^1.5.0",
-    "fancybox": "fancyapps/fancybox"
+    "zui": "^1.5.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

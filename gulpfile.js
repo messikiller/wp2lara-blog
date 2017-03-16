@@ -22,7 +22,8 @@ var basecss = [
     'node_modules/animate.css/animate.min.css',
     'node_modules/nprogress/nprogress.css',
     'node_modules/social-share.js/dist/css/share.min.css',
-    'node_modules/fancybox/dist/jquery.fancybox.min.css'
+    'node_modules/fancybox/dist/jquery.fancybox.min.css',
+    'node_modules/messikiller-highlight.js/styles/atom-one-dark.css'
 ];
 
 var basejs = [
@@ -33,7 +34,8 @@ var basejs = [
     'node_modules/stickUp/src/stickUp.js',
     'node_modules/jquery-pjax/jquery.pjax.js',
     'node_modules/social-share.js/dist/js/social-share.min.js',
-    'node_modules/fancybox/dist/jquery.fancybox.min.js'
+    'node_modules/fancybox/dist/jquery.fancybox.min.js',
+    'node_modules/messikiller-highlight.js/highlight.common.js'
 ];
 
 var admin_basecss = [
@@ -47,6 +49,7 @@ var admin_basejs = [
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
     'node_modules/jquery.nicescroll/jquery.nicescroll.min.js'
 ];
+
 
 var admin_pagecss = [
     zui_css,
