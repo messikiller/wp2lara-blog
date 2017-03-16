@@ -32,3 +32,12 @@
 #content .content p > img{
     margin: 0px;
 }
+
+/*content footer*/
+#content footer .copyright-info{
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    padding: 20px;
+    color: #495057;
+    font-size: 14px;
+}

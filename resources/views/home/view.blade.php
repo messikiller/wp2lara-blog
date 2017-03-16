@@ -78,6 +78,11 @@
                   data-disabled="diandian"
               ></span>
         </p>
+
+        <p class="copyright-info">
+            <b>本文链接</b>：<a href="{!! url('article/view', $article->Id) !!}">{!! url('article/view', $article->Id) !!}</a>，欢迎转载，传播请注明来源
+            <i class="fa fa-creative-commons"></i>&nbsp;<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">创意共享3.0许可证</a>
+        </p>
       </footer>
     </article>
 
