@@ -20,6 +20,8 @@
 
 #content .content pre{
     padding: 0px;
+    border-width: 0px;
+    border-radius: 0px;
 }
 
 #content .content pre > code{
@@ -40,6 +42,11 @@
 
 #content .content p > img{
     margin: 0px;
+}
+
+#content .content table{
+    width: 100%;
+    max-width: 100%;
 }
 
 /*content footer*/
