@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $table = 'articles';
-    
+
     protected $primaryKey = 'Id';
 
     public function scopePublished($query)
@@ -34,5 +34,17 @@ class Article extends Model
     public function cate()
     {
         return $this->belongsTo('App\Cate', 'cate_id', 'Id');
+    }
+
+    public function next()
+    {
+        $pubtime = $this->published_at;
+        return Self::where('published_at', '>', $pubtime)->first();
+    }
+
+    public function prev()
+    {
+        $pubtime = $this->published_at;
+        return Self::where('published_at', '<', $pubtime)->first();
     }
 }
