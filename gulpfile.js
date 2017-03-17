@@ -23,7 +23,7 @@ var basecss = [
     'node_modules/nprogress/nprogress.css',
     'node_modules/social-share.js/dist/css/share.min.css',
     'node_modules/fancybox/dist/jquery.fancybox.min.css',
-    'node_modules/messikiller-highlight.js/styles/atom-one-dark.css'
+    'resources/assets/css/vendor/prism.css'
 ];
 
 var basejs = [
@@ -35,7 +35,7 @@ var basejs = [
     'node_modules/jquery-pjax/jquery.pjax.js',
     'node_modules/social-share.js/dist/js/social-share.min.js',
     'node_modules/fancybox/dist/jquery.fancybox.min.js',
-    'node_modules/messikiller-highlight.js/highlight.common.js'
+    'resources/assets/js/vendor/prism.common.js'
 ];
 
 var admin_basecss = [

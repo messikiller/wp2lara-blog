@@ -19,13 +19,13 @@
 }
 
 #content .content pre{
-    padding: 0px;
+    /*padding: 0px;
     border-width: 0px;
-    border-radius: 0px;
+    border-radius: 0px;*/
 }
 
 #content .content pre > code{
-    padding: 15px 20px;
+    /*padding: 15px 20px;*/
 }
 
 #content .content pre > code,

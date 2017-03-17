@@ -53,9 +53,4 @@
         }
     });
 
-    // highlight code in content
-    $('#content .content pre > code').each(function(i, block){
-        hljs.highlightBlock(block);
-    });
-    
 });
