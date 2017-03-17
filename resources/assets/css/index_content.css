@@ -19,18 +19,13 @@
 }
 
 #content .content pre{
-    /*padding: 0px;
     border-width: 0px;
-    border-radius: 0px;*/
-}
-
-#content .content pre > code{
-    /*padding: 15px 20px;*/
+    border-radius: 0px;
 }
 
 #content .content pre > code,
 #content .content pre > code *{
-    font: normal 10pt Consolas, Monaco, monospace !important;
+    font: normal 14px Consolas, Monaco, monospace !important;
 }
 
 #content .content > p{
