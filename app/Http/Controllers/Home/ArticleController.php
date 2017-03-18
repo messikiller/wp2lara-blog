@@ -35,8 +35,7 @@ class ArticleController extends HomeController
 
         $articles = Article::with(['tags', 'cate'])
             ->select(['Id', 'cate_id', 'title', 'summary', 'is_hidden', 'read_num', 'published_at', 'created_at',  'updated_at'])
-            ->published()
-            ->visible()
+            ->auth()
             ->orderBy('published_at', 'desc')
             ->orderBy('Id', 'asc')
             ->paginate($pagesize);

@@ -66,23 +66,49 @@
       </section>
 
       <footer>
-          <p class="text-muted">
-              <i class="fa fa-share-alt"></i>
-              &nbsp;分享：
-              <span class="footer-meta social-share"
-                  data-url="{{ url('articles/view/' . $article->Id) }}"
-                  data-source="{{ $article->title }}"
-                  data-title="{{ $article->title }}"
-                  data-description="{{ $article->summary }}"
-                  data-image="{{ asset('assets/images/header-logo.jpg') }}"
-                  data-disabled="diandian"
-              ></span>
+        <p class="siblings-link">
+            @if(! empty($article->prev()))
+                <a href="{{ url('/view', $article->prev()->Id) }}" class="sibling prev-link" data-toggle="tooltip" data-placement="top" title="{{ $article->prev()->title }}">
+                    <i class="fa fa-chevron-left"></i>&nbsp;
+                    上一篇：{{ $article->prev()->title }}
+                </a>
+            @else
+                <a href="javascript:void(0);" class="sibling prev-link empty-sibling">
+                    <i class="fa fa-chevron-left"></i>&nbsp;
+                    当前已是最后一篇文章
+                </a>
+            @endif
+
+            @if(! empty($article->next()))
+                <a href="{{ url('/view', $article->next()->Id) }}" class="sibling next-link" data-toggle="tooltip" data-placement="top" title="{{ $article->next()->title }}">
+                    下一篇：{{ $article->next()->title }}
+                    &nbsp;<i class="fa fa-chevron-right"></i>
+                </a>
+            @else
+                <a href="javascript:void(0);" class="sibling next-link empty-sibling">
+                    当前已是最新的文章
+                    &nbsp;<i class="fa fa-chevron-right"></i>
+                </a>
+            @endif
         </p>
 
         <p class="copyright-info">
             <b>本文链接</b>：<a href="{!! url('article/view', $article->Id) !!}">{!! url('article/view', $article->Id) !!}</a>，欢迎转载，传播请注明来源
             <i class="fa fa-creative-commons"></i>&nbsp;<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">创意共享3.0许可证</a>
         </p>
+
+        <p class="text-muted">
+            <i class="fa fa-share-alt"></i>
+            &nbsp;分享：
+            <span class="footer-meta social-share"
+                data-url="{{ url('articles/view/' . $article->Id) }}"
+                data-source="{{ $article->title }}"
+                data-title="{{ $article->title }}"
+                data-description="{{ $article->summary }}"
+                data-image="{{ asset('assets/images/header-logo.jpg') }}"
+                data-disabled="diandian"
+            ></span>
+      </p>
       </footer>
     </article>
 

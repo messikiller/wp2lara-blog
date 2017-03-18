@@ -4,12 +4,22 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use  App\Libraries\Auth;
 
 class Article extends Model
 {
     protected $table = 'articles';
 
     protected $primaryKey = 'Id';
+
+    private $auth;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->auth = Auth::create();
+    }
 
     public function scopePublished($query)
     {
@@ -19,6 +29,15 @@ class Article extends Model
     public function scopeVisible($query)
     {
         return $query->where('is_hidden', 0);
+    }
+
+    public function scopeAuth($query)
+    {
+        if ($this->auth->isAuthed()) {
+            return $query;
+        } else {
+            return $query->visible()->published();
+        }
     }
 
     public function tags()
@@ -39,12 +58,14 @@ class Article extends Model
     public function next()
     {
         $pubtime = $this->published_at;
-        return Self::where('published_at', '>', $pubtime)->first();
+        return Self::where('published_at', '>', $pubtime)->auth()
+            ->orderBy('published_at', 'asc')->first();
     }
 
     public function prev()
     {
         $pubtime = $this->published_at;
-        return Self::where('published_at', '<', $pubtime)->first();
+        return Self::where('published_at', '<', $pubtime)->auth()
+            ->orderBy('published_at', 'desc')->first();
     }
 }
