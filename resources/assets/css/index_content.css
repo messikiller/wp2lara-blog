@@ -57,16 +57,17 @@
     padding: 0px 10px;
     text-decoration: none;
     text-align: center;
-    border: 1px solid #3498db;
-    height: 30px;
-    line-height: 30px;
-    border-radius: 15px;
+    border: 2px solid #3498db;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 22px;
     transition: all 0.2s ease;
     -webkit-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    font-weight: bold;
 }
 
 #content footer .siblings-link .sibling:hover{
