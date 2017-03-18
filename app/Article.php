@@ -55,14 +55,14 @@ class Article extends Model
         return $this->belongsTo('App\Cate', 'cate_id', 'Id');
     }
 
-    public function next()
+    public function prev()
     {
         $pubtime = $this->published_at;
         return Self::where('published_at', '>', $pubtime)->auth()
             ->orderBy('published_at', 'asc')->first();
     }
 
-    public function prev()
+    public function next()
     {
         $pubtime = $this->published_at;
         return Self::where('published_at', '<', $pubtime)->auth()

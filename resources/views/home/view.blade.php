@@ -75,7 +75,7 @@
             @else
                 <a href="javascript:void(0);" class="sibling prev-link empty-sibling">
                     <i class="fa fa-chevron-left"></i>&nbsp;
-                    当前已是最后一篇文章
+                    当前已经是最新的文章
                 </a>
             @endif
 
@@ -86,7 +86,7 @@
                 </a>
             @else
                 <a href="javascript:void(0);" class="sibling next-link empty-sibling">
-                    当前已是最新的文章
+                    当前已经是最后一篇文章
                     &nbsp;<i class="fa fa-chevron-right"></i>
                 </a>
             @endif
