@@ -23,6 +23,7 @@ var basecss = [
     'node_modules/nprogress/nprogress.css',
     'node_modules/social-share.js/dist/css/share.min.css',
     'node_modules/fancybox/dist/jquery.fancybox.min.css',
+
     'resources/assets/css/vendor/prism.css'
 ];
 
@@ -35,6 +36,8 @@ var basejs = [
     'node_modules/jquery-pjax/jquery.pjax.js',
     'node_modules/social-share.js/dist/js/social-share.min.js',
     'node_modules/fancybox/dist/jquery.fancybox.min.js',
+    'node_modules/clipboard/dist/clipboard.min.js',
+
     'resources/assets/js/vendor/prism.common.js'
 ];
 

@@ -93,7 +93,7 @@
         </p>
 
         <p class="copyright-info">
-            <b>本文链接</b>：<a href="{!! url('article/view', $article->Id) !!}">{!! url('article/view', $article->Id) !!}</a>，欢迎转载，传播请注明来源
+            <b>本文链接</b>：<a href="javascript:void(0);" id="original-link"  data-clipboard-text="{!! url('/view', $article->Id) !!}">{!! url('/view', $article->Id) !!}</a>，欢迎转载，传播请注明来源
             <i class="fa fa-creative-commons"></i>&nbsp;<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">创意共享3.0许可证</a>
         </p>
 
@@ -136,12 +136,24 @@ $(function(){
         });
         $(this).wrap(a_ele).addClass('img-responsive');;
     });
+
     $('[data-fancybox]').fancybox({
     	image : {
     		protect: true
     	}
     });
+
+    $('#original-link').tooltip({
+        title: '点击复制到剪贴板'
+    });
+
+    var clipboard = new Clipboard('#original-link');
+    clipboard.on('success', function(e){
+        $('#original-link').tooltip('destroy');
+        $('#original-link').tooltip('show', '已复制！');
+    });
 });
+
 </script>
 
 @endsection
