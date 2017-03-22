@@ -48,7 +48,7 @@
 
     <div class="footer-copyright">
         <p>
-            Copyright © 2015. <a href="{{ url('/') }}">messikiller's blog</a>. Powered by Laravel
+            Copyright © 2015. <a href="{{ url('/') }}">messikiller's blog</a>. Powered by Laravel. Source code&nbsp;<a href="https://github.com/messikiller/wp2lara-blog" target="_blank"><i class="fa fa-github fa-lg"></i>&nbsp;wp2lara-blog</a>
         </p>
         <p>
             <img src="{{ asset('assets/images/countrylogo.png') }}" style="display:inline-block;width: 16px;">
