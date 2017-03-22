@@ -209,4 +209,46 @@ class ArticleController extends AdminController
         }
 
     }
+
+    public function act($id, $act)
+    {
+        $map = [
+            'hide' => [
+                'value' => 1,
+                'tip'   => '隐藏'
+            ],
+            'show' => [
+                'value' => 0,
+                'tip'   => '显示'
+            ]
+        ];
+
+        $errors = [];
+
+        if ($id <= 0 || ! isset($map[$act])) {
+            $errors[] = [
+                'code' => 2,
+                'desc' => '参数错误!'
+            ];
+            return back()->with('errors', $errors);
+        }
+
+        $article = Article::find($id);
+        $article->is_hidden = $map[$act]['value'];
+        $res = $article->save();
+
+        if ($res !== false) {
+            $errors[] = [
+                'code' => 0,
+                'desc' => "{$map[$act]['tip']}文章：《{$article->title}》成功！"
+            ];
+            return back()->with('errors', $errors);
+        } else {
+            $errors[] = [
+                'code' => 2,
+                'desc' => "{$map[$act]['tip']}文章：《{$article->title}》失败！"
+            ];
+            return back()->with('errors', $errors);
+        }
+    }
 }

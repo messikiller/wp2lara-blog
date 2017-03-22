@@ -23,6 +23,8 @@
     <a href="/admin/article/create" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;发布新文章</a>
 </div>
 
+@include('layouts/errors')
+
 <div class="container-fluid">
     <table class="table table-bordered table-hover">
         <thead>
@@ -71,12 +73,19 @@
                 <td>{{ $article->published_at }}</td>
                 <td>{{ $article->created_at }}</td>
                 <td>
+
                     <a href="/admin/article/{{ $article->Id }}/edit" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i>&nbsp;编辑</a>
-                    @if ($article->is_hidden == 1)
-                    <a href="/admin/article/{{ $article->Id }}/act/show" class="btn btn-danger btn-sm"><i class="fa fa-eye"></i>&nbsp;显示</a>
-                    @else
-                    <a href="/admin/article/{{ $article->Id }}/act/hide" class="btn btn-danger btn-sm"><i class="fa fa-eye-slash"></i>&nbsp;隐藏</a>
-                    @endif
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-refresh"></i>&nbsp;切换状态&nbsp;<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/admin/article/{{ $article->Id }}/act/show"><i class="fa fa-eye"></i>&nbsp;显示文章</a></li>
+                            <li><a href="/admin/article/{{ $article->Id }}/act/hide"><i class="fa fa-eye-slash"></i>&nbsp;隐藏文章</a></li>
+                        </ul>
+                    </div>
+
                 </td>
             </tr>
             @endforeach

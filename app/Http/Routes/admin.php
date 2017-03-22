@@ -22,7 +22,7 @@ Route::get('/admin/article/create',          'Admin\ArticleController@create');
 Route::post('/admin/article',                'Admin\ArticleController@store');
 Route::get('/admin/article/{id}/edit',       'Admin\ArticleController@edit');
 Route::post('/admin/article/{id}/edit',      'Admin\ArticleController@update');
-Route::get('/admin/article/{$id}/act/{act}', 'Admin\ArticleController@act');
+Route::get('/admin/article/{id}/act/{act}',  'Admin\ArticleController@act');
 
 Route::get('/admin/cate',                'Admin\CateController@index');
 Route::get('/admin/cate/create',         'Admin\CateController@create');
