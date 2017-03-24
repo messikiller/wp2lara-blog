@@ -25,7 +25,6 @@
 
 #header .motto .divider{
     width: 250px;
-    margin-top: 3px;
-    margin-bottom: 3px;
+    margin: 3px auto;
     border-top: 1px solid #e5e5e5;
 }
