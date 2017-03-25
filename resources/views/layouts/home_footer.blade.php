@@ -48,7 +48,8 @@
 
     <div class="footer-copyright">
         <p>
-            Copyright © 2015. <a href="{{ url('/') }}">messikiller's blog</a>. Powered by Laravel. Source code&nbsp;<a href="https://github.com/messikiller/wp2lara-blog" target="_blank"><i class="fa fa-github fa-lg"></i>&nbsp;wp2lara-blog</a>
+            Copyright © 2015. <a href="{{ url('/') }}">messikiller's blog</a>. Powered by wp2lara-blog
+            <iframe src="https://ghbtns.com/github-btn.html?user=messikiller&repo=wp2lara-blog&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px" style="vertical-align:middle;"></iframe>
         </p>
         <p>
             <img src="{{ asset('assets/images/countrylogo.png') }}" style="display:inline-block;width: 16px;">
